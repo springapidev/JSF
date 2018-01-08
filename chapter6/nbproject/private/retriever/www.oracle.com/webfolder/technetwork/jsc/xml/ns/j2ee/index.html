@@ -1,0 +1,277 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Java 2 Platform, Enterprise Edition (J2EE) : XML Schemas for J2EE Deployment Descriptors</title>
+<meta http-equiv="content-language" content="en">
+<meta name="collection" content="reference">
+<meta name="keywords" content="XML, Schema, Deployment, Descriptors, J2EE, J2EE, 1.4">
+<meta name="description" content="This document spells out the document formats that will be used by the Java 2 Platform, Enterprise Edition (J2EE) deployment descriptors that are detailed in the J2EE 1.4 specifications.">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta name="archive" content="false">
+<meta name="archive" content="FALSE">
+<meta name="date" content="2003-04-30">
+<link rel="stylesheet" href="/css/default_developer.css" />
+
+
+<script type="text/javascript" language="JavaScript" src="http://www.oracle.com/webfolder/technetwork/tutorials/tutorial/cloud/TGT/634/TI/AD/js/popup.js"></script><!--/js/popUp.js -->
+<script language="javascript1.2" type="text/javascript" src="http://www.oracle.com/webfolder/technetwork/hcl/js/sniff.js"></script>
+<script language="javascript1.2" type="text/javascript" src="http://www.oracle.com/webfolder/technetwork/hcl/js/menucontent.js"></script>
+<script language="javascript1.2" type="text/javascript" src="http://www.oracle.com/webfolder/technetwork/hcl/js/menucode.js"></script>
+<script language="javascript1.2" type="text/javascript" src="http://www.oracle.com/webfolder/technetwork/hcl/js/developer.js"></script>
+
+
+</head>
+<!--stopindex-->
+<body>
+<div id="titleSource" style="background-">
+        <IMG SRC="http://www.oracle.com/us/016091_en.gif">
+    </div>
+<a name="top"></a>
+<!-- BEGIN PAGETITLE -->
+<div class="smallpagetitle"><h1>Java 2 Platform, Enterprise Edition (J2EE) : XML Schemas for J2EE Deployment Descriptors</h1></div>
+<!-- END PAGETITLE -->
+
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr><td class="smaller" valign="top"><em>
+By <a href="mailto:bill.shannon@oracle.com">Bill Shannon</a>,
+Java EE Spec Lead, Oracle, April 7, 2017
+</em></td>
+</table>
+<div class="contentdivider"><hr /> </div>
+<p>Latest Version: <a href="http://xmlns.jcp.org/xml/ns/javaee/">http://xmlns.jcp.org/xml/ns/javaee/</a></p>
+<!-- END FRAGMENT | HR TAG -->
+<!-- end page headline --><!-- main page content -->
+<!-- BEGIN WRAPPER TABLE, 2 COLUMN, MAIN/RIGHT -->
+<table border="0" cellpadding="10" cellspacing="0" width="100%">
+<tr><td width="100%" valign="top">
+<!-- BEGIN CENTRAL COLUMN COMPONENTS -->
+<!--startindex-->
+<!-- ============ -->
+<!-- MAIN CONTENT -->
+<!-- ============ -->
+<a name="skip2content"></a>
+
+<!-- page headline --><span class="body">
+<h3>Table of contents</h3>
+<ol>
+<li><a href="#intro">Introduction</a></li>
+<li><a href="#usage">Using J2EE Schemas</a></li>
+<li><a href="#resources">J2EE 1.4 Schema Resources</a></li>
+<li><a href="#oldresources">J2EE DTDs</a></li>
+</ol>
+<a name="intro"></a>
+<p><b>1. Introduction</b></p>
+<p>This document lists the document formats that will be used by the
+Java 2 Platform, Enterprise Edition
+(J2EE) deployment descriptors
+described by J2EE 1.4 and later specifications. Prior to the J2EE 1.4
+specifications,
+each Deployment Descriptor must be valid with respect to a specific DTD
+that describes the Deployment Descriptor. They are found in the
+<a href="#oldresources">J2EE section</a> of this document. Starting
+with
+the J2EE 1.4 specification, each specification requires its Deployment
+Descriptor be validated with respect to an XML Schema that is listed by
+this document. Note that deployment descriptors defined by previous
+versions of the J2EE specification must also be supported, and must
+continue to be validated against the corresponding DTD.
+</p>
+<p>
+This document describes how to use the J2EE schemas that are described
+as a set of modules and provides a list of XML Schemas for each
+deployment descriptor.
+</p>
+<a name="usage"></a>
+<p><b>2. Using J2EE Schemas</b></p>
+<p>All J2EE Deployment Descriptor Schemas share the namespace,
+<a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html">http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html</a>. Each
+schema
+document contains a version attribute that contains the version of the
+specification. For example, the XML Schema document for the Servlet
+specification contains the version attribute value "2.4", pertaining to
+the specific version of the specification as well as the schema
+document itself.
+</p>
+<p>
+Each J2EE XML Schema document's file name contains the specific version
+of the related specification. This is introduced for convenience to
+locate specific versions of the schema documents. However, Deployment
+Descriptor instances are not required to refer to a specific file.
+Instead, an instance must specify the version of the corresponding
+specification by using a version attribute. For example, connector
+Deployment Descriptor instances that must be processed with the
+Connector
+1.5 version must indicate the version within the version attribute of
+the instance document, for example, "1.5". The Deployment Descriptor
+processors use the version information to choose the appropriate
+version of the schema document(s) to process the Deployment Descriptor
+instances.
+</p>
+<p>
+A specific version of the J2EE specification contains a set of
+deployment descriptor schemas that constitute the J2EE Schema. The common
+definitions are contained in the <code>j2ee_&lt;version&gt;.xsd</code>
+document that may be included by several J2EE Deployment Descriptor
+schemas.
+</p>
+<a name="resources"></a>
+<p><b>3. J2EE 1.4 Schema Resources</b></p>
+<p>This table contains the XML Schema components for J2EE 1.4 schema.</p>
+</span>
+<p>
+<table width="100%" border="1" cellpadding="3">
+<tbody>
+<tr>
+<th><span class="body">Date Published</span></th>
+<th><span class="body">File Name</span></th>
+<th><span class="body">Description</span></th>
+<th><span class="body">Status</span></th>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a
+href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd">web-jsptaglibrary_2_0.xsd</a></span></td>
+<td><span class="body">JSP Taglibrary Deployment Descriptor Schema</span></td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/ejb-jar_2_1.xsd">ejb-jar_2_1.xsd</a></span></td>
+<td><span class="body">Enterprise JavaBeans Deployment Descriptor
+Schema</span></td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/connector_1_5.xsd">connector_1_5.xsd</a></span></td>
+<td><span class="body">Connector Deployment Descriptor Schema</span></td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">February, 2004</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/web-app_2_4.xsd">web-app_2_4.xsd</a></span></td>
+<td><span class="body">Servlet Deployment Descriptor Schema</span></td>
+<td><span class="body">Maintenance Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/jsp_2_0.xsd">jsp_2_0.xsd</a></span></td>
+<td><span class="body">JavaServer Pages Deployment Descriptor
+Schema</span></td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/j2ee_1_4.xsd">j2ee_1_4.xsd</a></span></td>
+<td><span class="body">J2EE 1.4 definitions file that
+contains common schema components</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a
+href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/application-client_1_4.xsd">application-client_1_4.xsd</a></span></td>
+<td><span class="body">Application Client schema</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<td><span class="body"><a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/application_1_4.xsd">application_1_4.xsd</a></span></td>
+<td><span class="body">Application schema</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<!--
+<td><span class="body"><a
+href="http://www.ibm.com/webservices/xsd/j2ee_web_services_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_web_services_1_1.xsd</a></span></td>
+-->
+<td><span class="body"><a
+href="j2ee_web_services_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_web_services_1_1.xsd</a></span></td>
+<td><span class="body">Web services schema</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<!--
+<td><span class="body"><a
+href="http://www.ibm.com/webservices/xsd/j2ee_web_services_client_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_web_services_client_1_1.xsd</a></span></td>
+-->
+<td><span class="body"><a
+href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/j2ee_web_services_client_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_web_services_client_1_1.xsd</a></span></td>
+<td><span class="body">Web services client schema</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">November 24, 2003</span></td>
+<!--
+<td><span class="body"><a
+href="http://www.ibm.com/webservices/xsd/j2ee_jaxrpc_mapping_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_jaxrpc_mapping_1_1.xsd</a></span></td>
+-->
+<td><span class="body"><a
+href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/j2ee/j2ee_jaxrpc_mapping_1_1.xsd">http://www.ibm.com/webservices/xsd/
+j2ee_jaxrpc_mapping_1_1.xsd</a></span></td>
+<td><span class="body">JAX-RPC mapping schema</span>
+</td>
+<td><span class="body">Final Release</span></td>
+</tr>
+<tr>
+<td><span class="body">-</span></td>
+<td><span class="body"><a href="http://www.w3.org/2001/xml.xsd">http://www.w3.org/2001/xml.xsd</a></span></td>
+<td><span class="body">The J2EE schemas use some
+common definitions provided and published by W3C</span>
+</td>
+<td><span class="body">-</span></td>
+</tr>
+</tbody>
+</table>
+<span class="body">
+<a name="oldresources"></a>
+<p></p>
+<p><b>4. J2EE DTDs</b></p>
+<p>DTDs specified by previous versions of the J2EE specification are
+available at <a href="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html">http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/javaee/index.html</a>.</p>
+</span>
+<!-- end main page content -->
+<!-- =================== -->
+<!-- END OF MAIN CONTENT -->
+<!-- =================== -->
+<!--stopindex-->
+<!-- END CENTRAL COLUMN COMPONENTS -->
+</td><td valign="top">
+<!-- BEGIN RIGHT COLUMN COMPONENTS -->
+<!-- END RIGHT COLUMN COMPONENTS -->
+</td></tr>
+<!-- BEGIN SPACER ROW -->
+<tr><td><img src="/im/a.gif" width="560" height="1" border="0" alt=" " /></td><td><img src="/im/a.gif" width="170" height="1" border="0" alt=" " /></td></tr>
+<!-- END SPACER ROW -->
+</table>
+<!-- END WRAPPER TABLE, 2 COLUMN, MAIN/RIGHT -->
+<!-- BEGIN PC1 COMPONENT V.2 -->
+<div class="pc1 pc1v2" style="margin:0 10px">
+<div class="pc1w1"><div class="pc1w2"><div class="pc1w3 cornerBL"><div class="pc1w4">
+<p>Oracle is reviewing the Sun product roadmap and will provide guidance to customers in accordance with Oracle's standard product communication policies. Any resulting features and timing of release of such features as determined by Oracle's review of roadmaps, are at the sole discretion of Oracle. All product roadmap information, whether communicated by Sun Microsystems or by Oracle, does not represent a commitment to deliver any material, code, or functionality, and should not be relied upon in making purchasing decisions. It is intended for information purposes only, and may not be incorporated into any contract.</p>
+</div></div></div></div>
+</div>
+<!-- END PC1 COMPONENT V.2 -->
+<!-- Start SiteCatalyst code -->
+<script language="JavaScript" src="/us/assets/metrics/ora_otn.js"></script>
+<!-- End SiteCatalyst code -->
+
+</body>
+</html>
+
+
+
