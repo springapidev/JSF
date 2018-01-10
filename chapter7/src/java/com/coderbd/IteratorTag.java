@@ -10,7 +10,6 @@ import javax.servlet.jsp.tagext.TagSupport;
  * Given a collection, this tag iterates over each element and makes it
  * available to the page.
  *
- * @author    Simon Brown
  */
 public class IteratorTag extends TagSupport {
 
@@ -26,6 +25,7 @@ public class IteratorTag extends TagSupport {
   /**
    * Called when the starting tag is encountered.
    */
+  @Override
   public int doStartTag() throws JspException {
     // setup the iterator to be used
     iterator = items.iterator();
@@ -46,6 +46,7 @@ public class IteratorTag extends TagSupport {
   /**
    * Called after the body has been evaluated.
    */
+  @Override
   public int doAfterBody() throws JspException {
     if (iterator.hasNext()) {
       // if there are more elements, put the next one into page

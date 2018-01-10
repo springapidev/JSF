@@ -12,7 +12,6 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
  * This acts like a filter on the body content, filtering out
  * the domain of e-mail addresses.
  *
- * @author    Simon Brown
  */
 public class EmailAddressFilterTag extends BodyTagSupport {
 

@@ -11,7 +11,6 @@ import javax.servlet.jsp.tagext.TagSupport;
  * Given a collection, this tag produces a HTML select (dropdown) list
  * based upon the collection.
  *
- * @author    Simon Brown
  */
 public class SelectTagWithDynamicAttributes
     extends TagSupport implements DynamicAttributes {

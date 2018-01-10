@@ -11,7 +11,7 @@ import javax.servlet.jsp.tagext.TagSupport;
 /**
  * Outputs the current date and time to the page.
  *
- * @author    Simon Brown
+ * 
  */
 public class DateTimeTag extends TagSupport {
 
