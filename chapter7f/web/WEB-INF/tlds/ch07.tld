@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_0.xsd"
+    version="2.0">
+    
+    <description>
+      Tag library for Pro JSP 2, 4th Edition, Chapter 7.
+    </description>
+    <jsp-version>2.0</jsp-version>
+    <tlib-version>1.0</tlib-version>
+    <short-name>ch07</short-name>
+    <uri>http://localhost:8084/chapter7</uri>
+
+  
+  <tag> 
+    <name>emailAddressFilter</name> 
+    <tag-class>com.coderbd.EmailAddressFilterTag</tag-class>
+    <body-content>scriptless</body-content>
+    <description>
+      Filters its body content, removing the domain from e-mail addresses.
+    </description> 
+  </tag>
+
+ 
+
+</taglib>
