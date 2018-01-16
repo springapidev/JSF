@@ -10,9 +10,7 @@ import org.hibernate.service.ServiceRegistry;
 public class HibernateUtil {
 	private static final SessionFactory sessionFactory;
 
-	private static ServiceRegistry serviceRegistry;
-
-	static {
+static {
 		try {
 		        StandardServiceRegistry standardRegistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 		        Metadata metaData = new MetadataSources(standardRegistry).getMetadataBuilder().build();
