@@ -1,0 +1,81 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="Container100">
+            <div class="ContainerIndent">
+                <div class="Card">
+                    <div class="Container100">
+                        <div class="ContainerIndent">
+                            <div class="Container100 TexAlCenter"><i class="icon-mountains14 Red Fs130 MarTop20" style="line-height:1 !important;"></i></div>
+                            <h1 class="TexAlCenter Fs40 Red">Volt Documentation</h1>
+                            <div class="EmptyBox40"></div>
+                            <p:panel styleClass="">
+                                <div class="Fs20 TexAlCenter Red">Installation</div>
+                                <p>
+                                    Volt provides a main <i>template.xhtml</i> and additional <i>layoutmenu.xhtml</i>, <i>topbar.xhtml</i> files for the base layout. These 3 files must be placed under
+                                    WEB-INF folder. Provided empty-page.xhtml is a sample content page using the main template.xhtml that defines "content" as the main ui:define placeholder. Other required resources are the css, js, image and font files that are located
+                                    inside resources/volt-layout folder, simply copy the volt-layout folder to your %WEB-APP-FOLDER%/resources folder so that final path would be %WEB-APP-FOLDER%/volt-layout/. Please
+                                    refer to demo app or maven project of the demo app as the reference.
+                                </p>
+                                <p>
+                                    Theme is a regular PrimeFaces theme and setup is simple as defining primefaces.THEME context parameter in web.xml as "volt", refer to <a style="color:#e90c45" href="http://www.primefaces.org/themes">themes page</a> for more information.
+                                </p>
+                                
+                                <div class="Fs20 TexAlCenter Red">Background Colors</div>
+                                <p>
+                                    Volt Layout has 4 different background colors, Blue, Leaden, Red and Green. Body given one of four distinct classes , the background color is adjustable.<br/>
+                                    Class names are, <span class="FontVoltBold Orange"> 'BlueBody', 'LeadenBody', 'RedBody', 'GreenBody'</span>
+                                </p>
+                                
+                                <div class="Fs20 TexAlCenter Red">Menu Modes</div>
+                                <p>
+                                    There are two alternatives for menu orientation, default mode is inline where menu is displayed at the left side of layout and alternative
+                                    is overlay menu that is enabled by adding "PopupMenu" style class to the body element.
+                                </p>
+                                
+                                <div class="Fs20 TexAlCenter Red">Migration Guide</div>
+                                <div class="EmptyBox10"></div>
+                                <div class="Fs15 red">2.0.1 to 2.1</div>
+                                <ul>
+                                    <li>- Replace theme jar with the new jar.</li>
+                                </ul>
+                                
+                                <div class="EmptyBox10"></div>
+                                <div class="Fs15 red">2.0.1 to 2.0.2</div>
+                                <ul>
+                                    <li>- Update layout.js, volt-layout.css, volt-layout.less, core-layout.css and template.xhtml</li>
+                                    <li>- Replace theme jar with the new jar.</li>
+                                    <li>- Replace VoltMenuRenderer.java with the new VoltMenuRenderer.java.</li>
+                                    <li>- Replace Volt font files with the new Volt font files.(volt-layout/fonts/*)</li>
+                                </ul>
+                                <div class="EmptyBox10"></div>
+                                <div class="Fs15 red">2.0 to 2.0.1</div>
+                                <ul>
+                                    <li>- Replace theme jar with the new jar.</li>
+                                </ul>
+                                <div class="EmptyBox10"></div>
+                                <div class="Fs15 red">1.0 to 2.0</div>
+                                <ul>
+                                    <li>- Update volt-layout/js/layout.js and volt-layout/css/volt-layout.css.</li>
+                                    <li>- Replace theme jar with the new jar.</li>
+                                </ul>
+                                
+                                <div class="Fs20 TexAlCenter Red">Core Layout</div>
+                                <p>
+                                    Core Layout is a set of CSS classes used to create responsive grid layouts with additional utilities. Volt uses Core Layout internally, however for grid layout
+                                    you may also choose another utility like <a class="FontVoltBold Blue" href="http://www.primefaces.org/showcase/ui/panel/grid.xhtml">Grid CSS</a> or <a class="FontVoltBold Blue" href="http://getbootstrap.com/examples/grid/">Bootstrap Grid</a>.
+                                </p>
+                            </p:panel>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

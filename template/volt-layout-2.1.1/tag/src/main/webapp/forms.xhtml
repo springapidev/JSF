@@ -1,0 +1,373 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <style type="text/css">
+            .calendarDemo .ui-inputfield {
+                width: 68%;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="subheader">
+        Forms
+    </ui:define>
+    
+    <ui:define name="content">
+                
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">InputText - TextArea</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">InputText</h2>
+                    <p:panelGrid columns="3" layout="grid" style="border:0px !important; background:none;" styleClass="ui-panelgrid-blank">
+                        <p:inputText placeholder="Name"/>
+                        <p:inputText placeholder="Email"/>
+                        <p:inputText placeholder="Phone"/>
+                        <p:inputText placeholder="Disabled Input" disabled="true"/>
+                        <p:inputText placeholder="Address"/>
+                        <p:inputText placeholder="Id"/>
+                    </p:panelGrid>
+                </div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">TextArea</h2>
+                    <p:inputTextarea rows="5" placeholder="Your Message" />
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">AutoComplete - Checkboxes</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">AutoComplete</h2>
+                    <p:panelGrid columns="1" styleClass="ui-panelgrid-blank" layout="grid">
+                        <p:outputLabel value="Simple:" for="acSimple" />
+                        <p:autoComplete id="acSimple" value="#{autoCompleteView.txt1}" completeMethod="#{autoCompleteView.completeText}" />
+
+                        <p:outputLabel value="DropDown:" for="dd" />
+                        <p:autoComplete id="dd" dropdown="true" value="#{autoCompleteView.txt6}" completeMethod="#{autoCompleteView.completeText}" />
+
+                        <p:outputLabel value="Group:" for="group" />
+                        <p:autoComplete id="group" value="#{autoCompleteView.theme4}" completeMethod="#{autoCompleteView.completeThemeContains}"
+                                        var="theme" itemLabel="#{theme.displayName}" itemValue="#{theme}" converter="theme"
+                                        groupBy="#{autoCompleteView.getThemeGroup(theme)}" scrollHeight="250"/>
+                    </p:panelGrid>
+                </div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">Checkboxes</h2>
+                    <p:selectManyCheckbox layout="responsive" columns="3">
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                        <f:selectItem itemLabel="PS4" itemValue="PS+" />
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                    </p:selectManyCheckbox>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">RadioButtons - SelectOneMenu</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">RadioButtons</h2>
+                    <p:selectOneRadio layout="responsive" columns="3">
+                        <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                        <f:selectItem itemLabel="PS4" itemValue="PS+" />
+                        <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                    </p:selectOneRadio>
+                </div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">SelectOneMenu</h2>
+                    <p:panelGrid columns="1" style="margin-bottom:10px" layout="grid" styleClass="ui-panelgrid-blank">
+                        <p:outputLabel for="console" value="Basic:" />
+                        <p:selectOneMenu id="console" value="#{selectOneMenuView.console}">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="car" value="Grouping: " />
+                        <p:selectOneMenu id="car" style="">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItems value="#{selectOneMenuView.cars}" />
+                        </p:selectOneMenu>
+
+                        <p:outputLabel for="city" value="Editable: " />
+                        <p:selectOneMenu id="city" value="#{selectOneMenuView.city}" effect="fold" editable="true">
+                            <f:selectItem itemLabel="Select One" itemValue="" />
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">Keyboard - Password - MultiSelectListBox</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">Keyboard And Password</h2>
+                    <p:keyboard placeholder="Keyboard"/>
+                    <div class="EmptyBox10"></div>
+                    <p:password feedback="true" placeholder="Password" inline="true"/>
+                </div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">MultiSelectListBox</h2>
+                    <p:multiSelectListbox value="#{multiSelectView.selection}" effect="slide" header="Categories" showHeaders="true">
+                        <f:selectItems value="#{multiSelectView.categories}" />
+                    </p:multiSelectListbox>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">SelectCheckBoxMenu - Input Switch - SelectOneListBox</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">SelectCheckBoxMenu</h2>
+                    <p:selectCheckboxMenu label="Cities" filter="true" filterMatchMode="startsWith">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectCheckboxMenu>
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Input Switch</h2>
+                    <p:inputSwitch onLabel="on" offLabel="off"/>
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">SelectOneListBox</h2>
+                    <p:selectOneListbox>
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectOneListbox>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">SelectManyMenu - Spinner - Rating</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">SelectManyMenu</h2>
+                    <p:selectManyMenu showCheckbox="true" style="width:200px;">
+                        <f:selectItem itemLabel="Option 1" itemValue="1" />
+                        <f:selectItem itemLabel="Option 2" itemValue="2" />
+                        <f:selectItem itemLabel="Option 3" itemValue="3" />
+                    </p:selectManyMenu>
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Spinner</h2>
+                    <p:spinner />
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Rating</h2>
+                    <h:panelGrid columns="2" cellpadding="5" styleClass="Fs14">
+                        <h:outputText value="Basic:" />
+                        <p:rating />
+
+                        <h:outputText value="Callback:" />
+                        <p:rating stars="5" cancel="false" onRate="alert('You rated ' + value)" />
+
+                        <h:outputText value="Disabled"/>
+                        <p:rating disabled="true" />
+                    </h:panelGrid>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">Sliders</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Sliders - Horizontal</h2>
+                    <p:panelGrid columns="1" style="margin-bottom: 10px" layout="grid" styleClass="ui-panelgrid-blank">
+                        <p:inputText id="slider" />
+                        <p:slider for="slider"/>
+                    </p:panelGrid>
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Sliders - Vertical</h2>
+                    <p:panelGrid columns="1" style="margin-bottom: 10px" layout="grid" styleClass="ui-panelgrid-blank">
+                        <p:inputText id="txt4" />
+                        <p:slider for="txt4" type="vertical" />
+                    </p:panelGrid>
+                </div>
+                <div class="Container33 Responsive50">
+                    <h2 class="BigTopic">Sliders - Range</h2>
+                    <p:panelGrid columns="1" style="margin-bottom: 10px" layout="grid" styleClass="ui-panelgrid-blank">
+                        <h:outputText id="displayRange" value="Values" styleClass="Fs14"/>
+                        <p:slider for="txt6,txt7" display="displayRange" range="true" displayTemplate="Between {min} and {max}" minValue="0" maxValue="100"/>
+                    </p:panelGrid>
+                    <h:inputHidden id="txt6" value="20"/>
+                    <h:inputHidden id="txt7" value="80"/>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">Calendar</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container100">
+                    <h2 class="BigTopic">Calendar</h2>
+                    <div class="Container40 Responsive100">
+                        <p:calendar id="inline"  mode="inline" />
+                    </div>
+
+                    <div class="Container60 Responsive100">
+                        <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank">
+                            <p:outputLabel for="popup" value="Popup:" />
+                            <p:calendar id="popup" />
+
+                            <p:outputLabel for="multi" value="Multiple:" />
+                            <p:calendar id="multi" pages="3" />
+
+                            <p:outputLabel for="effect" value="Effect:" />
+                            <p:calendar id="effect" effect="fold" />
+
+                            <p:outputLabel for="datetime" value="Datetime:" />
+                            <p:calendar id="datetime" pattern="MM/dd/yyyy HH:mm:ss" />
+
+                            <p:outputLabel for="time" value="Time:" />
+                            <p:calendar id="time" pattern="HH:mm a" timeOnly="true"  />
+
+                            <p:outputLabel for="button" value="Button:" />
+                            <p:calendar id="button" showOn="button" />
+                        </p:panelGrid>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="Container100">
+            <div class="Card ui-fluid">
+                <div class="CardTopic">Buttons</div>
+                <div class="SeparatorFull"></div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">Buttons</h2>
+                    <h:form>
+                        <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank">
+                            <h:outputText value="SelectBooleanButton:" styleClass="Fs14"/>
+                            <p:selectBooleanButton onLabel="Yes" offLabel="No" />
+
+                            <h:outputText value="SelectOneButton:" styleClass="Fs14"/>
+                            <p:selectOneButton>
+                                <f:selectItem itemLabel="XOne" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="WiiU" itemValue="Wii U" />
+                            </p:selectOneButton>
+
+                            <h:outputText value="SelectManyButton:" styleClass="Fs14"/>
+                            <p:selectManyButton>
+                                <f:selectItem itemLabel="b" itemValue="b"/>
+                                <f:selectItem itemLabel="u" itemValue="u" />
+                                <f:selectItem itemLabel="i" itemValue="i" />
+                            </p:selectManyButton>
+
+                            <h:outputText value="Button" styleClass="Fs14"/>
+                            <p:button value="Bookmark" icon="fa fa-star Fs16 White"/>
+
+                            <h:outputText value="Button Icon Only" styleClass="Fs14"/>
+                            <p:button icon="fa fa-twitter Fs16 White"/>
+
+                            <h:outputText value="CommandButton:" styleClass="Fs14"/>
+                            <p:commandButton value="With Icon" icon="fa fa-home Fs16 White"/>
+
+                            <h:outputText value="CommandButton:" styleClass="Fs14"/>
+                            <p:commandButton value="With Icon (Right Side)" icon="fa fa-eyedropper Fs16 White" iconPos="right"/>
+
+                            <h:outputText value="CommandLink:" styleClass="Fs14"/>
+                            <p:commandLink value="Command Link"/>
+
+                            <h:outputText value="Link:" />
+                            <p:link value="Bookmark"/>
+
+                            <h:outputText value="SplitButton:" styleClass="Fs14"/>
+                            <p:splitButton value="Save" icon="ui-icon-check fa fa-check White Fs14">
+                                <p:menuitem value="Update" icon="fa fa-cloud-upload" />
+                                <p:menuitem value="Delete" icon="fa fa-close" />
+                                <p:separator />
+                                <p:menuitem value="Homepage" url="#" icon="fa fa-home" />
+                            </p:splitButton>
+                        </p:panelGrid>
+                    </h:form>
+                </div>
+                <div class="Container50 Responsive50">
+                    <h2 class="BigTopic">Color Buttons</h2>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank">
+                        <p:button value="Default Button"/>
+
+                        <p:button value="Inline Button" style="width:auto"/>
+
+                        <p:button value="Blue Button" styleClass="BlueButton"/>
+
+                        <p:button value="Green Button" styleClass="GreenButton"/>
+
+                        <p:button value="Teal Green Button" styleClass="TealGreenButton"/>
+
+                        <p:button value="Cyan Button" styleClass="CyanButton"/>
+
+                        <p:button value="Red Button" styleClass="RedButton"/>
+
+                        <p:button value="Pink Button" styleClass="PinkButton"/>
+
+                        <p:button value="Orange Button" styleClass="OrangeButton"/>
+
+                        <p:button value="Purple Button" styleClass="PurpleButton"/>
+
+                        <p:button value="Lime Button" styleClass="LimeButton"/>
+
+                        <p:button value="Brown Button" styleClass="BrownButton"/>
+
+                        <p:button value="Gray Button" styleClass="GrayButton"/>
+                    </p:panelGrid>
+                    <div class="EmptyBox30"></div>
+                    <h2 class="BigTopic">Raised Buttons Samples</h2>
+                    <p:panelGrid columns="1" layout="grid" styleClass="ui-panelgrid-blank">
+                        <p:button value="Default Raised Button" styleClass="RaisedButton"/>
+
+                        <p:button value="Blue Raised Button" styleClass="BlueButton RaisedButton"/>
+
+                        <p:button value="Green Button" styleClass="GreenButton RaisedButton"/>
+                        
+                        <p:button value="Teal Green Raised Button" styleClass="TealGreenButton RaisedButton"/>
+                        
+                        <p:button value="Cyan Raised Button" styleClass="CyanButton RaisedButton"/>
+
+                        <p:button value="Red Raised Button" styleClass="RedButton RaisedButton"/>
+
+                        <p:button value="Pink Raised Button" styleClass="PinkButton RaisedButton"/>
+
+                        <p:button value="Orange Raised Button" styleClass="OrangeButton RaisedButton"/>
+
+                        <p:button value="Purple Raised Button" styleClass="PurpleButton RaisedButton"/>
+
+                        <p:button value="Lime Raised Button" styleClass="LimeButton RaisedButton"/>
+
+                        <p:button value="Brown Raised Button" styleClass="BrownButton RaisedButton"/>
+
+                        <p:button value="Gray Raised Button" styleClass="GrayButton RaisedButton"/>
+                    </p:panelGrid>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

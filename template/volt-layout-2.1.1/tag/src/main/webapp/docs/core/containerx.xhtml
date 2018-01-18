@@ -1,0 +1,140 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="Container100">
+            <div class="ContainerIndent">
+                <div class="Card">
+                    <div class="Container100">
+                        <div class="ContainerIndent">
+                            <div class="Container100 TexAlCenter"><i class="icon-mountains14 Red Fs130 MarTop20" style="line-height:1 !important;"></i></div>
+                            <h1 class="TexAlCenter Fs40 Red">Volt Documentation</h1>
+                            <div class="EmptyBox40"></div>                       
+                            
+                            <p:panel styleClass="">
+                        <div class="Fs20 TexAlCenter Red">ContainerX</div>
+                        <div class="EmptyBox10"></div>
+                        <p:panelGrid columns="3" styleClass="Wid100">
+                            <h:outputText value="Class Group" styleClass="Orange Fs20 Wid30"/>
+                            <h:outputText value="Class Name" styleClass="Orange Fs20 Wid30"/>
+                            <h:outputText value="Instructions" styleClass="Orange Fs20 Wid40"/>
+
+                            <h:outputText value="ContainerXs (For Responsive Layout)" styleClass="Fs20" escape="false"/>
+                            <h:outputText value="Container100 &lt;br /&gt; Container96 &lt;br /&gt; Container90 &lt;br /&gt; Container85 &lt;br /&gt; Container80  &lt;br /&gt; Container75
+                                           &lt;br /&gt; Container70 &lt;br /&gt; Container66  &lt;br /&gt; Container60  &lt;br /&gt; Container50  &lt;br /&gt; Container40  &lt;br /&gt; Container33 &lt;br /&gt; Container30
+                                            &lt;br /&gt; Container25 &lt;br /&gt; Container20 &lt;br /&gt; Container10 &lt;br /&gt; Container5" styleClass="Blue" escape="false"/>
+                            <h:outputText value="ContinerX is the essential part of grid layout where the number x defines the width of the cell. In order to make a ContainerX
+                                          responsive, one of the Responsive style classes described in previous section should be added. In addition, since they float, a class called
+                                          Container should be the parent to clear the floats.
+                                          Resize browser window to see changes of different colored boxes below. &lt;br /&gt; &lt;br /&gt;
+                                          Any ContainerX class has its own indentation (padding) property. With this feature, given ContainerX, Elements are separated from each other within ContainerX.
+                                          &lt;br /&gt; &lt;br /&gt;
+                                          In some cases it may be necessary to abolish this property ( indentation ).&lt;br /&gt;
+                                          For example, there are two ContainerX element and one of them contain other one or more ContainerX element/elements.&lt;br /&gt;
+                                          In such a case, should be used 'NoIndent' class at second ContainerX
+                                          &lt;br /&gt; &lt;br /&gt;
+                                          Please see examples below." escape="false"/>
+                            
+                            <h:outputText value="Indentation" styleClass="Fs20" escape="false"/>
+                            <h:outputText value="NoIndent" styleClass="Blue" escape="false"/>
+                            <h:outputText value="NoIndent is optional and added to a ContainerX class to remove formatting such as padding (indentation)." escape="false"/>
+                            
+                            <h:outputText value="Container" styleClass="Fs20" escape="false"/>
+                            <h:outputText value="Wrapper" styleClass="Blue" escape="false"/>
+                            <h:outputText value="Container is used as the wrapper of ContainerX elements to clear the floats." escape="false"/>
+                        
+                        </p:panelGrid>
+                    </p:panel>
+                    <p:panel styleClass=" TexAlCenter">
+                        <div class="Container">
+                            <div class="BigTopic">ContainerX Samples ( With Responsive Abilities )</div>
+                            <div class="Separator"></div>
+                            <div class="Fleft RedBack White Container20 MarAuto Responsive100"> <br/>Container20 - Responsive100<br/><br/> </div>
+                            <div class="Fleft BlueBack White Container30 MarAuto Responsive50"> <br/>Container30 - Responsive50<br/><br/> </div>
+                            <div class="Fleft OrangeBack White Container50 MarAuto Responsive50"> <br/>Container50 - Responsive50<br/><br/> </div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Fleft PurpleBack White Container33 MarAuto Responsive50"> <br/>Container33 - Responsive50<br/><br/> </div>
+                            <div class="Fleft PinkBack White Container66 MarAuto Responsive50"> <br/>Container66 - Responsive50<br/><br/> </div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Fleft PurpleBack White Container33 MarAuto Responsive"> <br/>Container33 - Responsive<br/><br/> </div>
+                            <div class="Fleft PinkBack White Container33 MarAuto Responsive"> <br/>Container33 - Responsive<br/><br/> </div>
+                            <div class="Fleft GreenBack White Container33 MarAuto Responsive"> <br/>Container33 - Responsive<br/><br/> </div>
+                            <div class="EmptyBox70"></div>
+                            
+                            
+                            <div class="BigTopic">ContainerX Samples ( With And Without NoIndent Property )</div>
+                            <div class="Separator"></div>
+
+                            
+                            <div class="Container50 Responsive100">
+                                <div class="Card">
+                                    <div class="Container50" style="border:dashed 1px #ccc;">
+                                        <div class="Card Fs14 Red">This is a Card</div>
+                                    </div>
+                                    <div class="Container50" style="border:dashed 1px #E53935;">
+                                        <div class="Container50" style="border:dashed 1px #7E57C2;">
+                                            <div class="Card Fs14 Red">This is a Card</div>
+                                        </div>
+                                        <div class="Container50" style="border:dashed 1px #7E57C2;">
+                                            <div class="Card Fs14 Red">This is a Card</div>
+                                        </div>
+                                    </div>
+                                    <div class="EmptyBox20"></div>
+                                    <div class="Container100">
+                                        <div class="DispBlock FontVoltSemiBold Fs20 Red">Wrong Use ( Without NoIndent )</div>
+                                        <div class="EmptyBox10"></div>
+                                        <span class="Leaden Fs14">In this wrong use case, there are two Container50 boxes for dividing of area to fifty fifty. 
+                                            On the left side, gray bordered Container50 has a Card element inside and Card element pushed to inwards with indentation of Container50.
+                                            And on the right side, a red dash bordered ContainerX divided to two area with two Container50 boxes which have a Card elements.
+                                            On the right side a red dashed bordered ContainerX has not <strong class="FontVoltBold Pink" >NoIndent</strong> class.
+                                            As shown, purple dash bordered Container50 boxes pushing to inwards with indentation together Cards.
+                                            Therefore, right on the cards in the card on the left where you can not get the same top level and the layout does not appear correctly.
+                                            In addition, the distance between the boxes are not equal.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="Container50 Responsive100">
+                                <div class="Card">
+                                    <div class="Container50" style="border:dashed 1px #ccc;">
+                                        <div class="Card Fs4 Blue">This is a Card</div>
+                                    </div>
+                                    <div class="Container50 NoIndent" style="border:dashed 1px #0277BD;">
+                                        <div class="Container50" style="border:dashed 1px #EF6C00;">
+                                            <div class="Card Fs14 Blue">This is a Card</div>
+                                        </div>
+                                        <div class="Container50" style="border:dashed 1px #EF6C00;">
+                                            <div class="Card Fs14 Blue">This is a Card</div>
+                                        </div>
+                                    </div>
+                                    <div class="EmptyBox20"></div>
+                                    <div class="Container100">
+                                        <div class="DispBlock FontVoltSemiBold Fs20 Blue">Proper Use ( With NoIndent )</div>
+                                        <div class="EmptyBox10"></div>
+                                        <span class="Leaden Fs14">In this proper use case, on the right side a blue dashed bordered ContainerX has <strong class="FontVoltBold Pink" >NoIndent</strong> class.
+                                            As shown, orange dash bordered Container50 boxes are not pushing to inwards with indentation together Cards.
+                                            Therefore, right on the cards in the card on the left where you can get the same top level and the layout does appear correctly and of course the distance between the boxes are equal.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </p:panel>
+                            
+
+                            <div class="EmptyBox60"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ui:define>
+
+</ui:composition>

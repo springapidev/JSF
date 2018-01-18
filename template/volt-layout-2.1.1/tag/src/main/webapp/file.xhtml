@@ -1,0 +1,29 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="subheader">
+        File Upload
+    </ui:define>
+    
+    <ui:define name="content">
+        
+        <div class="Container100">
+            <div class="Card whiteback GreenBorderedBox">
+                <div class="CardTopic">Advanced</div>
+                <div class="SeparatorFull"></div>
+                <h:form>
+                    <p:fileUpload fileUploadListener="#{fileUploadView.handleFileUpload}" mode="advanced" dragDropSupport="false"
+                                  multiple="true" update="messages" sizeLimit="100000" fileLimit="3" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+
+                    <p:growl id="messages" showDetail="true" />
+                </h:form>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

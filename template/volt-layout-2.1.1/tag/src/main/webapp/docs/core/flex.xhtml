@@ -1,0 +1,134 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="Container100 ui-fluid">
+            <div class="Card">
+                <div class="Container100 TexAlCenter"><i class="icon-mountains14 Red Fs130 MarTop20" style="line-height:1 !important;"></i></div>
+                <h1 class="TexAlCenter Fs40 Red">Volt Documentation</h1>
+                <div class="EmptyBox40"></div>
+
+                <p:panel styleClass="">
+                    <div class="Fs20 TexAlCenter Red">Flex Boxes <span class="RedBack White PadWithBorder5 BordRad10">NEW</span></div>
+                    <div class="EmptyBox10"></div>
+                    <p:panelGrid columns="3" styleClass="Wid100">
+                        <h:outputText value="Class Group" styleClass="Orange Fs20 Wid30"/>
+                        <h:outputText value="Class Name" styleClass="Orange Fs20 Wid30"/>
+                        <h:outputText value="Instructions" styleClass="Orange Fs20 Wid40"/>
+
+                        <h:outputText value="Flex Boxes" styleClass="Fs20 Wid30" escape="false"/>
+                        <h:outputText value="Flex &lt;br /&gt;" styleClass="Blue Wid30" escape="false"/>
+                        <span>For more info about <span class="Red"> 'display:flex'</span> - <a href='https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties' class="Blue" target="_blank">Click Here</a></span>
+
+                        <h:outputText value="" styleClass="Fs20 Wid30" escape="false"/>
+                        <h:outputText value="FlexWrap &lt;br /&gt;" styleClass="Blue Wid30" escape="false"/>
+                        <span>For more info about <span class="Red"> 'flex-wrap:wrap'</span> - <a href='https://scotch.io/tutorials/a-visual-guide-to-css3-flexbox-properties#flex-wrap' class="Blue" target="_blank">Click Here</a></span>
+                    </p:panelGrid>
+
+                </p:panel>
+            </div>
+            <div class="EmptyBox20"></div>
+            <div class="Card">
+                <div class=" Container Container100 Red Fs24">
+                    Important Note : This CSS3 feature (flex boxes) is only supported by <a href="http://caniuse.com/#feat=flexbox" class="Blue" target="_blank">modern browsers.</a><br/>
+                </div>
+            </div>
+        </div>
+
+        <div class="Container50 Responsive50 White NoIndent Fs12">
+            <div class="BigTopic TexAlCenter">Sample With Flex &amp; FlexWrap Class</div>
+            <div class="Container100 NoIndent Flex FlexWrap">
+                <div class="Container60 NoIndent Responsive50 Flex FlexWrap">
+                    <div class="Container100 Flex">
+                        <div class="Card BlueBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                    <div class="Container40 Flex">
+                        <div class="Card BlueBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl.</div>
+                    </div>
+                    <div class="Container60 Flex">
+                        <div class="Card BlueBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                </div>
+                <div class="Container40 NoIndent Responsive50 Flex FlexWrap">
+                    <div class="Container100 Flex">
+                        <div class="Card BlueBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                    <div class="Container100 Flex">
+                        <div class="Card BlueBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing eli.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="Container50 Responsive50 White NoIndent Fs12">
+            <div class="BigTopic TexAlCenter">Sample Without Flex &amp; FlexWrap Class</div>
+            <div class="Container100 NoIndent">
+                <div class="Container60 NoIndent Responsive50">
+                    <div class="Container100">
+                        <div class="Card RedBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                    <div class="Container40">
+                        <div class="Card RedBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl.</div>
+                    </div>
+                    <div class="Container60">
+                        <div class="Card RedBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                </div>
+                <div class="Container40 NoIndent Responsive50">
+                    <div class="Container100">
+                        <div class="Card RedBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing elit a condimentum dis parturient condimentum egestas aptent proin
+                            suspendisse sit suscipit faucibus cubilia tincidunt sed condimentum mi nisl penatibus vestibulum tristique. Sociis elit a placerat 
+                            erat consectetur posuere mauris proin purus diam vestibulum condimentum suspendisse scelerisque ut.</div>
+                    </div>
+                    <div class="Container100">
+                        <div class="Card RedBack White">Mattis suspendisse eget quisque ac donec condimentum penatibus maecenas scelerisque vestibulum ut tristique ultrices 
+                            suspendisse a id id vehicula. Mollis quisque facilisis suspendisse interdum scelerisque parturient a consectetur a vestibulum libero 
+                            a a tincidunt ullamcorper vestibulum nisl. Adipiscing id mi suspendisse laoreet senectus suspendisse eros sociis a sed parturient at 
+                            diam cum ante. Metus adipiscing parturient porttitor leo adipiscing eli.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

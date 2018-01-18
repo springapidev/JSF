@@ -1,0 +1,87 @@
+
+/* Body Colors */
+
+@LeadenBody:#323A45;
+@RedBody:#5F2F2B;
+@GreenBody:#2B514B;
+@BlueBody:#29506B;
+@CornFlowerBody:#6495ED;
+@DarkGrayBody:#696969;
+
+/* topbar mobile menu button */
+@mobilemenu-button-icon-color:rgba(68, 77, 88, 0.7);
+@mobilemenu-button-icon-color-hover:rgba(2, 119, 189,1);
+@mobilemenu-button-icon-bg-color-hover:rgba(68, 77, 88, 0.1);
+
+/* top menu */
+@top-menu-link-color:#fff;
+@top-menu-link-bg-color-hoverandactive:rgba(255,255,255,0.05);
+
+/* main menu */
+@main-menu-first-node-color:rgba(47, 55, 62, 0.9);
+@main-menu-first-node-font-size:14px;
+@main-menu-first-node-color-hover-focus:rgba(2, 119, 189, 1);
+@main-menu-first-node-color-hover-active-menu:rgba(2, 119, 189, 1);
+@main-menu-first-node-icon-font-size:22px;
+@main-menu-first-node-icon-bg-color:#f2f2f2;
+@main-menu-first-node-icon-color-focus-hover:#fff;
+    /*main menu second node */
+    @main-menu-second-node-font-size:13px;
+    @main-menu-second-node-color:rgba(47, 55, 62, 0.9);
+    @main-menu-second-node-color-active-menu:rgba(2, 119, 189, 1);
+    @main-menu-second-node-bg-color-active-menu:rgba(0,0,0,0.02);
+    @main-menu-second-node-icon-font-size:16px;
+        /* main menu sub nodes */
+        @main-menu-sub-nodes-color:rgba(47, 55, 62, 0.9);
+        
+/* Card */
+@Card-default-bg-color:#ffffff;
+@Card-default-color:rgba(41,80,107,1);
+@Card-default-border-color:#5F6870;
+@Card-topic-font-size:20px;
+@Card-topic-color:#444D58;
+@Card-footer-border-color:#E0E0E0;
+
+/* Separators */
+@Separator-border-color:#CCCCCC;
+
+/* BigTopic */
+@BigTopic-font-size:18px;
+@BigTopic-color:rgba(68,77,88,0.9);
+
+
+/* misc */
+@ie9-10: ~"screen and (min-width: 0\0)"; 
+
+/* transitions */
+.short-transition {
+    .transition(all 0.3s ease);
+}
+
+.medium-transition {
+    .transition(all 0.5s ease);
+}
+
+.long-transition {
+    .transition(all 1s ease);
+}
+
+.no-transition {
+    .transition(none);
+}
+
+.transition(@value) {
+    -webkit-transition: @value;
+    -moz-transition: @value;
+    -ms-transition: @value;
+    -o-transition: @value;
+    transition: @value;
+}
+
+.no-transform {
+    -webkit-transform:none !important;
+    -moz-transform:none !important; 
+    -o-transform:none !important; 
+    -ms-transform:none !important; 
+    transform:none !important;
+}

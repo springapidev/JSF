@@ -1,0 +1,359 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="head">
+        <script type="text/javascript">
+            function skinChart() {
+                this.cfg.shadow = false;
+                this.cfg.title = '';
+                this.cfg.seriesColors = ['#0097A7', '#0277BD', '#E53935'];
+                this.cfg.grid = {
+                    background: '#ffffff',
+                    borderColor: '#ffffff',
+                    gridLineColor: '#F5F5F5',
+                    shadow: false
+                };
+                this.cfg.axesDefaults = {
+                    rendererOptions: {
+                        textColor: '#666F77'
+                    }
+                };
+                this.cfg.seriesDefaults = {
+                    shadow: false,
+                    lineWidth: 1,
+                    markerOptions: {
+                        shadow: false,
+                        size: 7,
+                        style: 'circle'
+                    }
+                };
+                this.cfg.axes.yaxis.tickOptions.show = false;
+            }
+        </script>
+        <style type="text/css">
+            .jqplot-target, .jqplot-axis {
+                color: #546E7A;
+            }
+        </style>
+    </ui:define>
+
+    <ui:define name="subheader">
+        Dashboard
+    </ui:define>
+
+    <ui:define name="content">
+
+        <!-- left content -->
+        <div class="Container50 Responsive100 NoIndent Flex FlexWrap">
+
+            <div class="Container50 Responsive50 Flex">
+                <div class="Card TealGreenBorder">
+                    <div class="EmptyBox10"></div>
+                    <div class="DispBlock TealGreen Fs20 FontVoltSemiBold">Cloud App Services <i class="icon-cloud Fright Fs40"></i> </div>
+                    <div class="DispBlock Leaden Fs30 FontVoltRegular" style="margin-top:-5px;">85 %</div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox10"></div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Basic</span>
+                        <div class="EmptyBox5"></div>
+                        <span class="Blue Fs12 FontVoltSemiBold DispBlock">75%</span>
+                        <div class="Container100 BordRad10 OvHidden NoIndent" style="background-color:#eee;"><div class="Container75 BlueBack NoIndent" style="height:10px;"></div> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Pro</span>
+                        <div class="EmptyBox5"></div>
+                        <span class="Green Fs12 FontVoltSemiBold DispBlock">60%</span>
+                        <div class="Container100 BordRad10 OvHidden NoIndent" style="background-color:#eee;"><div class="Container60 GreenBack NoIndent" style="height:10px;"></div> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Expert</span>
+                        <div class="EmptyBox5"></div>
+                        <span class="Red Fs12 FontVoltSemiBold DispBlock">30%</span>
+                        <div class="Container100 BordRad10 OvHidden NoIndent" style="background-color:#eee;"><div class="Container30 RedBack NoIndent" style="height:10px;"></div> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Gold</span>
+                        <div class="EmptyBox5"></div>
+                        <span class="Orange Fs12 FontVoltSemiBold DispBlock">90%</span>
+                        <div class="Container100 BordRad10 OvHidden NoIndent" style="background-color:#eee;"><div class="Container90 OrangeBack NoIndent" style="height:10px;"></div> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Container50 Responsive50 Flex">
+                <div class="Card OrangeBorder">
+                    <div class="EmptyBox10"></div>
+                    <div class="DispBlock Orange Fs20 FontVoltSemiBold">Total Profit <i class="icon-graph Fright Fs30"></i> </div>
+                    <div class="DispBlock Leaden Fs30 FontVoltRegular" style="margin-top:-5px;">166,456 $</div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox10"></div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Basic</span>
+                        <span class="Orange Fs24 FontVoltRegular DispBlock">23,567 $ <span class="Fright Blue Fs16">+ 21%</span></span>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Pro</span>
+                        <span class="Orange Fs24 FontVoltRegular DispBlock">12,558 $ <span class="Fright Red Fs16">+ 45%</span></span>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Expert</span>
+                        <span class="Orange Fs24 FontVoltRegular DispBlock">18,445 $ <span class="Fright Purple Fs16">+ 88%</span></span>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container100 NoIndent">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock">VOLT Cloud Gold</span>
+                        <span class="Orange Fs24 FontVoltRegular DispBlock">32,117 $ <span class="Fright Brown Fs16">+ 3%</span></span>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="Container100">
+                <div class="Card PinkBorder">
+                    <div class="EmptyBox10"></div>
+                    <div class="DispBlock Pink Fs20 FontVoltSemiBold">Total Orders <i class="icon-printer2 Fright Fs40"></i> </div>
+                    <div class="DispBlock Leaden Fs30 FontVoltRegular" style="margin-top:-5px;">1,134,561</div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox10"></div>
+                    <div class="Container100">
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock OvHidden">1. VOLT Book PRO <span class="Fright Pink">443,523</span></span>
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock OvHidden">2. VOLT Phone 16GB <span class="Fright Pink">324,721</span></span>
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock OvHidden">3. VOLT Shield 2 Yr. <span class="Fright Pink">266,111</span></span>
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock OvHidden">4. VOLT Phone 32GB <span class="Fright Pink">79,345</span></span>
+                        <span class="Leaden Fs14 FontVoltSemiBold DispBlock OvHidden">5. VOLT Desktop <span class="Fright Pink">45,221</span></span>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Container100">
+                <div class="ContainerIndent">
+                    <h:form id="form1">
+                        <p:dataGrid var="car" value="#{dataGridView.cars}" columns="2" layout="grid"
+                                    rows="8" paginator="true" id="cars"
+                                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                    rowsPerPageTemplate="3,6,8,12,16">
+
+                            <f:facet name="header">
+                                VOLT Company Vehicles
+                            </f:facet>
+
+                            <p:panel header="#{car.brand}" style="text-align:center">
+                                <h:panelGrid columns="1" style="width:100%">
+                                    <h:outputText value="#{car.color}" styleClass="Fs14 FontRalewaySemiBold"/>
+
+                                    <h:outputText value="#{car.year}" />
+
+                                    <p:commandButton icon="fa fa-calendar-o" update=":form1:carDetail" oncomplete="PF('carDialog').show()" styleClass="OrangeButton RaisedButton">
+                                        <f:setPropertyActionListener value="#{car}" target="#{dataGridView.selectedCar}" />
+                                    </p:commandButton>
+                                </h:panelGrid>
+                            </p:panel>
+
+                        </p:dataGrid>
+
+                        <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" responsive="true">
+                            <p:outputPanel id="carDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty dataGridView.selectedCar}" columnClasses="label,value">
+                                    <f:facet name="header">
+                                        <p:graphicImage name="demo/images/car/#{dataGridView.selectedCar.brand}-big.gif"/> 
+                                    </f:facet>
+
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{dataGridView.selectedCar.id}" />
+
+                                    <h:outputText value="Year" />
+                                    <h:outputText value="#{dataGridView.selectedCar.year}" />
+
+                                    <h:outputText value="Color:" />
+                                    <h:outputText value="#{dataGridView.selectedCar.color}" style="color:#{dataGridView.selectedCar.color}"/>
+
+                                    <h:outputText value="Price" />
+                                    <h:outputText value="\$#{dataGridView.selectedCar.price}" />
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+                </div>
+            </div>
+
+        </div>  
+
+        <!-- right content -->
+        <div class="Container50 Responsive100 NoIndent">
+
+            <div class="Container100">
+                <div class="Card">
+                    <div class="EmptyBox10"></div>
+                    <div class="CardTopic Opac90 OvHidden">Cloud Services Overload Conditions <i class="icon-health Fright Fs40"></i></div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox5"></div>
+
+                    <div class="Flex FlexWrap">
+                        <div class="Container33 Responsive50 Flex">
+                            <div class="Card BlueBack">
+                                <div class="EmptyBox5"></div>
+                                <div class="CardTopic White Fs16">VOLT Cloud Basic</div>
+                                <div class="EmptyBox5"></div>
+                                <div class="DispBlock Opac50">
+                                    <i class="icon-meter Fs40 White MarRight10"></i> <span class="Fs40 White FontVoltSemiBold">45%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container33 Responsive50 Flex">
+                            <div class="Card TealGreenBack">
+                                <div class="EmptyBox5"></div>
+                                <div class="CardTopic White Fs16">VOLT Cloud Pro</div>
+                                <div class="EmptyBox5"></div>
+                                <div class="DispBlock Opac50">
+                                    <i class="icon-meter Fs40 White MarRight10"></i> <span class="Fs40 White FontVoltSemiBold">27%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container33 Responsive50 Flex">
+                            <div class="Card RedBack">
+                                <div class="EmptyBox5"></div>
+                                <div class="CardTopic White Fs16">VOLT Cloud Expert</div>
+                                <div class="EmptyBox5"></div>
+                                <div class="DispBlock Opac50">
+                                    <i class="icon-meter Fs40 White MarRight10"></i> <span class="Fs40 White FontVoltSemiBold">89%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="Container100">
+                        <p:chart type="bar" model="#{chartView.barModel}" style="height:160px;" responsive="true"/>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Container100 NoIndent Flex FlexWrap">
+                <div class="Container50 Responsive50 Flex">
+                    <div class="Card BlueBack">
+                        <div class="EmptyBox10"></div>
+                        <div class="CardTopic White">NEW USERS <i class="icon-user Fright White Opac50 Fs40"></i> </div>
+                        <div class="EmptyBox10"></div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Returning Visitors</span>
+                            <span class="Fs40 FontVoltLight White">345</span>
+                        </div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">All Visitors</span>
+                            <span class="Fs40 FontVoltLight White">23,456</span>
+                        </div>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                </div>
+                <div class="Container50 Responsive50 Flex">
+                    <div class="Card TealGreenBack">
+                        <div class="EmptyBox10"></div>
+                        <div class="CardTopic White">NEW ORDERS <i class="icon-clipboard2 Fright White Opac50 Fs40"></i></div>
+                        <div class="EmptyBox10"></div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">From E-Commerce</span>
+                            <span class="Fs40 FontVoltLight White">78,567</span>
+                        </div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">From Stores</span>
+                            <span class="Fs40 FontVoltLight White">98,435</span>
+                        </div>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                </div>
+                <div class="Container50 Responsive50 Flex">
+                    <div class="Card GreenBack">
+                        <div class="EmptyBox10"></div>
+                        <div class="CardTopic White">CUSTOMER SUPPORT <i class="icon-support Fright White Opac50 Fs40"></i></div>
+                        <div class="EmptyBox10"></div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Pending Issues</span>
+                            <span class="Fs40 FontVoltLight White">289</span>
+                        </div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Solved Issues</span>
+                            <span class="Fs40 FontVoltLight White">10,436</span>
+                        </div>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                </div>
+                <div class="Container50 Responsive50 Flex">
+                    <div class="Card OrangeBack">
+                        <div class="EmptyBox10"></div>
+                        <div class="CardTopic White">REVENUE <i class="icon-pin-outline Fright White Opac50 Fs40"></i></div>
+                        <div class="EmptyBox10"></div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Pending Issues</span>
+                            <span class="Fs40 FontVoltLight White">289</span>
+                        </div>
+                        <div class="Container100">
+                            <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Solved Issues</span>
+                            <span class="Fs40 FontVoltLight White">10,436</span>
+                        </div>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="Container100">
+                <div class="Card">
+                    <div class="EmptyBox10"></div>
+                    <div class="CardTopic Opac90 OvHidden">Product Inventory Management <i class="icon-tags Fright Fs30"></i></div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox5"></div>
+
+                    <div class="Container50 Responsive100">
+                        <p:selectOneMenu id="dealer" value="Select Dealer" style="width:75%;">
+                            <f:selectItem itemLabel="Select Dealer" itemValue="" />
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                        <div class="EmptyBox10"></div>
+                        <p:selectOneMenu id="product" value="Select Product" style="width:75%;">
+                            <f:selectItem itemLabel="Select Prodcut" itemValue="" />
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                        <div class="EmptyBox10"></div>
+                        <p:selectOneMenu id="model" value="Select Model" style="width:75%;">
+                            <f:selectItem itemLabel="Select Model" itemValue="" />
+                            <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                            <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                            <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                        </p:selectOneMenu>
+                        <div class="EmptyBox10"></div>
+                        <p:spinner placeholder="Piece"/>
+                    </div>
+
+                    <div class="Container50 Responsive100">
+                        <p:inputTextarea rows="4" placeholder="Notes To Dealer" style="width:95%;"/>
+                        <p:selectManyCheckbox layout="pageDirection">
+                            <f:selectItem itemLabel="First Check Box" itemValue="fc" />
+                            <f:selectItem itemLabel="Second Check Box" itemValue="sc" />
+                            <f:selectItem itemLabel="Third Check Box" itemValue="tc" />
+                        </p:selectManyCheckbox>
+                    </div>
+                    <div class="EmptyBox20"></div>
+
+                    <div class="Container100 TexAlRight">
+                        <p:button value="Send Form" styleClass="TealGreenButton MarRight10"/>
+                        <p:button value="Clear All" styleClass="RedButton"/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </ui:define>
+
+</ui:composition>

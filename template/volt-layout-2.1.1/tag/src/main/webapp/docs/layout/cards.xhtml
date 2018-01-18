@@ -1,0 +1,187 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="Container100">
+            
+                <div class="Card">
+                    <div class="Container100">
+                        
+                        <div class="Container100 TexAlCenter"><i class="icon-mountains14 Red Fs130 MarTop20" style="line-height:1 !important;"></i></div>
+                        <h1 class="TexAlCenter Fs40 Red">Volt Documentation</h1>
+                        <div class="EmptyBox40"></div>
+
+
+                            <h1 class="TexAlCenter gray Fs30">
+                                <span class="Red Fs30">Volt Layout<br/></span>
+                            </h1>
+
+
+                        <p:panel styleClass="">
+                            <div class="Fs20 TexAlCenter Red">Cards For Grouping</div>
+                            <div class="EmptyBox10"></div>
+                            <p:panelGrid columns="3" styleClass="Wid100">
+                                <h:outputText value="Class Group" styleClass="Orange Fs20 Wid30"/>
+                                <h:outputText value="Class Name" styleClass="Orange Fs20 Wid30"/>
+                                <h:outputText value="Instructions" styleClass="Orange Fs20 Wid40"/>
+
+                                <h:outputText value="" styleClass="Fs20 Wid30" escape="false"/>
+                                <h:outputText value="CardTopic &lt;br /&gt;" styleClass="Blue Wid30" escape="false"/>
+                                <h:outputText value="Add topic area to top of Card element" escape="false"/>
+
+                                <h:outputText value="Cards" styleClass="Fs20 Wid30" escape="false"/>
+                                <h:outputText value="Card &lt;br /&gt;" styleClass="Blue Wid30" escape="false"/>
+                                <h:outputText value="Cards are container styles mainly created in dashboard pages.
+                                              See examples below. &lt;br /&gt; &lt;br /&gt;
+                                              And more examples see other Volt Layout pages.." escape="false"/>
+
+                                <h:outputText value="" styleClass="Fs20 Wid30" escape="false"/>
+                                <h:outputText value="CardFooter &lt;br /&gt;" styleClass="Blue Wid30" escape="false"/>
+                                <h:outputText value="Add footer area to bottom of Card element" escape="false"/>
+                            </p:panelGrid>
+                        </p:panel>
+                </div>
+            </div>
+            
+            <div class="EmptyBox30"></div>
+            
+            <div class="Container100 NoIndent">
+                <div class="Container50 Responsive100">
+                    <div class="Card">
+                        <div class="CardTopic">Card Topic</div>
+                        <div class="SeparatorFull"></div>
+                        Card Body<br/>
+                        <span class="FontVoltRegular Fs12"> Eget sodales a a in bibendum bibendum dignissim est curae eget vel congue posuere parturient nostra mus est habitasse 
+                            adipiscing cubilia aliquet vestibulum proin a aenean. Rutrum cum quisque nascetur consectetur adipiscing sed condimentum penatibus lobortis a feugiat 
+                            ultrices sed curabitur tristique a mauris volutpat in. Himenaeos eu parturient condimentum in consectetur potenti lorem a feugiat imperdiet himenaeos 
+                            in tempus at condimentum a luctus eu vehicula aliquet ultricies eros sociis laoreet nullam. Orci netus habitant cras consectetur curabitur luctus ut 
+                            penatibus leo scelerisque quisque id nibh rhoncus senectus vestibulum lacinia tincidunt a per ullamcorper ullamcorper accumsan.
+Eleifend feugiat condimentum consectetur fermentum suspendisse amet eros nullam tincidunt a et adipiscing volutpat a. A vestibulum parturient curabitur cursus a aliquet odio 
+ultrices quam fermentum elit a lobortis himenaeos ullamcorper nam. A hendrerit sapien venenatis nibh a consectetur torquent dis parturient duis ut commodo ornare proin velit 
+ullamcorper lectus convallis parturient enim blandit tincidunt vestibulum interdum sagittis a. Sit mus facilisis urna congue fermentum at velit sed sed est facilisis parturient 
+a fringilla quisque cubilia hac aliquam inceptos et. Aliquet quam elit suspendisse vestibulum blandit ligula sem sagittis neque semper magna luctus ullamcorper a urna nec 
+suscipit etiam purus suspendisse placerat feugiat ipsum mattis volutpat mus. At parturient orci felis placerat nostra eleifend orci potenti amet a nisi pretium ultrices 
+condimentum vitae congue adipiscing tempus fermentum lorem lobortis.
+Velit posuere egestas nulla litora quam in eros class ullamcorper mollis vitae erat hendrerit a gravida cras suscipit parturient parturient scelerisque lacus.</span>
+                        <div class="CardFooter">Card Footer</div>
+                    </div> 
+                    
+                    <div class="EmptyBox20"></div>
+                    
+                    <div class="BigTopic">Some Using Samples Of Cards</div>
+                    
+                    <div class="Container50 Responsive50">
+                        <div class="Card BlueBack">
+                            <div class="EmptyBox10"></div>
+                            <div class="CardTopic White">NEW USERS <i class="icon-user Fright White Opac50 Fs40"></i> </div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Returning Visitors</span>
+                                <span class="Fs40 FontVoltLight White">345</span>
+                            </div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">All Visitors</span>
+                                <span class="Fs40 FontVoltLight White">23,456</span>
+                            </div>
+                            <div class="EmptyBox10"></div>
+                        </div>
+                    </div>
+                    <div class="Container50 Responsive50">
+                        <div class="Card TealGreenBack">
+                            <div class="EmptyBox10"></div>
+                            <div class="CardTopic White">NEW ORDERS <i class="icon-clipboard2 Fright White Opac50 Fs40"></i></div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">From E-Commerce</span>
+                                <span class="Fs40 FontVoltLight White">78,567</span>
+                            </div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">From Stores</span>
+                                <span class="Fs40 FontVoltLight White">98,435</span>
+                            </div>
+                            <div class="EmptyBox10"></div>
+                        </div>
+                    </div>
+                    <div class="Container50 Responsive50">
+                        <div class="Card GreenBack">
+                            <div class="EmptyBox10"></div>
+                            <div class="CardTopic White">CUSTOMER SUPPORT <i class="icon-support Fright White Opac50 Fs40"></i></div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Pending Issues</span>
+                                <span class="Fs40 FontVoltLight White">289</span>
+                            </div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Solved Issues</span>
+                                <span class="Fs40 FontVoltLight White">10,436</span>
+                            </div>
+                            <div class="EmptyBox10"></div>
+                        </div>
+                    </div>
+                    <div class="Container50 Responsive50">
+                        <div class="Card OrangeBack">
+                            <div class="EmptyBox10"></div>
+                            <div class="CardTopic White">REVENUE <i class="icon-pin-outline Fright White Opac50 Fs40"></i></div>
+                            <div class="EmptyBox10"></div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Pending Issues</span>
+                                <span class="Fs40 FontVoltLight White">289</span>
+                            </div>
+                            <div class="Container100">
+                                <span class="Fs12 White FontVoltRegular Opac50 DispBlock">Solved Issues</span>
+                                <span class="Fs40 FontVoltLight White">10,436</span>
+                            </div>
+                            <div class="EmptyBox10"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="Container50 Responsive100">
+                    <div class="Card">
+                        <div class="CardTopic">Some Different Cards With Different Body And Border Colors</div>
+                        <div class="SeparatorFull"></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card OrangeBack White">OrangeBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card OrangeBorder">OrangeBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card PurpleBack White">PurpleBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card PurpleBorder">PurpleBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card BlueBack White">BlueBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card BlueBorder">BlueBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card RedBack White">RedBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card RedBorder">RedBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card BrownBack White">BrownBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card BrownBorder">BrownBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card LimeBack White">LimeBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card LimeBorder">LimeBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card TealGreenBack White">TealGreenBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card TealGreenBorder">TealGreenBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card GreenBack White">GreenBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card GreenBorder">GreenBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card DarkGreenBack White">DarkGreenBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card DarkGreenBorder">DarkGreenBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card LeadenBack White">LeadenBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card LeadenBorder">LeadenBorder Card</div></div>
+                        
+                        <div class="Container50 Responsive50"><div class="Card PinkBack White">PinkBack Card</div></div>
+                        <div class="Container50 Responsive50"><div class="Card PinkBorder">PinkBorder Card</div></div>
+                    </div> 
+                </div>
+            </div>
+            
+        </div>
+    </ui:define>
+
+</ui:composition>

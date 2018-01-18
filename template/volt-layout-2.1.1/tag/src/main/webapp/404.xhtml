@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Volt</title>
+        <ui:insert name="head" />
+    </h:head>
+
+    <h:body styleClass="LeadenBody">
+        
+        <div class="Container100">
+            <div class="Container100">
+                <div class="Wid30 OvHidden DispBlock MarAuto WidAutoOnMobile" style="margin-top:7%;">
+                    <div class="Card ShadowEffect">
+                        
+                        <div class="Container100">
+                            <div class="Card RedBack White TexAlCenter Fs20 FontVoltBold">Page Not Found !</div>
+                        </div>
+                        
+                        <div class="Container40 TexAlCenter Responsive100">
+                            <i class="icon-document-delete Fs100 Red"></i>
+                            <div class="EmptyBox10"></div>
+                            <span class="FontVoltSemiBold DispBlock Fs40">404 !</span>
+                            <div class="EmptyBox10"></div>
+                            <span class="FontVoltRegular Fs16">Sorry, but the resource you are looking for has not been found.
+                                <div class="Separator"></div>
+                                <p:link value="Get More Info"/>
+                            </span>
+                        </div>
+                        
+                        <div class="Container60 Responsive100">
+                            <div class="Card TexAlCenter">
+                                <i class="icon-messages Fs60"></i>
+                                <div class="EmptyBox10"></div>
+                                <p:inputText styleClass="Wid90" placeholder="Your E-Mail"/>
+                                <div class="EmptyBox10"></div>
+                                <p:inputTextarea rows="5" placeholder="Send your opinions" style="width:90%;"/>
+                                <div class="Separator"></div>
+                                <p:button value="Send To Admin" styleClass="BlueButton" href="dashboard.xhtml"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h:outputStylesheet name="css/core-layout.css" library="volt-layout" />
+        <h:outputStylesheet name="css/animate.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-font.css" library="volt-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-layout.css" library="volt-layout" />
+    </h:body>
+
+</html>
