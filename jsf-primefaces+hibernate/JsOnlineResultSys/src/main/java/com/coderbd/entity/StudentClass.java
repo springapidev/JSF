@@ -15,20 +15,29 @@ public class StudentClass {
 	@Column(name = "id")
 	private int id;
 	@Column(name = "class_name")
-	private final String className;
+	private String className;
 	@Column(name = "note")
-	private final String note;
+	private String note;
 	public StudentClass(String className, String note) {
 		super();
 		this.className = className;
 		this.note = note;
 	}
+	
+	public StudentClass() {}
 	public String getClassName() {
 		return className;
 	}
 	public String getNote() {
 		return note;
 	}
+
+	@Override
+	public String toString() {
+		return "StudentClass [className=" + className + ", note=" + note + "]";
+	}
+
+	
 	
 	
 	

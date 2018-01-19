@@ -26,5 +26,20 @@ public class Subject {
 		this.subjectCode = subjectCode;
 		this.note = note;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getSubjectName() {
+		return subjectName;
+	}
+	public String getSubjectCode() {
+		return subjectCode;
+	}
+	public String getNote() {
+		return note;
+	}
 	
 }

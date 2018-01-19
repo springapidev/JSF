@@ -47,14 +47,14 @@ Contributor(s):
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
       <property name="hibernate.hbm2ddl.auto">update</property>
-    <property name="hibernate.connection.pool_size">10</property>
+    <property name="hibernate.connection.pool_size">100</property>
     <property name="show_sql">true</property>
-    <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <mapping class="com.coderbd.entity.Student"/>
+       <property name="hibernate.current_session_context_class">thread</property>
+    <mapping class="com.coderbd.entity.Employee"/>
+     <mapping class="com.coderbd.entity.Student"/>
+     <mapping class="com.coderbd.entity.StudentClass"/>
+     <mapping class="com.coderbd.entity.Subject"/>
      <mapping class="com.coderbd.entity.Teacher"/>
-          <mapping class="com.coderbd.entity.StudentClass"/>
-               <mapping class="com.coderbd.entity.Subject"/>
-                    <mapping class="com.coderbd.entity.TeacherAsgnClassSubject"/>
+     <mapping class="com.coderbd.entity.TeacherAsgnClassSubject"/>
   </session-factory>
 </hibernate-configuration>

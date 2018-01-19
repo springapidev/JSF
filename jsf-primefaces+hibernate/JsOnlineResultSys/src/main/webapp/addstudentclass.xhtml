@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>Add Student Class</title>
+		</f:facet>
+	</h:head>
+
+	<h:body>
+	
+		<h:outputLabel value="Hello, world" />
+		<h:form id="tests">
+			<p:outputLabel value="Name:" />
+			<p:inputText value="#{studentClassController.studentClass.className}" />
+			
+			<p:outputLabel value="Address" />
+			<p:inputText value="#{studentClassController.studentClass.note}" />
+
+
+			<p:commandButton type="submit" value="Save" update="datatx"
+				action="#{studentClassController.saveStudentClass}" />
+
+		</h:form>
+		<h:form id="datatx">
+
+
+			<p:dataTable var="cls"
+				value="#{studentClassController.studentClasses}">
+				<p:column headerText="Class Name">
+					<h:outputText value="#{cls.className}" />
+				</p:column>
+
+				<p:column headerText="Note">
+					<h:outputText value="#{cls.note}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

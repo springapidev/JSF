@@ -18,7 +18,7 @@ public class Student {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name = "id")
 	private int id;
-	@Column(name = "id")
+	@Column(name = "student_name")
 	private final String studentName;
 	@Column(name = "father_name")
 	private final String fatherName;
@@ -39,6 +39,7 @@ public class Student {
 	private final String mobileNo;
 	@Column(name = "note")
 	private final String note;
+
 
 	public Student(String studentName, String fatherName, String motherName, int regiNo, int rollNo,
 			StudentClass studentClass, Date birthDate, Date admissionDate, String mobileNo, String note) {

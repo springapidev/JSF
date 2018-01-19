@@ -1,5 +1,7 @@
 package com.coderbd.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,18 +21,18 @@ public class TeacherAsgnClassSubject {
 	
 	@ManyToMany
 	@JoinColumn(name="teacher_id")
-	private final Teacher teacher;
+	private final List<Teacher> teachers;
 	@ManyToMany
 	@JoinColumn(name="sclass_id")
-	private final StudentClass studentClass;
+	private final List<StudentClass> studentClasses;
 	@ManyToMany
 	@JoinColumn(name="subject_id")
-	private final Subject subject;
-	public TeacherAsgnClassSubject(Teacher teacher, StudentClass studentClass, Subject subject) {
+	private final List<Subject> subjects;
+	public TeacherAsgnClassSubject(List<Teacher> teachers, List<StudentClass> studentClasses, List<Subject> subjects) {
 		super();
-		this.teacher = teacher;
-		this.studentClass = studentClass;
-		this.subject = subject;
+		this.teachers = teachers;
+		this.studentClasses = studentClasses;
+		this.subjects = subjects;
 	}
 	public int getId() {
 		return id;
@@ -38,14 +40,15 @@ public class TeacherAsgnClassSubject {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public Teacher getTeacher() {
-		return teacher;
+	
+	public List<Teacher> getTeachers() {
+		return teachers;
 	}
-	public StudentClass getStudentClass() {
-		return studentClass;
+	public List<StudentClass> getStudentClasses() {
+		return studentClasses;
 	}
-	public Subject getSubject() {
-		return subject;
+	public List<Subject> getSubjects() {
+		return subjects;
 	}
 	
 	

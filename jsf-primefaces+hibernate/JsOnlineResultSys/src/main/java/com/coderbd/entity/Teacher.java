@@ -1,6 +1,7 @@
 package com.coderbd.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,22 +33,22 @@ public class Teacher {
 	
 	@ManyToMany
 	@JoinColumn(name = "sclass_id")
-	private final StudentClass studentClass;
+	private final List<StudentClass> studentClasses;
 	
 	@OneToMany
 	@JoinColumn(name = "subject_id")
-	private final Subject subject;
+	private final List<Subject> subjects;
 
 	public Teacher(String teacherName, Date birthDate, Date joiningDate, String mobileNo, String note,
-			StudentClass studentClass, Subject subject) {
+			List<StudentClass> studentClasses, List<Subject> subjects) {
 		super();
 		this.teacherName = teacherName;
 		this.birthDate = birthDate;
 		this.joiningDate = joiningDate;
 		this.mobileNo = mobileNo;
 		this.note = note;
-		this.studentClass = studentClass;
-		this.subject = subject;
+		this.studentClasses= studentClasses;
+		this.subjects = subjects;
 	}
 
 	public int getId() {
@@ -78,12 +79,16 @@ public class Teacher {
 		return note;
 	}
 
-	public StudentClass getStudentClass() {
-		return studentClass;
+	
+
+	public List<StudentClass> getStudentClasses() {
+		return studentClasses;
 	}
 
-	public Subject getSubject() {
-		return subject;
+	public List<Subject> getSubjects() {
+		return subjects;
 	}
+
+	
 	
 }

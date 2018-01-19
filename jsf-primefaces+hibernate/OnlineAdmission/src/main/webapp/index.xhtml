@@ -23,14 +23,14 @@
 			<p:inputText value="#{employeeController.employee.empAddress}" />
 			<p:outputLabel value="Mobile" />
 			<p:inputText value="#{employeeController.employee.empMobileNos}" />
-			<p:commandButton type="submit" value="Save"
+			<p:commandButton type="submit" value="Save" update="datat"
 				action="#{employeeController.saveEmployee()}" />
 
 		</h:form>
-		<h:form>
+		<h:form id="datat">
 
 
-			<p:dataTable var="emp" value="#{employeeController.employees}">
+			<p:dataTable var="emp" value="#{employeeController.employees}" >
 				<p:column headerText="Employee Name">
 					<h:outputText value="#{emp.empName}" />
 				</p:column>
