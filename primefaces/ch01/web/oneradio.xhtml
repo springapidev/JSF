@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Prime Day 1">
+                            <p:menuitem value="Home" outcome="welcomePrimefaces.xhtml"/>
+                            <p:menuitem value="One Radio" outcome="oneradio.xhtml"/>
+                         <p:menuitem value="Gender" outcome="gender.xhtml"/>
+                          <p:menuitem value="Ajax" outcome="ajaxex.xhtml"/>
+                          <p:menuitem value="Country Chain" outcome="countrychain.xhtml"/>
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <h:form id="one">
+                        <h3 style="margin-top:0">Basic</h3>
+                        
+                        
+                         <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:outputLabel for="console" value="Console:" />
+                            <p:selectOneRadio id="console" value="#{radioView.console}">
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneRadio>
+                        </h:panelGrid>
+
+                        <h3>Grid</h3>
+                        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5">
+                            <p:outputLabel for="city" value="City:" />
+                            <p:selectOneRadio id="city" value="#{radioView.city}"  layout="grid" columns="3">
+                                <f:selectItems value="#{radioView.cities}" var="c" itemLabel="#{city}" itemValue="#{city}"/>
+                            </p:selectOneRadio>
+                        </h:panelGrid>
+
+                        
+
+                        <h3>Custom Layout</h3>
+                        <p:outputPanel id="customPanel" style="margin-bottom:10px">
+                            <p:selectOneRadio id="customRadio" value="#{radioView.color}" layout="custom">
+                                <f:selectItem itemLabel="Red" itemValue="Red" />
+                                <f:selectItem itemLabel="Green" itemValue="Green" />
+                                <f:selectItem itemLabel="Blue" itemValue="Blue" />
+                            </p:selectOneRadio>
+
+                            <h:panelGrid columns="3" cellpadding="5">
+                                <p:radioButton id="opt1" for="customRadio" itemIndex="0" />
+                                <h:outputLabel for="opt1" value="Red" />
+                                <p:spinner />
+
+                                <p:radioButton id="opt2" for="customRadio" itemIndex="1" />
+                                <h:outputLabel for="opt2" value="Green" />
+                                <p:inputText />
+
+                                <p:radioButton id="opt3" for="customRadio" itemIndex="2" />
+                                <h:outputLabel for="opt3" value="Blue" />
+                                <p:calendar />
+                            </h:panelGrid>
+                        </p:outputPanel>
+
+                        <p:commandButton value="Submit" update="display" icon="ui-icon-check" oncomplete="PF('dlg').show()"/>
+
+                        <p:dialog modal="true" resizable="false" widgetVar="dlg" header="Values" showEffect="clip">
+                            <p:panelGrid columns="2" id="display" columnClasses="label,value">
+                                <h:outputText value="Console:" />
+                                <h:outputText value="#{radioView.console}" />
+
+                                <h:outputText value="City:" />
+                                <h:outputText value="#{radioView.city}" />
+
+                                <h:outputText value="City 2:" />
+                                <h:outputText value="#{radioView.city2}" />
+
+                                <h:outputText value="Color:" />
+                                <h:outputText value="#{radioView.color}" />
+                            </p:panelGrid>
+                        </p:dialog>
+                    </h:form>
+
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
