@@ -7,11 +7,24 @@
 
     <f:view contentType="text/html">
         <h:head>
-            <h:outputStylesheet library="css" name="custom.css"/>
-            <h:outputStylesheet library="css" name="bootstrap.css"/>
+            <h:outputStylesheet library="css" name="theme.css"/>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>PrimeFaces</title>
+
+                <!-- css from Theme-->
+                <link type="text/css" rel="stylesheet" href="${request.contextPath}/faces/javax.faces.resource/theme.css?ln=primefaces-bootstrap" />
+
+                <!--Deafult css and JS from Primefaces-->
+                <!--
+                                <link type="text/css" rel="stylesheet"
+                                      href="/faces/javax.faces.resource/primefaces.css?ln=primefaces" />
+                
+                                <script type="text/javascript"
+                                src="/faces/javax.faces.resource/jquery/jquery.js?ln=primefaces"></script>
+                                <script type="text/javascript"
+                                src="/faces/javax.faces.resource/primefaces.js?ln=primefaces"></script>
+                -->
 
             </f:facet>
         </h:head>
@@ -21,35 +34,21 @@
             <p:layout fullPage="true">
 
                 <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
-                    Header
+                    <ui:include src="header.xhtml"/>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
-                    Footer
+                    <ui:include src="footer.xhtml"/>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
-                    <p:menu>
-                        <p:submenu label="Resources">
-                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
-                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
-                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
-                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
 
-                        </p:submenu>
+                    <ui:include src="left.xhtml"/>
 
-                    </p:menu>
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    <h1 class="abc">  Welcome to PrimeFaces</h1>
-
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-4">4 </div>
-                            <div class="col-md-8">8 </div>
-                        </div>
-                    </div>
+              <ui:insert name="content" />
 
                 </p:layoutUnit>
 

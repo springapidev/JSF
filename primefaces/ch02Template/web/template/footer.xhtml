@@ -7,11 +7,24 @@
 
     <f:view contentType="text/html">
         <h:head>
-            <h:outputStylesheet library="css" name="custom.css"/>
-            <h:outputStylesheet library="css" name="bootstrap.css"/>
+            <h:outputStylesheet library="css" name="theme.css"/>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>PrimeFaces</title>
+
+                <!-- css from Theme-->
+                <link type="text/css" rel="stylesheet" href="${request.contextPath}/faces/javax.faces.resource/theme.css?ln=primefaces-bootstrap" />
+
+                <!--Deafult css and JS from Primefaces-->
+                <!--
+                                <link type="text/css" rel="stylesheet"
+                                      href="/faces/javax.faces.resource/primefaces.css?ln=primefaces" />
+                
+                                <script type="text/javascript"
+                                src="/faces/javax.faces.resource/jquery/jquery.js?ln=primefaces"></script>
+                                <script type="text/javascript"
+                                src="/faces/javax.faces.resource/primefaces.js?ln=primefaces"></script>
+                -->
 
             </f:facet>
         </h:head>
@@ -42,12 +55,16 @@
                 </p:layoutUnit>
 
                 <p:layoutUnit position="center">
-                    <h1 class="abc">  Welcome to PrimeFaces</h1>
+                    Welcome to PrimeFaces
 
-                    <div class="container-fluid">
+                    <div class="container">
                         <div class="row">
-                            <div class="col-md-4">4 </div>
-                            <div class="col-md-8">8 </div>
+                            <div class="col-md-4">4
+
+                            </div>
+                            <div class="col-md-8">8
+
+                            </div>
                         </div>
                     </div>
 
