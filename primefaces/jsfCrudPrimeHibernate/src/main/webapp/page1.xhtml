@@ -1,0 +1,133 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+
+
+			<h:form id="form1">
+
+				<p:growl id="messages" showDetail="true" life="3000" />
+				<p:dataTable id="objects" var="emp"
+					value="#{employeeController.employees}" styleClass="et_datatable"
+					emptyMessage="Empty..." editable="true" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,15" selectionMode="single"
+					rowKey="#{emp.id}"
+					filteredValue="#{employeeController.employees}">
+
+					<p:column headerText="Name" sortBy="#{emp.empName}"
+						filterBy="#{emp.empName}" filterMatchMode="contains">
+						<h:outputText value="#{emp.empName}" />
+					</p:column>
+
+					<p:column headerText="Address" sortBy="#{emp.empAddress}"
+						filterBy="#{emp.empAddress}" filterMatchMode="contains">
+						<h:outputText value="#{emp.empAddress}" />
+					</p:column>
+
+
+					<p:column headerText="Mobile No" sortBy="#{emp.empMobileNos}"
+						filterBy="#{emp.empMobileNos}" filterMatchMode="contains">
+						<h:outputText value="#{emp.empMobileNos}" />
+					</p:column>
+
+
+
+					<p:column headerText="Delete" style="width:8%">
+						<p:commandLink update=":form1:display"
+							oncomplete="PF('confirmDeleteDlg').show()"
+							image="ui-icon ui-icon-close" title="Delete">
+							<f:setPropertyActionListener value="#{emp}"
+								target="#{employeeController.employee}" />
+							<h:outputText styleClass="ui-icon ui-icon-close" />
+						</p:commandLink>
+					</p:column>
+					<p:column headerText="Details" style="width:8%">
+						<p:commandLink update=":form1:display"
+							oncomplete="PF('detailsDlg').show()"
+							image="ui-icon ui-icon-search" title="Details">
+							<f:setPropertyActionListener value="#{emp}"
+								target="#{employeeController.employee}" />
+							<h:outputText styleClass="ui-icon ui-icon-search" />
+						</p:commandLink>
+					</p:column>
+
+
+				</p:dataTable>
+
+
+				<p:dialog header="Remove"  widgetVar="confirmDeleteDlg"
+					resizable="false" width="400" height="60" showEffect="clip"
+					hideEffect="clip" modal="true">
+
+					<p:outputPanel layout="block" style="text-align:center">
+						<p:commandButton value="Yes"
+							update=":form1:messages,:form1:objects"
+							actionListener="#{employeeController.deleteEmployee}"
+							oncomplete="PF('confirmDeleteDlg').hide()" />
+						<p:commandButton value="No"
+							onclick="PF('confirmDeleteDlg').hide()" type="button" />
+					</p:outputPanel>
+
+				</p:dialog>
+
+
+
+				<p:dialog header="Update" widgetVar="detailsDlg" resizable="false"
+					width="750" height="400" showEffect="clip" hideEffect="clip"
+					modal="true">
+
+					<h:panelGrid id="display" columns="2" cellpadding="4"
+						style="margin:0 auto;">
+
+
+
+
+						<h:outputText value="Name"
+							style="padding-left: 30px; padding-right: 30px;" />
+						<p:inputText value="#{employeeController.employee.empName}" />
+
+						<h:outputText value="Address"
+							style="padding-left: 30px; padding-right: 30px;" />
+						<p:inputText value="#{employeeController.employee.empAddress}" />
+
+
+						<h:outputText value="Mobile"
+							style="padding-left: 30px; padding-right: 30px;" />
+						<p:inputText value="#{employeeController.employee.empMobileNos}" />
+
+
+
+					</h:panelGrid>
+
+					<p:outputPanel layout="block" style="text-align:center">
+						<br />
+						<br />
+						<p:commandButton value="Update"
+							update=":form1:objects, :form1:messages"
+							actionListener="#{employeeController.updateEmployee}"
+							oncomplete="PF('detailsDlg').hide()" />
+						<p:commandButton value="Cancel" onclick="PF('detailsDlg').hide()"
+							type="button" />
+					</p:outputPanel>
+
+				</p:dialog>
+				
+				
+				<p:commandButton value="Show Dialog" onclick="PF('dlg').show();" type="button" />
+        
+<p:dialog header="Dialog" widgetVar="dlg" dynamic="true">
+   <h:outputText value="This content is loaded lazy." />
+</p:dialog>
+
+			</h:form>
+
+
+		</ui:define>
+</ui:composition>

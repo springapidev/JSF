@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+    <h:head>
+        <title>Sale Item</title>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            <p:growl id="messages" showDetail="true"/>
+         
+                <p:panelGrid columns="2">
+                    <h:outputLabel for="item" value="Item Name: " />
+                    <p:inputText  value="#{item.item}"/>
+                    <h:outputLabel for="qty" value="Qyantity: " />
+                    <p:inputText value="#{item.qty}"/>
+                    <h:outputLabel for="price" value="Price: " />
+                    <p:inputText  value="#{item.price}"/>
+                    <f:facet name="footer">
+                        <h:commandButton value="Add Item" action="#{item.addAction}"/>
+                    </f:facet>
+                </p:panelGrid>
+                <p:spacer height="30px;"/>
+                <p:dataTable value="#{item.orderList}" var="o"  widgetVar="50" style="width: 100%;" editable="true">
+                    <f:facet name="header">  
+                        Order List  
+                    </f:facet>
+                    <p:ajax event="rowEdit" listener="#{item.onEdit}" update=":form1:messages" />  
+                    <p:ajax event="rowEditCancel" listener="#{item.onCancel}" update=":form1:messages" /> 
+                    <p:column>
+                        <f:facet name="header">  
+                            <h:outputText value="Item Name" />  
+                        </f:facet>
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{o.item}" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="#{o.item}" style="width:100%"/>  
+                            </f:facet>  
+                        </p:cellEditor> 
+                    </p:column>
+ 
+                    <p:column>
+                        <f:facet name="header">  
+                            <h:outputText value="Quantity" />  
+                        </f:facet>
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{o.qty}" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="#{o.qty}" style="width:100%"/>  
+                            </f:facet>  
+                        </p:cellEditor>
+                    </p:column>
+ 
+                    <p:column>
+                        <f:facet name="header">  
+                            <h:outputText value="Price" />  
+                        </f:facet>
+                        <p:cellEditor>  
+                            <f:facet name="output">  
+                                <h:outputText value="#{o.price}" />  
+                            </f:facet>  
+                            <f:facet name="input">  
+                                <p:inputText value="#{o.price}" style="width:100%"/>  
+                            </f:facet>  
+                        </p:cellEditor>
+                    </p:column>               
+                    <p:column headerText="Options" style="width:50px">  
+                        <p:rowEditor />  
+                    </p:column> 
+                </p:dataTable>
+         
+        </h:form>
+    </h:body>
+</html>
