@@ -1,78 +1,131 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	template="template/template.xhtml">
-
-	<ui:define name="metadata">
-	</ui:define>
-	<ui:define name="content">
-		<div class="h1">Add Student Class</div>
-		<div class="container">
-<div class="row">
-			<div class="col-md-5">
-				<h:form id="form1">
-					<div class="row">
-						<div class="col-md-2">
-							<p:outputLabel value="Name" />
-						</div>
-						<div class="col-md-10">
-							<p:inputText value="#{employeeController.employee.empName}" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-2">
-							<p:outputLabel value="Address" />
-						</div>
-						<div class="col-md-10">
-							<p:inputText value="#{employeeController.employee.empAddress}" />
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-2">
-							<p:outputLabel value="Mobile" />
-						</div>
-						<div class="col-md-10">
-							<p:inputText value="#{employeeController.employee.empMobileNos}" />
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-10">
-
-							<p:commandButton type="submit" value="Submit"
-								action="#{employeeController.saveEmployee}" update="form1 :form2" />
-						</div>
-					</div>
-
-				</h:form>
-			</div>
-			<div class="col-md-7">
-			<div><h2>Employee List</h2></div>
-				<h:form id="form2">
-					<p:dataTable  id="displayClass" value="#{employeeController.employees}" var="employee" reflow="true">
-					
-						<p:column headerText="Name">
-							<p:outputLabel value="#{employee.empName}" />
-						</p:column>
-
-						<p:column headerText="Address">
-							<p:outputLabel value="#{employee.empAddress}" />
-						</p:column>
-						<p:column headerText="Mobile">
-							<p:outputLabel value="#{employee.empMobileNos}" />
-						</p:column>
-						
-					</p:dataTable>
-					
-				</h:form>
-			</div>
-			</div>
-		</div>
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+		<ui:define name="content">
 
 
 
-	</ui:define>
-</ui:composition>
+			<h:form id="form1" style="">
+				<p:growl id="messages" showDetail="true" />
+
+
+				<p:panel id="panel">
+					<br />
+
+
+
+					<h:panelGrid id="display" columns="2" cellpadding="4">
+
+
+						<h:outputText value="Email" for="email"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="email" value="#{teacherMB.bean.email}"
+							required="true" label="Email" requiredMessage="Required" />
+
+
+						<h:outputText value="House No" for="houseNo"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="houseNo" value="#{teacherMB.bean.houseNo}"
+							required="true" label="House No" requiredMessage="Required" />
+
+
+						<h:outputText value="Road No" for="roadNo"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="roadNo" value="#{teacherMB.bean.roadNo}"
+							required="true" label="Road No" requiredMessage="Required" />
+
+
+						<h:outputText value="Block No" for="blockNo"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="blockNo" value="#{teacherMB.bean.blockNo}"
+							required="true" label="Block No" requiredMessage="Required" />
+
+
+
+
+						<h:outputText value="City" for="city"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="city" value="#{teacherMB.bean.city}"
+							required="true" label="City" requiredMessage="Required" />
+
+
+
+						<h:outputText value="Phone No" for="phoneNo"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="phoneNo" value="#{teacherMB.bean.phoneNo}"
+							required="true" label="Phone No" requiredMessage="Required" />
+
+
+
+						<h:outputText value="Mobile No" for="mobileNo"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="mobileNo" value="#{teacherMB.bean.mobileNo}"
+							required="true" label="Mobile No" requiredMessage="Required" />
+
+
+						<h:outputText value="Blood Group" for="bloodGroup"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="bloodGroup" value="#{teacherMB.bean.bloodGroup}"
+							required="true" label="Blood Group" requiredMessage="Required" />
+
+
+
+						<h:outputText value="Religion" for="religion"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="religion" value="#{teacherMB.bean.religion}"
+							required="true" label="Religion" requiredMessage="Required" />
+
+
+						<h:outputText value="Nationality" for="nationality"
+							style="padding-left: 30px; padding-right: 30px;" />
+
+						<p:inputText id="nationality"
+							value="#{teacherMB.bean.nationality}" required="true"
+							label="Rationality" requiredMessage="Required" />
+
+
+
+
+						<p:outputPanel layout="block" style="text-align:center">
+							<br />
+							<br />
+							<p:commandButton value="Reset" styleClass=""
+								update=":form1:panel" process="@this"
+								actionListener="#{teacherMB.reset}" />
+							<p:commandButton value="Save" styleClass=""
+								actionListener="#{teacherMB.save}"
+								update=":form1:messages, :form1:panel" />
+						</p:outputPanel>
+
+
+
+					</h:panelGrid>
+
+
+
+
+
+
+
+
+
+
+
+				</p:panel>
+
+			</h:form>
+
+		</ui:define>
+	</ui:composition>

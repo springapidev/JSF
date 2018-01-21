@@ -1,0 +1,52 @@
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    
+    <!-- TOPBAR START -->    
+    <div id="layout-topbar">
+        <div id="layout-topbar-indent">
+            <a id="menu-button"><i class="icon-th-menu"></i></a>
+            <a href="dashboard.xhtml"><h:graphicImage name="images/logo.svg" id="logo" library="volt-layout" /></a>
+            
+            <span class="DispInlBlock Fright" style="margin:10px 10px 0px 0px;">
+                <h:form styleClass="DispInline">
+                    <p:splitButton value="Menu" icon="ui-icon-check fa fa-cog" styleClass="White Fs14" appendTo="@this">
+                        <p:menuitem value="Users" icon="fa fa-user" />
+                        <p:menuitem value="Reports" icon="fa fa-file-text-o" />
+                        <p:menuitem value="Charts" icon="fa fa-line-chart" />
+                        <p:separator />
+                        <p:menuitem value="Tasks" icon="fa fa-tasks" />
+                        <p:menuitem value="Messages" icon="fa fa-envelope-o" />
+                        <p:menuitem value="Notes" icon="fa fa-file-zip-o" />
+                        <p:separator />
+                        <p:menuitem value="Log In / Log Out" url="#" icon="fa fa-key" />
+                    </p:splitButton>
+                </h:form>
+            </span>
+        </div>
+    </div>
+    <!-- TOPBAR END -->
+    
+    <!-- TOPMENU START -->
+    <ul id="top-menu">
+        <li style="float:left; border:none;">
+            <a href="#"><i class="icon-vcard Opac80"></i><span><span class="Fs16 bedcrum">Home-></span> </span></a>
+        </li>
+        <li>
+            <a href="#"><i class="icon-printer2 Opac80"></i><span><span class="Fs16">Orders</span> <br/> <span class="Opac50 Fs12">Totally 23 Orders</span></span></a>
+        </li>
+        <li>
+            <a href="#"><i class="icon-paperclip Opac80"></i><span><span class="Fs16">Notes</span> <br/> <span class="Opac50 Fs12">241 Notes</span></span></a>
+        </li>
+        <li>
+            <a href="#"><i class="icon-stopwatch Opac80"></i><span><span class="Fs16">Tasks</span> <br/> <span class="Opac50 Fs12">26 Unread Tasks</span></span></a>
+        </li>
+    </ul>
+    <!-- TOPMENU END -->
+    
+</ui:composition>
