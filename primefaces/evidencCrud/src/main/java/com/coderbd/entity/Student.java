@@ -38,7 +38,7 @@ public class Student implements Serializable{
 	@Column(name="hobby")
 	private String hobby;
 	@Temporal(TemporalType.DATE)
-	@Column(name="gender")
+	@Column(name="birth_date")
 	private Date birthDate;
 	@Column(name="note")
 	private String note;
@@ -83,6 +83,11 @@ public class Student implements Serializable{
 	}
 	public void setNote(String note) {
 		this.note = note;
+	}
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", round=" + round + ", gender=" + gender + ", hobby=" + hobby + ", birthDate="
+				+ birthDate + ", note=" + note + "]";
 	}
 
 }

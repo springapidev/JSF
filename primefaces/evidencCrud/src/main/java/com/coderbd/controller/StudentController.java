@@ -52,6 +52,7 @@ public class StudentController implements Serializable {
 
 	public void save() {
 		try {
+			System.out.println(student.toString());
 			studentService = new StudentService();
 			studentService.persist(this.student);
 			refreshList();

@@ -52,6 +52,6 @@ Contributor(s):
       <property name="hibernate.current_session_context_class">thread</property>
     <mapping class="com.coderbd.entity.Employee"/>
     <mapping class="com.coderbd.entity.Teacher"/>
-     
+       <mapping class="com.coderbd.entity.Student"/>
   </session-factory>
 </hibernate-configuration>

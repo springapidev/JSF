@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StudentEditDlg" widgetVar="StudentEditDialog" modal="true" resizable="false" appendTo="@(body)" header="Edit Student">
+            <h:form id="StudentEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{studentController.beanSelected != null}">
+                        <h:outputText value="Name" 
+                                      style="padding-left: 30px; padding-right: 30px;" />
+
+                        <p:inputText id="name" required="true" label="Name" value="#{studentController.beanSelected.name}"
+                                     requiredMessage="Required"/>
+
+                
+                        <h:outputText value="Gender" 
+                                      style="padding-left: 30px; padding-right: 30px;" />
+
+                        <p:selectOneRadio id="gender" value="#{studentController.beanSelected.gender}">
+                            <f:selectItem itemLabel="Male" itemValue="Male" />
+                            <f:selectItem itemLabel="Female" itemValue="Female" />
+
+                        </p:selectOneRadio>
+
+                    
+                        <h:outputText value="Round" 
+                                      style="padding-left: 30px; padding-right: 30px;" />
+
+                        <p:selectOneMenu  id="round" label="Round"  panelStyle="width:250px" value="#{studentController.beanSelected.round}">
+                            <f:selectItem itemLabel="Select Round" itemValue="" noSelectionOption="true" />
+                            <f:selectItem itemLabel="Round-32" itemValue="Round-32" />
+                            <f:selectItem itemLabel="Round-33" itemValue="Round-33" />
+                            <f:selectItem itemLabel="Round-34" itemValue="Round-34" />
+                            <f:selectItem itemLabel="Round-35" itemValue="Round-35" />
+                        </p:selectOneMenu>
+
+        
+
+                        <h:outputText value="Hobby" 
+                                      style="padding-left: 30px; padding-right: 30px;"  />
+
+                        <p:selectManyCheckbox id="hobby" value="#{studentController.hobies}">
+                            <f:selectItem itemLabel="Reading" itemValue="Reading" />
+                            <f:selectItem itemLabel="Writing" itemValue="Writing" />
+                            <f:selectItem itemLabel="Playing" itemValue="Playing" />
+                        </p:selectManyCheckbox>
+
+               
+                        <h:outputText value="Birth Date" 
+                                      style="padding-left: 30px; padding-right: 30px;" />
+                        <p:calendar id="popup" value="#{studentController.beanSelected.birthDate}" pattern="yyyy-MM-dd"/>
+                  
+
+                        <h:outputText value="Note" 
+                                      style="padding-left: 30px; padding-right: 30px;" />
+                        <p:inputTextarea rows="5" cols="30"  maxlength="100"
+                                         counterTemplate="{0} characters remaining." autoResize="false"
+                                         value="#{studentController.beanSelected.note}" />
+
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{studentController.update}" value="Edit" update="display,:StudentListForm:datalist" oncomplete="handleSubmit(args, 'StudentEditDialog');"/>
+                    <p:commandButton value="Cancel" onclick="StudentEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

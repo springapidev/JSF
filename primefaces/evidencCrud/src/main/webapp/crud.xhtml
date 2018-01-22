@@ -19,7 +19,7 @@
 					<p:inputText id="name" required="true" label="Name" value="#{studentController.student.name}"
 						requiredMessage="Required"/>
 
-
+	<br/>
 					<h:outputText value="Gender" for="gender"
 						style="padding-left: 30px; padding-right: 30px;" />
 
@@ -29,19 +29,19 @@
 
 					</p:selectOneRadio>
 
-
+	<br/>
 					<h:outputText value="Round" for="round"
 						style="padding-left: 30px; padding-right: 30px;" />
 
-					<p:selectCheckboxMenu id="round" label="Round" filter="true"
-						filterMatchMode="startsWith" panelStyle="width:250px" value="#{studentController.student.round}">
-						<f:selectItem value="Round-32" />
-						<f:selectItem value="Round-33" />
-						<f:selectItem value="Round-34" />
-						<f:selectItem value="Round-35" />
-					</p:selectCheckboxMenu>
+					<p:selectOneMenu  id="round" label="Round"  panelStyle="width:250px" value="#{studentController.student.round}">
+						 <f:selectItem itemLabel="Select Round" itemValue="" noSelectionOption="true" />
+						 <f:selectItem itemLabel="Round-32" itemValue="Round-32" />
+						<f:selectItem itemLabel="Round-33" itemValue="Round-33" />
+						<f:selectItem itemLabel="Round-34" itemValue="Round-34" />
+						<f:selectItem itemLabel="Round-35" itemValue="Round-35" />
+					</p:selectOneMenu>
 
-
+	<br/>
 
 					<h:outputText value="Hobby" for="hobby"
 						style="padding-left: 30px; padding-right: 30px;"  />
@@ -52,22 +52,24 @@
 						<f:selectItem itemLabel="Playing" itemValue="Playing" />
 					</p:selectManyCheckbox>
 
-				
+				<br/>
 					<h:outputText value="Birth Date" for="dob"
 						style="padding-left: 30px; padding-right: 30px;" />
 					<p:calendar id="popup" value="#{studentController.student.birthDate}" pattern="dd-MM-yyyy"/>
-					<h:outputText value="Note" for="note"
+						<br/>
+						
+						<h:outputText value="Note" for="note"
 						style="padding-left: 30px; padding-right: 30px;" />
-					<p:inputTextarea rows="5" cols="30" counter="note" maxlength="100"
+					<p:inputTextarea rows="5" cols="30"  maxlength="100"
 						counterTemplate="{0} characters remaining." autoResize="false"
 						 value="#{studentController.student.note}" />
 
 					<br />
 					<br />
 					<p:commandButton value="Reset" styleClass="" update=":form1:panel"
-						process="@this" actionListener="#{studentController.save}" />
-					<p:commandButton value="Save" styleClass=""
-						actionListener="#"
+						process="@this" actionListener="#{studentController.reset}" />
+					<p:commandButton type="submit" value="Save" styleClass=""
+						action="#{studentController.save}"
 						update=":form1:messages, :form1:panel" />
 					</p:outputPanel>
 
