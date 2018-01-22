@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>spinner.xhtml</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="140" resizable="true" closable="true" collapsible="true">
+                    <h:graphicImage value = "/images/data-banner.png" width="100%" height="100%"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    @Copyright Md. Shmaim Sarker | All Rights Reserved By Shamim | 01723795366
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="242" header="Left" collapsible="true">
+                    <ui:include src="leftmenu.xhtml"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    <f:view> 
+                        <h:form>
+                            <p:outputLabel value="Country: "/><br/>
+                            <p:selectOneMenu id="countris" value="#{partialProcessingBean.country}">
+                                <f:selectItems value="#{partialProcessingBean.countries}"/>
+                                <p:ajax listener="#{partialProcessingBean.handleCountryChange()}" event="change" update="cities" process="@this"/>
+                            </p:selectOneMenu><br/>
+
+                            <p:outputLabel value="City: "/><br/>
+                            <p:selectOneMenu id="cities" value="#{partialProcessingBean.city}">
+                                <f:selectItems value="#{partialProcessingBean.cities}"/>
+                            </p:selectOneMenu><br/>
+
+                            <p:outputLabel value="Email: "/><br/>
+                            <p:inputText value="#{partialProcessingBean.email}" required="true"/>
+                        </h:form>
+                    </f:view>
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

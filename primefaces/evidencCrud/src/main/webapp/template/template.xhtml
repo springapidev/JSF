@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>CoderbdInc</title>
+
+        <h:outputScript name="js/layout.js" library="volt-layout" />
+
+        <ui:insert name="head" />
+    </h:head>
+
+    <h:body styleClass="BlueBody">
+        
+        <ui:include src="topbar.xhtml" />
+        
+        <div id="layout-portlets-cover">
+            <div id="layout-portlets-cover-indent">
+                <div id="layout-portlets-table">
+
+                    <div id="layout-portlets-tablerow">
+
+                        <div id="layout-portlets-tablecell-left">
+                            <div id="layout-menu-cover">
+                                <ui:include src="layoutmenu.xhtml" />
+                            </div>
+                        </div>
+                        <div id="layout-portlets-tablecell-right">
+                            <ui:insert name="content">
+                                Template
+                            </ui:insert>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="Container100 TexAlCenter White Fs14 FontVoltLight Opac60">
+         
+          2018 CoderBD Inc. | All rights reserved.
+        
+        </div>
+
+        <h:outputStylesheet name="css/core-layout.css" library="volt-layout" />
+        <h:outputStylesheet name="css/animate.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-font.css" library="volt-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-layout.css" library="volt-layout" />
+    </h:body>
+
+</html>

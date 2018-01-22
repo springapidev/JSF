@@ -1,0 +1,106 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" template="/template/template.xhtml">
+	<ui:define name="content">
+		<h:form id="form1" style="">
+			<p:growl id="messages" showDetail="true" />
+
+
+			<p:panel id="panel">
+				<br />
+	<h:panelGrid id="display" columns="2" cellpadding="4">
+
+
+					<h:outputText value="Email" for="email"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="email" value="#{teacherMB.bean.email}"
+						required="true" label="Email" requiredMessage="Required" />
+
+
+					<h:outputText value="House No" for="houseNo"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="houseNo" value="#{teacherMB.bean.houseNo}"
+						required="true" label="House No" requiredMessage="Required" />
+
+
+					<h:outputText value="Road No" for="roadNo"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="roadNo" value="#{teacherMB.bean.roadNo}"
+						required="true" label="Road No" requiredMessage="Required" />
+
+
+					<h:outputText value="Block No" for="blockNo"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="blockNo" value="#{teacherMB.bean.blockNo}"
+						required="true" label="Block No" requiredMessage="Required" />
+
+
+
+
+					<h:outputText value="City" for="city"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="city" value="#{teacherMB.bean.city}"
+						required="true" label="City" requiredMessage="Required" />
+
+
+
+					<h:outputText value="Phone No" for="phoneNo"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="phoneNo" value="#{teacherMB.bean.phoneNo}"
+						required="true" label="Phone No" requiredMessage="Required" />
+
+
+
+					<h:outputText value="Mobile No" for="mobileNo"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="mobileNo" value="#{teacherMB.bean.mobileNo}"
+						required="true" label="Mobile No" requiredMessage="Required" />
+
+
+					<h:outputText value="Blood Group" for="bloodGroup"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="bloodGroup" value="#{teacherMB.bean.bloodGroup}"
+						required="true" label="Blood Group" requiredMessage="Required" />
+
+
+
+					<h:outputText value="Religion" for="religion"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="religion" value="#{teacherMB.bean.religion}"
+						required="true" label="Religion" requiredMessage="Required" />
+
+
+					<h:outputText value="Nationality" for="nationality"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="nationality" value="#{teacherMB.bean.nationality}"
+						required="true" label="Rationality" requiredMessage="Required" />
+					<p:outputPanel layout="block" style="text-align:center">
+						<br />
+						<br />
+						<p:commandButton value="Reset" styleClass="" update=":form1:panel"
+							process="@this" actionListener="#{teacherMB.reset}" />
+						<p:commandButton value="Save" styleClass=""
+							actionListener="#{teacherMB.save}"
+							update=":form1:messages, :form1:panel" />
+					</p:outputPanel>
+
+				</h:panelGrid>
+
+			</p:panel>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>

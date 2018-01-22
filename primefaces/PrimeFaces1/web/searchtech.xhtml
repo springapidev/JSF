@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>spinner.xhtml</title>
+               </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="140" resizable="true" closable="true" collapsible="true">
+                    <h:graphicImage value = "/images/data-banner.png" width="100%" height="100%"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="50" closable="true" collapsible="true">
+                    @Copyright Md. Shmaim Sarker | All Rights Reserved By Shamim | 01723795366
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="242" header="Left" collapsible="true">
+                    <ui:include src="leftmenu.xhtml"/>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    
+                    <div class="container-fluid">
+                        <div class="row badge-info">
+                            <div class="col-4 col-md-4">4</div>
+                             <div class="col-8 col-md-8">8</div>
+                        </div>
+                        
+                    </div>
+                    
+                    
+                   
+                        <h:form id="form1">
+                               <p:outputLabel value="Search "/>
+                               <p:inputText />
+                               <p:commandButton update="form1" value="Search" action="#{search.display()}" />
+                               <br/>                    
+
+                    
+                               <p:outputLabel  value="Email: " rendered="#{search.renEmail}"/><br/>
+                        </h:form>
+                
+
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+
