@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Logout" url="index.xhtml" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+
+                    <h:form>
+                        <p:commandButton value="Add New User" action="reg" icon="ui-icon-plus"/>
+                        <p:dataTable value="#{userBean.users}" var="user" paginator="true" rows="5" paginatorPosition="bottom">
+                            <p:column headerText="User Id">
+                                <h:outputText value="#{user.userId}"/>
+                            </p:column>
+
+                            <p:column headerText="First Name">
+                                <h:outputText value="#{user.firstName}"/>
+                            </p:column>
+
+                            <p:column headerText="Last Name">
+                                <h:outputText value="#{user.lastName}"/>
+                            </p:column>
+
+                            <p:column headerText="Username">
+                                <h:outputText value="#{user.username}"/>
+                            </p:column>
+
+                            <p:column headerText="Password">
+                                <h:outputText value="#{user.password}"/>
+                            </p:column>
+
+                            <p:column headerText="Update">
+                                <p:commandButton 
+                                    value="Update"
+                                    actionListener="#{userBean.changeUser(user)}"
+                                    ajax="true"
+                                    update=":userDetail2"
+                                    oncomplete="PF('$userDetail2').show()"
+                                    icon="ui-icon-pencil"/>
+                            </p:column>
+
+                            <p:column headerText="Delete">
+                                <p:commandButton value="Delete" action="#{userBean.deleteUser(user)}" icon="ui-icon-trash"/>
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+
+
+                    <!--Update Form-->
+
+                    <p:dialog
+                        id="userDetail2"
+                        widgetVar="$userDetail2"
+                        header="Update User Information"
+                        appendTo="@(body)">
+
+                            <h:form>
+                                <h:inputHidden value="#{userBean.user.userId}"/>
+                                <p:panelGrid columns="2">
+                                    <p:outputLabel value="First Name"/>
+                                    <p:inputText value="#{userBean.user.firstName}" placeholder="First Name"/>
+
+                                    <p:outputLabel value="Last Name"/>
+                                    <p:inputText value="#{userBean.user.lastName}" placeholder="Last Name"/>
+
+                                    <p:outputLabel value="Username"/>
+                                    <p:inputText value="#{userBean.user.username}" placeholder="Username"/>
+
+                                    <p:outputLabel value="Password"/>
+                                    <p:password value="#{userBean.user.password}" placeholder="Password"/>
+
+                                    <p:commandButton value="Update" action="#{userBean.updateUser(userBean.user)}"/>
+                                    
+                                </p:panelGrid>
+                            </h:form>
+                    </p:dialog>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="StudentViewDlg" widgetVar="StudentViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewStudentTitle}">
+            <h:form id="StudentViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{studentController.selected != null}">
+                        <h:outputText value="#{bundle.ViewStudentLabel_id}"/>
+                        <h:outputText value="#{studentController.selected.id}" title="#{bundle.ViewStudentTitle_id}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_birthDate}"/>
+                        <h:outputText value="#{studentController.selected.birthDate}" title="#{bundle.ViewStudentTitle_birthDate}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewStudentLabel_gender}"/>
+                        <h:outputText value="#{studentController.selected.gender}" title="#{bundle.ViewStudentTitle_gender}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_hobby}"/>
+                        <h:outputText value="#{studentController.selected.hobby}" title="#{bundle.ViewStudentTitle_hobby}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_name}"/>
+                        <h:outputText value="#{studentController.selected.name}" title="#{bundle.ViewStudentTitle_name}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_note}"/>
+                        <h:outputText value="#{studentController.selected.note}" title="#{bundle.ViewStudentTitle_note}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_round}"/>
+                        <h:outputText value="#{studentController.selected.round}" title="#{bundle.ViewStudentTitle_round}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="StudentViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
