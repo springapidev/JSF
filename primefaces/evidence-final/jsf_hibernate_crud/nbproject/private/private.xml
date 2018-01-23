@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/E:/git/JSF/primefaces/evidence-final/jsf_hibernate_crud/web/index.xhtml</file>
+            <file>file:/E:/git/JSF/primefaces/evidence-final/jsf_hibernate_crud/web/indexLogin.xhtml</file>
+            <file>file:/E:/git/JSF/primefaces/evidence-final/jsf_hibernate_crud/src/java/com/shamim/util/HibernateUtil.java</file>
+            <file>file:/E:/git/JSF/primefaces/evidence-final/jsf_hibernate_crud/src/java/hibernate.cfg.xml</file>
+            <file>file:/E:/git/JSF/primefaces/evidence-final/jsf_hibernate_crud/src/java/com/shamim/controller/LoginBean.java</file>
+        </group>
+    </open-files>
 </project-private>
