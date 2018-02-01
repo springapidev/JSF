@@ -1,0 +1,90 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Add Subject</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="subjectForm">
+						<h:panelGroup id="display">
+							<p:panelGrid columns="2">
+								<h:outputText value="Name"
+									style="padding-left: 30px; padding-right: 30px;" />
+
+								<p:inputText id="name" required="true" label="Name"
+									value="#{subjectController.subject.subjectName}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Code"
+									style="padding-left: 30px; padding-right: 30px;" />
+
+								<p:inputText id="code" required="true" label="Code"
+									value="#{subjectController.subject.subjectCode}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Note"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{subjectController.subject.note}" />
+
+							</p:panelGrid>
+							<p:commandButton actionListener="#{subjectController.save}"
+								value="Add" update=":subjectForm :subjectListForm" />
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="subjectListForm">
+						<p:panel header="Subject List">
+							<p:dataTable id="subjectlist"
+								value="#{subjectController.subjects}" var="subject"
+								selectionMode="single"
+								selection="#{subjectController.subjectSelected}"
+								paginator="true" paginatorPosition="bottom"
+								rowKey="#{subject.id}" rows="10"
+								rowsPerPageTemplate="10,20,30,40,50">
+
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{subject.subjectName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{subject.subjectCode}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{subject.note}" />
+								</p:column>
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,222 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Marks Input</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h:form id="studentSearchForm">
+						<h:outputLabel for="menu" value="Teacher ID" />
+
+						<p:selectOneMenu value="#{marksInputController.classID}">
+							<f:selectItem itemLabel="select Class" itemValue="" />
+							<f:selectItems value="#{marksInputController.studentClasses}"
+								var="cls" itemLabel="#{cls.className}" itemValue="#{cls.id}" />
+						</p:selectOneMenu>
+
+
+						<h:commandButton type="submit"
+							action="#{marksInputController.displayPanel}" value="Search"
+							update="studentSearchForm" />
+
+					</h:form>
+
+
+					<h:form id="studentListForm">
+						<p:panel header="Student Subject List"
+							rendered="#{marksInputController.renJunior}">
+							<p:dataTable id="studentSubsMarksList"
+								value="#{marksInputController.marksInputDtos}" var="std"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Regi No" />
+									</f:facet>
+									<h:outputText value="#{std.regiNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 1" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subE1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 2" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subE2}" />
+								</p:column>
+								
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 1" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subB1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 2" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subB2}" />
+								</p:column>
+								
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Math" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.submath}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Religion" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subreligion}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Science" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subScience}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Social Sc." />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subsocialScience}" />
+								</p:column>
+
+							</p:dataTable>
+								
+						</p:panel>
+
+
+
+
+
+						<p:panel header="Student List"
+							rendered="#{marksInputController.renHigh}">
+							<p:dataTable id="studentSubsMarksList2"
+								value="#{marksInputController.marksInputDtos}" var="std"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Roll No" />
+									</f:facet>
+									<h:outputText value="#{std.classRoll}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 1" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subE1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 2" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subE2}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 1" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subB1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 2" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subB2}" />
+								</p:column>
+								
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Math" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.submath}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Religion" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subreligion}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Science" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subScience}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Social Sc." />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subsocialScience}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="physics" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subPhysics}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Camistry" />
+									</f:facet>
+									<h:inputText
+										value="#{marksInputController.marksInputDto.subCamisty}" />
+								</p:column>
+																
+							</p:dataTable>
+						
+						</p:panel>
+						<p:commandButton type="submit" value="Submit Marks" action="#{marksInputController.saveOrMergeMarks}" icon="ui-icon-disk" style="width:100%"/>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

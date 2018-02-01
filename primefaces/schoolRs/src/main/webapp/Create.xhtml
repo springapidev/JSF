@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition>
+
+	<p:dialog id="StudentCreateDlg" widgetVar="StudentCreateDialog"
+		modal="true" resizable="false" appendTo="@(body)" header="Add Student">
+		<h:form id="StudentCreateForm">
+			<h:panelGroup id="display">
+				<p:panelGrid columns="2">
+					<h:outputText value="Name"
+						style="padding-left: 30px; padding-right: 30px;" />
+
+					<p:inputText id="name" required="true" label="Name"
+						value="#{studentClassController.studentClass.className}"
+						requiredMessage="Required" />
+
+
+					<h:outputText value="Note"
+						style="padding-left: 30px; padding-right: 30px;" />
+					<p:inputTextarea rows="5" cols="30" maxlength="100"
+						counterTemplate="{0} characters remaining." autoResize="false"
+						value="#{studentClassController.studentClass.note}" />
+
+				</p:panelGrid>
+				<p:commandButton actionListener="#{studentClassController.save}"
+					value="Add" update="display,:StudentListForm:datalist"
+					oncomplete="handleSubmit(args,'StudentCreateDialog');" />
+				<p:commandButton value="Cancel" onclick="StudentCreateDialog.hide()" />
+			</h:panelGroup>
+		</h:form>
+	</p:dialog>
+
+</ui:composition>
+</html>

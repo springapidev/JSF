@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2018 4:35:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.coderbd.pojo.TeacherAssignClassSub" table="teacher_assign_class_sub" catalog="jsfhibernate" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+    </class>
+</hibernate-mapping>

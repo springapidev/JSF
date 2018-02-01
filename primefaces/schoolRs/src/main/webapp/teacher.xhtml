@@ -1,0 +1,117 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Add Teacher</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="teacherForm">
+						<p:growl showDetail="true" />
+						<h:panelGroup id="displays">
+							<p:panelGrid columns="2">
+								<h:outputText value="Name" />
+
+								<p:inputText id="name" required="true" label="Name"
+									value="#{teacherController.teacher.teacherName}"
+									requiredMessage="Required" />
+								<h:outputLabel for="menu" value="Subject Name" />
+								<p:selectOneMenu id="subject"
+									value="#{teacherController.subject.id}">
+									<f:selectItem itemLabel="Select Subject" itemValue="" />
+									<f:selectItems value="#{teacherController.subjects}" var="sub"
+										itemLabel="#{sub.subjectName}" itemValue="#{sub.id}" />
+								</p:selectOneMenu>
+
+
+								<h:outputText value="Date Of Birth" />
+
+								<p:calendar id="dob"
+									value="#{teacherController.teacher.birthDate}"
+									pattern="yyyy-MM-dd" />
+
+
+								<h:outputText value="Date Of Join" />
+								<p:calendar id="doa"
+									value="#{teacherController.teacher.joiningDate}"
+									pattern="yyyy-MM-dd" />
+
+
+								<h:outputText value="Mobile No" />
+
+								<p:inputText value="#{teacherController.teacher.mobileNo}" />
+
+
+
+								<h:outputText value="Note"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{teacherController.teacher.note}" />
+								<h:commandButton type="submit"
+									action="#{teacherController.save}" value="Add"
+									update="teacherForm :teacherListForm" />
+							</p:panelGrid>
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="teacherListForm">
+						<p:panel header="Teacher List">
+							<p:dataTable id="teacherlist"
+								value="#{teacherController.teachers}" var="teacher"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{teacher.teacherName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Birth" />
+									</f:facet>
+									<h:outputText value="#{teacher.joiningDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Birth" />
+									</f:facet>
+									<h:outputText value="#{teacher.birthDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Mobile No" />
+									</f:facet>
+									<h:outputText value="#{teacher.mobileNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{teacher.note}" />
+								</p:column>
+
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

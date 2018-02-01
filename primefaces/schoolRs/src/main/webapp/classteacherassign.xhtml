@@ -1,0 +1,100 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Add Teacher</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+				<h:form id="teacherSearchForm">
+					<h:outputLabel for="menu" value="Teacher ID" />
+					<p:inputText value="#{assignClassController.teacherID}"/>
+					<h:commandButton type="submit"
+									action="#{assignClassController.displayForm}" value="Add"
+									update="teacherSearchForm :teacherForm" />
+									
+				</h:form>
+				
+					<h:form id="teacherForm">
+						<p:growl showDetail="true" />
+						
+						<h:panelGroup id="displays" rendered="#{assignClassController.renPanel}">
+							<p:panelGrid columns="2">
+
+								<h:outputLabel for="menu" value="Classes" />
+
+								<p:selectManyMenu id="classes" style="padding:5px"
+									value="#{assignClassController.classIDs}"
+									layout="grid" columns="3">
+									<f:selectItems value="#{assignClassController.studentClasses}"
+										var="clsName" itemLabel="#{clsName.className}"
+										itemValue="#{clsName.id}" />
+								</p:selectManyMenu>
+								<p:outputLabel />
+								<h:commandButton type="submit"
+									action="#{assignClassController.saveDynamicList}" value="Add"
+									update="teacherForm :teacherListForm" />
+							</p:panelGrid>
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="teacherListForm">
+						<p:panel header="Teacher List">
+							<p:dataTable id="teacherlist"
+								value="#{teacherController.teachers}" var="teacher"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{teacher.teacherName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Birth" />
+									</f:facet>
+									<h:outputText value="#{teacher.joiningDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Birth" />
+									</f:facet>
+									<h:outputText value="#{teacher.birthDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Mobile No" />
+									</f:facet>
+									<h:outputText value="#{teacher.mobileNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{teacher.note}" />
+								</p:column>
+
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,20 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/template/template.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">Capturing Images with PhotoCam</h3>
+        <p:growl id="growl" showDetail="true"/>
+        <h:panelGrid columns="2" cellpadding="5">
+
+            <h:outputText value="Simple" />
+            <h:panelGrid columns="2">
+                <p:photoCam id="photoCam" widgetVar="pc" listener="#{photoCamBean.onCapture}" update="capturedImage"/>
+                <p:graphicImage id="capturedImage" value="#{photoCamBean.capturedImage}" cache="false" />
+
+                <p:commandButton type="button" value="Capture" onclick="PF('pc').capture()"/>
+            </h:panelGrid>
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2018 4:35:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.coderbd.pojo.Subject" table="subject" catalog="jsfhibernate" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="note" type="string">
+            <column name="note" />
+        </property>
+        <property name="subjectCode" type="string">
+            <column name="subject_code" />
+        </property>
+        <property name="subjectName" type="string">
+            <column name="subject_name" />
+        </property>
+        <property name="subjectId" type="java.lang.Integer">
+            <column name="subject_id" />
+        </property>
+    </class>
+</hibernate-mapping>

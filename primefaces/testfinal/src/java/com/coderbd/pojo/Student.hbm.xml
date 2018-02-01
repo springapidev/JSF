@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 1, 2018 4:35:59 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.coderbd.pojo.Student" table="student" catalog="jsfhibernate" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="studentName" type="string">
+            <column name="student_name" />
+        </property>
+        <property name="admissionDate" type="timestamp">
+            <column name="admission_date" length="19" />
+        </property>
+        <property name="birthDate" type="timestamp">
+            <column name="birth_date" length="19" />
+        </property>
+        <property name="fatherName" type="string">
+            <column name="father_name" />
+        </property>
+        <property name="mobileNo" type="string">
+            <column name="mobile_no" />
+        </property>
+        <property name="motherName" type="string">
+            <column name="mother_name" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" />
+        </property>
+        <property name="regiNo" type="java.lang.Integer">
+            <column name="regi_no" />
+        </property>
+        <property name="rollNo" type="java.lang.Integer">
+            <column name="roll_no" />
+        </property>
+        <property name="sclassId" type="java.lang.Integer">
+            <column name="sclass_id" />
+        </property>
+    </class>
+</hibernate-mapping>

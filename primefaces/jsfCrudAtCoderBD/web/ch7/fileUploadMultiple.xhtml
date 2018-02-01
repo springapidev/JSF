@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+               template="/template/template.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">Multiple File Upload</h3>
+        <p:growl id="growl" showDetail="true"/>
+        <h:panelGrid columns="2" cellpadding="5">
+
+            <h:outputText value="Multiple File Upload" />
+            <p:fileUpload id="multipleUpload" multiple="true" update="growl"
+                          fileUploadListener="#{fileBean.handleFileUpload}" />
+
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

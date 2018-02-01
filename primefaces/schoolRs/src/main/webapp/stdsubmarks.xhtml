@@ -1,0 +1,99 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Assign Subjects to Students</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="studentSearchForm">
+						<h:outputLabel for="menu" value="Teacher ID" />
+						<p:inputText value="#{subMarksController.studentID}" />
+						<h:commandButton type="submit"
+							action="#{subMarksController.displayForm}" value="Search"
+							update="studentSearchForm :studentForm" />
+
+					</h:form>
+
+					<h:form id="studentForm">
+						<p:growl showDetail="true" />
+
+						<h:panelGroup id="displays"
+							rendered="#{subMarksController.renPanel}">
+							<p:panelGrid columns="2">
+
+								<h:outputLabel for="menu" value="Subjects" />
+
+								<p:selectManyMenu id="subjects" style="padding:5px"
+									value="#{subMarksController.subIDs}" layout="grid" columns="3">
+									<f:selectItems value="#{subMarksController.subjects}" var="sub"
+										itemLabel="#{sub.subjectName}" itemValue="#{sub.id}" />
+								</p:selectManyMenu>
+								<p:outputLabel />
+								<h:commandButton type="submit"
+									action="#{subMarksController.saveDynamicList}" value="Add"
+									update="studentSearchForm :studentListForm" />
+							</p:panelGrid>
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="studentListForm">
+						<p:panel header="Student Subject List">
+							<p:dataTable id="studentSubsMarksList"
+								value="#{marksInputController.marksInputDtos}" var="std"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Roll No" />
+									</f:facet>
+									<h:outputText value="#{std.classRoll}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Regi No" />
+									</f:facet>
+									<h:outputText value="#{std.regiNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 1" />
+									</f:facet>
+									<h:inputText value="#{marksInputController.marksInputDto.subE1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 2" />
+									</f:facet>
+									<h:outputText value="#{marksInputController.marksInputDto.subE2}" />
+								</p:column>
+
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

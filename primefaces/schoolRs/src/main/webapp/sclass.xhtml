@@ -1,0 +1,79 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+      <div>Add Class </div>
+
+        <div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="studentClassForm">
+						<h:panelGroup id="display">
+							<p:panelGrid columns="2">
+								<h:outputText value="Name"
+									style="padding-left: 30px; padding-right: 30px;" />
+
+								<p:inputText id="name" required="true" label="Name"
+									value="#{studentClassController.studentClass.className}"
+									requiredMessage="Required" />
+
+
+								<h:outputText value="Note"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{studentClassController.studentClass.note}" />
+
+							</p:panelGrid>
+							<p:commandButton actionListener="#{studentClassController.save}"
+								value="Add" update="studentListForm" />
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="studentListForm">
+						<p:panel header="Student Class List">
+							<p:dataTable id="datalist"
+								value="#{studentClassController.studentClasses}" var="student"
+								selectionMode="single"
+								selection="#{studentClassController.studentClassSelected}"
+								paginator="true" paginatorPosition="bottom"
+								rowKey="#{student.id}" rows="10"
+								rowsPerPageTemplate="10,20,30,40,50">
+
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{student.className}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{student.note}" />
+								</p:column>
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

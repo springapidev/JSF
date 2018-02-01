@@ -1,0 +1,180 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Add Student</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="stdtForm">
+					<p:growl showDetail="true"/>
+						<h:panelGroup id="displays">
+							<p:panelGrid columns="2">
+								<h:outputText value="Name" />
+
+								<p:inputText id="name" required="true" label="Name"
+									value="#{studentController.student.studentName}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Father Name" />
+
+								<p:inputText id="father" required="true" label="Father"
+									value="#{studentController.student.fatherName}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Mother Name" />
+								<p:inputText id="mother" required="true" label="Mother"
+									value="#{studentController.student.motherName}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Regi No" />
+								<p:inputText id="regi" required="true" label="Regi No"
+									value="#{studentController.student.regiNo}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Roll No" />
+								<p:inputText id="roll" required="true" label="Roll No"
+									value="#{studentController.student.rollNo}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Class Name" />
+								<h:selectOneMenu value="#{studentController.studentClass.id}"
+									id="stdClassName">
+									<f:selectItem itemLabel="Select Class" itemValue="" />
+									<f:selectItems value="#{studentController.studentClasses}"
+										var="clsName" itemLabel="#{clsName.className}"
+										itemValue="#{clsName.id}" />
+								</h:selectOneMenu>
+
+
+
+
+								<h:outputText value="Date Of Birth" />
+
+								<p:calendar id="dob"
+									value="#{studentController.student.birthDate}"
+									pattern="yyyy-MM-dd" />
+
+
+								<h:outputText value="Date Of Admission" />
+								<p:calendar id="doa"
+									value="#{studentController.student.admissionDate}"
+									pattern="yyyy-MM-dd" />
+
+
+								<h:outputText value="Mobile No" />
+
+								<p:inputText value="#{studentController.student.mobileNo}" />
+								
+								<h:outputText value="Email" />
+								<p:inputText value="#{studentController.student.email}" />
+
+								<h:outputText value="Note"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{studentController.student.note}" />
+	<h:commandButton type="submit" action="#{studentController.saveStudent}" value="Add" 
+								update="stdtForm :stdListForm"  />
+							</p:panelGrid>
+					
+							
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="stdListForm">
+						<p:panel header="Student List">
+							<p:dataTable id="stdlist" value="#{studentController.students}"
+								var="std" selectionMode="single"
+								selection="#{studentController.selectedStudent}"
+								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Student Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Father Name" />
+									</f:facet>
+									<h:outputText value="#{std.fatherName}" />
+								</p:column>
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Mother Name" />
+									</f:facet>
+									<h:outputText value="#{std.motherName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Regi No" />
+									</f:facet>
+									<h:outputText value="#{std.regiNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Roll No" />
+									</f:facet>
+									<h:outputText value="#{std.rollNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Class Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentClass.className}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Birth" />
+									</f:facet>
+									<h:outputText value="#{std.birthDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Date Of Admission" />
+									</f:facet>
+									<h:outputText value="#{std.admissionDate}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Mobile No" />
+									</f:facet>
+									<h:outputText value="#{std.mobileNo}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{std.note}" />
+								</p:column>
+
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
