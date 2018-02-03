@@ -44,155 +44,19 @@ public class MarksInputController {
 	private List<MarksInput> marksInputs;
 
 	private MarksInputDto marksInputDto;
+	private MarksInputDto marksInputDtoSelected;
 	private List<MarksInputDto> marksInputDtos;
+	private List<MarksInputDto> marksInputDtosForTabulation;
 
 	private StudentClassService studentClassService;
 
 	private List<StudentClass> studentClasses;
 
-	private String renJunior = "true";
+	private String renJunior = "false";
 
 	private String renHigh = "false";
 
 	private int classID;
-
-	public String saveOrMergeMarks() {
-		try {
-			marksInputService = new MarksInputService();
-			if (classID != 0) {
-				StudentClass sc = studentClassService.findById(classID);
-				if (sc.getClassName().equals("Six") || sc.getClassName().equals("Seven")
-						|| sc.getClassName().equals("Eight")) {
-
-					for (Student student : students) {
-						for (StudentSubsMarks sub : getStudentSubsListByStudentID(student.getId())) {
-							marksInput.setStudent(student);
-							marksInput = new MarksInput();
-
-							if (sub.getSubject().getSubjectCode().equals("e1")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubE1());
-							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubE2());
-							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubB1());
-							}  else if (sub.getSubject().getSubjectCode().equals("b2")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubB2());
-							}  else if (sub.getSubject().getSubjectCode().equals("math")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubmath());
-							}  else if (sub.getSubject().getSubjectCode().equals("reli")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubreligion());
-							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubScience());
-							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubsocialScience());
-							}
-							marksInputService.persist(marksInput);
-
-						}
-
-					}
-				} else {
-
-					for (Student student : students) {
-						for (StudentSubsMarks sub : getStudentSubsListByStudentID(student.getId())) {
-							marksInput.setStudent(student);
-							marksInput = new MarksInput();
-
-							if (sub.getSubject().getSubjectCode().equals("e1")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubE1());
-							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubE2());
-							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubB1());
-							} else if (sub.getSubject().getSubjectCode().equals("b2")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubB2());
-							}  else if (sub.getSubject().getSubjectCode().equals("math")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubmath());
-							} else if (sub.getSubject().getSubjectCode().equals("reli")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubreligion());
-							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubScience());
-							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubsocialScience());
-							} else if (sub.getSubject().getSubjectCode().equals("phy")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubPhysics());
-							} else if (sub.getSubject().getSubjectCode().equals("camis")) {
-								Subject subject = new Subject();
-								subject.setId(sub.getId());
-								marksInput.setSubject(subject);
-								marksInput.setObtaintedMarks(marksInputDto.getSubCamisty());
-							}
-
-							marksInputService.persist(marksInput);
-
-						}
-
-					}
-
-				}
-			}
-
-			notificationSuccess("Persist Success!");
-		} catch (Exception e) {
-			notificationError(e, "Persist Error!");
-			logger.debug("This is debug :" + e);
-			logger.error("This is error : " + e);
-			logger.fatal("This is fatal : " + e);
-		}
-		return null;
-
-	}
 
 	public String displayPanel() {
 		try {
@@ -202,6 +66,7 @@ public class MarksInputController {
 						|| sc.getClassName().equals("Eight")) {
 					renJunior = "true";
 					renHigh = "false";
+
 				} else {
 					renJunior = "false";
 					renHigh = "true";
@@ -216,6 +81,151 @@ public class MarksInputController {
 			logger.fatal("This is fatal : " + e);
 		}
 		return null;
+	}
+
+	public void saveOrMergeMarks() {
+		try {
+
+			if (classID != 0) {
+				StudentClass sc = studentClassService.findById(classID);
+				if (sc.getClassName().equals("Six") || sc.getClassName().equals("Seven")
+						|| sc.getClassName().equals("Eight")) {
+
+					for (Student student : students) {
+
+						for (StudentSubsMarks sub : getStudentSubsListByStudentID(student.getId())) {
+							marksInput = new MarksInput();
+							marksInput.setStudent(student);
+							if (sub.getSubject().getSubjectCode().equals("e1")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubE1());
+							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubE2());
+							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubB1());
+							} else if (sub.getSubject().getSubjectCode().equals("b2")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubB2());
+							} else if (sub.getSubject().getSubjectCode().equals("math")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubmath());
+							} else if (sub.getSubject().getSubjectCode().equals("reli")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubreligion());
+							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubScience());
+							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubsocialScience());
+							}
+
+							// marksInputs.add(marksInput);
+							marksInputService = new MarksInputService();
+							marksInputService.persist(marksInput);
+
+						}
+
+					}
+
+				} else {
+
+					for (Student student : students) {
+
+						for (StudentSubsMarks sub : getStudentSubsListByStudentID(student.getId())) {
+							marksInput.setStudent(student);
+							marksInput = new MarksInput();
+
+							if (sub.getSubject().getSubjectCode().equals("e1")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubE1());
+							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubE2());
+							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubB1());
+							} else if (sub.getSubject().getSubjectCode().equals("b2")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubB2());
+							} else if (sub.getSubject().getSubjectCode().equals("math")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubmath());
+							} else if (sub.getSubject().getSubjectCode().equals("reli")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubreligion());
+							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubScience());
+							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubsocialScience());
+							} else if (sub.getSubject().getSubjectCode().equals("phy")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubPhysics());
+							} else if (sub.getSubject().getSubjectCode().equals("camis")) {
+								Subject subject = new Subject();
+								subject.setId(sub.getSubject().getId());
+								marksInput.setSubject(subject);
+								marksInput.setObtaintedMarks(marksInputDto.getSubCamisty());
+							}
+
+							marksInputService = new MarksInputService();
+							marksInputService.persist(marksInput);
+
+						}
+
+					}
+
+				}
+			}
+
+			notificationSuccess("Persist Success!");
+			marksInput = null;
+		} catch (Exception e) {
+			e.printStackTrace();
+			notificationError(e, "Persist Error!");
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
+
 	}
 
 	public void notificationSuccess(String operation) {
@@ -288,6 +298,14 @@ public class MarksInputController {
 	}
 
 	public List<MarksInput> getMarksInputs() {
+		try {
+			marksInputService = new MarksInputService();
+			marksInputs = marksInputService.findAllMarksInputByClass(classID);
+		} catch (Exception e) {
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
 		return marksInputs;
 	}
 
@@ -336,7 +354,7 @@ public class MarksInputController {
 	public List<Student> getStudents() {
 		try {
 			studentService = new StudentService();
-			students = studentService.findAll();
+			students = studentService.findAllStudentByClass(classID);
 		} catch (Exception e) {
 			logger.debug("This is debug :" + e);
 			logger.error("This is error : " + e);
@@ -403,13 +421,132 @@ public class MarksInputController {
 		try {
 
 			studentSubsMarksService = new StudentSubsMarksService();
-			list = studentSubsMarksService.findByProperty("student", studentID);
+			list = studentSubsMarksService.findAllMarksInputByObject(studentID);
 		} catch (Exception e) {
 			logger.debug("This is debug :" + e);
 			logger.error("This is error : " + e);
 			logger.fatal("This is fatal : " + e);
 		}
 		return list;
+	}
+
+	public MarksInputDto getMarksInputDtoSelected() {
+		if (marksInputDtoSelected == null) {
+			marksInputDtoSelected = new MarksInputDto();
+		}
+		return marksInputDtoSelected;
+	}
+
+	public void setMarksInputDtoSelected(MarksInputDto marksInputDtoSelected) {
+		this.marksInputDtoSelected = marksInputDtoSelected;
+	}
+
+	public List<MarksInput> getMarksByStudent(int studentID) {
+		List<MarksInput> list = new ArrayList<>();
+		try {
+
+			marksInputService = new MarksInputService();
+			list = marksInputService.findAllMarksInputByStudent(studentID);
+		} catch (Exception e) {
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
+
+		return list;
+	}
+
+	public List<MarksInputDto> getMarksInputDtosForTabulation() {
+		marksInputDtosForTabulation = new ArrayList<MarksInputDto>();
+		MarksInputDto dto;
+
+		try {
+
+			if (classID != 0) {
+				StudentClass sc = studentClassService.findById(classID);
+				if (sc.getClassName().equals("Six") || sc.getClassName().equals("Seven")
+						|| sc.getClassName().equals("Eight")) {
+					studentService = new StudentService();
+					for (Student student : studentService.findAllStudentByClass(classID)) {
+						dto = new MarksInputDto();
+						for (MarksInput sub : getMarksByStudent(student.getId())) {
+						
+							dto.setStudentName(sub.getStudent().getStudentName());
+							dto.setClassRoll(sub.getStudent().getRollNo());
+							dto.setRegiNo(sub.getStudent().getRegiNo());
+							if (sub.getSubject().getSubjectCode().equals("e1")) {
+								dto.setSubE1(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
+								dto.setSubE2(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
+								dto.setSubB1(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("b2")) {
+								dto.setSubB2(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("math")) {
+								dto.setSubmath(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("reli")) {
+								dto.setSubreligion(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
+								dto.setSubScience(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
+								dto.setSubsocialScience(sub.getObtaintedMarks());
+							}					
+
+						}
+						marksInputDtosForTabulation.add(dto);
+					}
+
+				} else {
+					studentService = new StudentService();
+					for (Student student : studentService.findAllStudentByClass(classID)) {
+						dto = new MarksInputDto();
+						for (MarksInput sub : getMarksByStudent(student.getId())) {
+						
+							dto.setStudentName(sub.getStudent().getStudentName());
+							dto.setClassRoll(sub.getStudent().getRollNo());
+							dto.setRegiNo(sub.getStudent().getRegiNo());
+							if (sub.getSubject().getSubjectCode().equals("e1")) {
+								dto.setSubE1(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("e2")) {
+								dto.setSubE2(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("b1")) {
+								dto.setSubB1(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("b2")) {
+								dto.setSubB2(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("math")) {
+								dto.setSubmath(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("reli")) {
+								dto.setSubreligion(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("sc")) {
+								dto.setSubScience(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("ss")) {
+								dto.setSubsocialScience(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("phy")) {
+								dto.setSubPhysics(sub.getObtaintedMarks());
+							} else if (sub.getSubject().getSubjectCode().equals("camis")) {
+								dto.setSubCamisty(sub.getObtaintedMarks());
+							}
+						
+						}
+						marksInputDtosForTabulation.add(dto);
+					}
+
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			notificationError(e, "Persist Error!");
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
+
+		return marksInputDtosForTabulation;
+	}
+
+	public void setMarksInputDtosForTabulation(List<MarksInputDto> marksInputDtosForTabulation) {
+		this.marksInputDtosForTabulation = marksInputDtosForTabulation;
 	}
 
 }

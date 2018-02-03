@@ -11,25 +11,33 @@
 		<div class="title">Marks Input</div>
 
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<h:form id="studentSearchForm">
-						<h:outputLabel for="menu" value="Teacher ID" />
+			
 
-						<p:selectOneMenu value="#{marksInputController.classID}">
+				<h:form id="studentSearchForm">
+				<div class="row">
+					<div class="col-md-1">
+						<h:outputLabel for="menu" value="Teacher ID" />
+					</div>
+					<div class="col-md-2">
+						<p:selectOneMenu value="#{marksInputController.classID}" style="width:100%">
 							<f:selectItem itemLabel="select Class" itemValue="" />
 							<f:selectItems value="#{marksInputController.studentClasses}"
 								var="cls" itemLabel="#{cls.className}" itemValue="#{cls.id}" />
 						</p:selectOneMenu>
 
-
+					</div>
+					<div class="col-md-2">
 						<h:commandButton type="submit"
 							action="#{marksInputController.displayPanel}" value="Search"
 							update="studentSearchForm" />
+					</div>
+					</div>
+				</h:form>
 
-					</h:form>
+			
 
-
+			<div class="row">
+				<div class="col-md-12">
 					<h:form id="studentListForm">
 						<p:panel header="Student Subject List"
 							rendered="#{marksInputController.renJunior}">
@@ -64,7 +72,7 @@
 									<h:inputText
 										value="#{marksInputController.marksInputDto.subE2}" />
 								</p:column>
-								
+
 								<p:column>
 									<f:facet name="header">
 										<h:outputText value="Bang 1" />
@@ -79,7 +87,7 @@
 									<h:inputText
 										value="#{marksInputController.marksInputDto.subB2}" />
 								</p:column>
-								
+
 								<p:column>
 									<f:facet name="header">
 										<h:outputText value="Math" />
@@ -110,7 +118,7 @@
 								</p:column>
 
 							</p:dataTable>
-								
+
 						</p:panel>
 
 
@@ -122,7 +130,8 @@
 							<p:dataTable id="studentSubsMarksList2"
 								value="#{marksInputController.marksInputDtos}" var="std"
 								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
-								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+								rows="10" rowsPerPageTemplate="10,20,30,40,50"
+								selection="#{marksInputController.marksInputDtoSelected}">
 								<p:column>
 									<f:facet name="header">
 										<h:outputText value="Name" />
@@ -164,7 +173,7 @@
 									<h:inputText
 										value="#{marksInputController.marksInputDto.subB2}" />
 								</p:column>
-								
+
 								<p:column>
 									<f:facet name="header">
 										<h:outputText value="Math" />
@@ -207,11 +216,13 @@
 									<h:inputText
 										value="#{marksInputController.marksInputDto.subCamisty}" />
 								</p:column>
-																
+
 							</p:dataTable>
-						
+
 						</p:panel>
-						<p:commandButton type="submit" value="Submit Marks" action="#{marksInputController.saveOrMergeMarks}" icon="ui-icon-disk" style="width:100%"/>
+						<p:commandButton type="submit" value="Submit Marks"
+							action="#{marksInputController.saveOrMergeMarks}"
+							icon="ui-icon-disk" style="width:100%" />
 					</h:form>
 
 				</div>

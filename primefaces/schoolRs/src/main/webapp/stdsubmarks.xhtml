@@ -14,7 +14,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<h:form id="studentSearchForm">
-						<h:outputLabel for="menu" value="Teacher ID" />
+						<h:outputLabel for="menu" value="Student ID" />
 						<p:inputText value="#{subMarksController.studentID}" />
 						<h:commandButton type="submit"
 							action="#{subMarksController.displayForm}" value="Search"
@@ -39,7 +39,7 @@
 								<p:outputLabel />
 								<h:commandButton type="submit"
 									action="#{subMarksController.saveDynamicList}" value="Add"
-									update="studentSearchForm :studentListForm" />
+									update="studentForm :studentListForm" />
 							</p:panelGrid>
 
 
@@ -52,40 +52,35 @@
 					<h:form id="studentListForm">
 						<p:panel header="Student Subject List">
 							<p:dataTable id="studentSubsMarksList"
-								value="#{marksInputController.marksInputDtos}" var="std"
+								value="#{marksInputController.studentSubsMarksList}" var="std"
 								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
 								rows="10" rowsPerPageTemplate="10,20,30,40,50">
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Name" />
+										<h:outputText value="ID" />
 									</f:facet>
-									<h:outputText value="#{std.studentName}" />
+									<h:outputText value="#{std.id}" />
 								</p:column>
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Roll No" />
+										<h:outputText value="Student Name" />
 									</f:facet>
-									<h:outputText value="#{std.classRoll}" />
+									<h:outputText value="#{std.student.studentName}" />
 								</p:column>
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Regi No" />
+										<h:outputText value="Sub. Name" />
 									</f:facet>
-									<h:outputText value="#{std.regiNo}" />
+									<h:outputText value="#{std.subject.subjectName}" />
 								</p:column>
-								<p:column>
+								
+<p:column>
 									<f:facet name="header">
-										<h:outputText value="Eng 1" />
+										<h:outputText value="Sub. Code" />
 									</f:facet>
-									<h:inputText value="#{marksInputController.marksInputDto.subE1}" />
+									<h:outputText value="#{std.subject.subjectCode}" />
 								</p:column>
-								<p:column>
-									<f:facet name="header">
-										<h:outputText value="Eng 2" />
-									</f:facet>
-									<h:outputText value="#{marksInputController.marksInputDto.subE2}" />
-								</p:column>
-
+								
 
 							</p:dataTable>
 						</p:panel>

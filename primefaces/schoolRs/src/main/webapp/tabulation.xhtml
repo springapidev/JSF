@@ -1,0 +1,243 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div class="title">Marks Tabulation Sheet</div>
+
+		<div class="container">
+
+
+			<h:form id="studentSearchForm">
+				<div class="row">
+					<div class="col-md-1">
+						<h:outputLabel for="menu" value="Teacher ID" />
+					</div>
+					<div class="col-md-2">
+						<p:selectOneMenu value="#{marksInputController.classID}"
+							style="width:100%">
+							<f:selectItem itemLabel="select Class" itemValue="" />
+							<f:selectItems value="#{marksInputController.studentClasses}"
+								var="cls" itemLabel="#{cls.className}" itemValue="#{cls.id}" />
+						</p:selectOneMenu>
+
+					</div>
+					<div class="col-md-2">
+						<h:commandButton type="submit"
+							action="#{marksInputController.displayPanel}" value="Search"
+							update="studentSearchForm" />
+					</div>
+				</div>
+			</h:form>
+
+
+
+			<div class="row">
+				<div class="col-md-12">
+					<h:form id="studentListForm">
+						<p:panel header="Student Subject List"
+							rendered="#{marksInputController.renJunior}">
+							<p:dataTable id="studentSubsMarksList"
+								value="#{marksInputController.marksInputDtosForTabulation}"
+								var="std" paginator="true" paginatorPosition="bottom"
+								rowKey="#{std.id}" rows="10"
+								rowsPerPageTemplate="10,20,30,40,50"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}">
+
+								<f:facet name="{Exporters}">
+									<h:commandLink>
+										<img
+											src="images/pdf.png" alt="PDF" width="24px" height="24px" />
+
+										<p:dataExporter type="pdf" target="studentSubsMarksList"
+											fileName="tabulationsheet" />
+									</h:commandLink>
+
+								</f:facet>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Regi No" />
+									</f:facet>
+									<h:outputText value="#{std.classRoll}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 1" />
+									</f:facet>
+									<h:outputText value="#{std.subE1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 2" />
+									</f:facet>
+									<h:outputText value="#{std.subE2}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 1" />
+									</f:facet>
+									<h:outputText value="#{std.subB1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 2" />
+									</f:facet>
+									<h:outputText value="#{std.subB2}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Math" />
+									</f:facet>
+									<h:outputText value="#{std.submath}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Religion" />
+									</f:facet>
+									<h:outputText value="#{std.subreligion}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Science" />
+									</f:facet>
+									<h:outputText value="#{std.subScience}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Social Sc." />
+									</f:facet>
+									<h:outputText value="#{std.subsocialScience}" />
+								</p:column>
+
+							</p:dataTable>
+
+						</p:panel>
+
+
+
+
+
+						<p:panel header="Student List"
+							rendered="#{marksInputController.renHigh}">
+							<p:dataTable id="studentSubsMarksList2"
+								value="#{marksInputController.marksInputDtosForTabulation}"
+								var="std" paginator="true" paginatorPosition="bottom"
+								rowKey="#{std.id}" rows="10"
+								rowsPerPageTemplate="10,20,30,40,50"
+								paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}">
+
+								<f:facet name="{Exporters}">
+									<h:commandLink>
+										<img
+											src="images/pdf.png" alt="PDF" width="24px" height="24px" />
+
+										<p:dataExporter type="pdf" target="studentSubsMarksList2"
+											fileName="tabulationsheet" />
+									</h:commandLink>
+
+								</f:facet>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{std.studentName}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Regi No" />
+									</f:facet>
+									<h:outputText value="#{std.classRoll}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 1" />
+									</f:facet>
+									<h:outputText value="#{std.subE1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Eng 2" />
+									</f:facet>
+									<h:outputText value="#{std.subE2}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 1" />
+									</f:facet>
+									<h:outputText value="#{std.subB1}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Bang 2" />
+									</f:facet>
+									<h:outputText value="#{std.subB2}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Math" />
+									</f:facet>
+									<h:outputText value="#{std.submath}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Religion" />
+									</f:facet>
+									<h:outputText value="#{std.subreligion}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Science" />
+									</f:facet>
+									<h:outputText value="#{std.subScience}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Social Sc." />
+									</f:facet>
+									<h:outputText value="#{std.subsocialScience}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="physics" />
+									</f:facet>
+									<h:outputText
+										value="#{std.subPhysics}" />
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Camistry" />
+									</f:facet>
+									<h:outputText
+										value="#{std.subCamisty}" />
+								</p:column>
+
+							</p:dataTable>
+
+						</p:panel>
+
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

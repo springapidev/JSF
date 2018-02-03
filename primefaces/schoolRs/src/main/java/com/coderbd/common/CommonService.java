@@ -8,6 +8,8 @@ package com.coderbd.common;
 import com.coderbd.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
@@ -22,15 +24,20 @@ import javax.transaction.Transactional;
  */
 public class CommonService<E> implements CommonDao<E> {
 
-    SessionFactory sessFact = HibernateUtil.getSessionFactory();
-    Session session = sessFact.openSession();
+   SessionFactory sessFact = HibernateUtil.getSessionFactory();
+   Session session = sessFact.openSession();
     org.hibernate.Transaction tr = session.beginTransaction();
 
+
+    
+    
     protected E instance;
     private Class<E> entityClass;
 
     @Override
+    @Transactional
     public void persist(E e) throws Exception {
+  //  if(!tr.isActive()) tr.begin();   
         getSession().persist(e);
         tr.commit();
         getSession().close();
@@ -117,12 +124,16 @@ public class CommonService<E> implements CommonDao<E> {
         return entityClass;
     }
     
-    
+    @Transactional
 	public void dynamicListPersists(List<E> entities) throws Exception {
     	int i = 0;
     	int batchSize = 1000;	
     	  for (E entity : entities) {
     		  getSession().persist(entity);
+    		// commit only, if tx still hasn't been committed yet by Hibernate
+    		  if (tr.getStatus().equals(TransactionStatus.ACTIVE)) { 
+    		      tr.commit();
+    		  }
     	    i++;
 
     	    if (i % batchSize == 0) {
@@ -147,5 +158,6 @@ public class CommonService<E> implements CommonDao<E> {
     	    }
     	  }
 	}
+
 
 }

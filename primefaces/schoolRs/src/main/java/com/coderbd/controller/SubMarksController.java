@@ -45,6 +45,9 @@ public class SubMarksController {
 				student = studentService.findById(studentID);
 				if (student != null) {
 					renPanel = "true";
+					
+				}else{
+					renPanel = "false";
 				}
 			}
 		} catch (Exception e) {
@@ -58,7 +61,7 @@ public class SubMarksController {
 
 	public String saveDynamicList() {
 		try {
-
+			
 			for (int i = 0; i < subIDs.length; i++) {
 				studentSubsMarks = new StudentSubsMarks();
 				Student student = new Student();
@@ -72,9 +75,12 @@ public class SubMarksController {
 
 				studentSubsMarksService = new StudentSubsMarksService();
 				studentSubsMarksService.persist(studentSubsMarks);
+				
 			}
 
 			notificationSuccess("Persist Success!");
+			subIDs = null;
+			studentSubsMarks = null;
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");
 			logger.debug("This is debug :" + e);

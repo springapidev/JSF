@@ -22,14 +22,13 @@ public class StudentClassController {
 	private StudentClass studentClass;
 	private StudentClass studentClassSelected;
 	private List<StudentClass> studentClasses;
-	
-	
-	
-	public void save() {
-			try {
-				System.out.println(studentClass.toString());
+
+	public String save() {
+		try {
+			System.out.println(studentClass.toString());
 			studentClassService = new StudentClassService();
 			studentClassService.persist(studentClass);
+			studentClass = null;
 			notificationSuccess("Persist Success!");
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");
@@ -37,11 +36,11 @@ public class StudentClassController {
 			logger.error("This is error : " + e);
 			logger.fatal("This is fatal : " + e);
 		}
-
+		return null;
 	}
-	
+
 	public void update() {
-			try {
+		try {
 			studentClassService = new StudentClassService();
 			studentClassService.merge(studentClass);
 			notificationSuccess("Persist Success!");
@@ -53,20 +52,20 @@ public class StudentClassController {
 		}
 
 	}
+
 	public void delete() {
 		try {
-		studentClassService = new StudentClassService();
-		studentClassService.remove(studentClass);
-		notificationSuccess("Persist Success!");
-	} catch (Exception e) {
-		notificationError(e, "Persist Error!");
-		logger.debug("This is debug :" + e);
-		logger.error("This is error : " + e);
-		logger.fatal("This is fatal : " + e);
-	}
+			studentClassService = new StudentClassService();
+			studentClassService.remove(studentClass);
+			notificationSuccess("Persist Success!");
+		} catch (Exception e) {
+			notificationError(e, "Persist Error!");
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
 
-}
-	
+	}
 
 	public StudentClassService getStudentClassService() {
 		return studentClassService;
@@ -77,8 +76,8 @@ public class StudentClassController {
 	}
 
 	public StudentClass getStudentClass() {
-		if(studentClass == null ){
-			studentClass=new StudentClass();
+		if (studentClass == null) {
+			studentClass = new StudentClass();
 		}
 		return studentClass;
 	}
@@ -88,8 +87,8 @@ public class StudentClassController {
 	}
 
 	public StudentClass getStudentClassSelected() {
-		if(studentClassSelected == null ){
-			studentClassSelected=new StudentClass();
+		if (studentClassSelected == null) {
+			studentClassSelected = new StudentClass();
 		}
 		return studentClassSelected;
 	}
@@ -113,20 +112,19 @@ public class StudentClassController {
 	public void setStudentClasses(List<StudentClass> studentClasses) {
 		this.studentClasses = studentClasses;
 	}
-	
+
 	public void notificationSuccess(String operation) {
-		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Operation "+operation+" success");
-		FacesMessage msg = null;  
-		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Success"); 
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
+		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Operation " + operation + " success");
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Success");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
-
 	public void notificationError(Exception e, String operation) {
-		Logger.getLogger(this.getClass().getName()).log(Level.ERROR, "Operation "+operation+" Error ",e);
-		FacesMessage msg = null;  
-		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Une erreur est survenue");  
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
+		Logger.getLogger(this.getClass().getName()).log(Level.ERROR, "Operation " + operation + " Error ", e);
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Une erreur est survenue");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 }

@@ -17,12 +17,12 @@
 					<h:outputLabel for="menu" value="Teacher ID" />
 					<p:inputText value="#{assignClassController.teacherID}"/>
 					<h:commandButton type="submit"
-									action="#{assignClassController.displayForm}" value="Add"
+									action="#{assignClassController.displayForm}" value="Search"
 									update="teacherSearchForm :teacherForm" />
 									
 				</h:form>
 				
-					<h:form id="teacherForm">
+					<h:form id="teacherassForm">
 						<p:growl showDetail="true" />
 						
 						<h:panelGroup id="displays" rendered="#{assignClassController.renPanel}">
@@ -40,7 +40,7 @@
 								<p:outputLabel />
 								<h:commandButton type="submit"
 									action="#{assignClassController.saveDynamicList}" value="Add"
-									update="teacherForm :teacherListForm" />
+									update="teacherassForm :teacherListForm" />
 							</p:panelGrid>
 
 
@@ -53,38 +53,27 @@
 					<h:form id="teacherListForm">
 						<p:panel header="Teacher List">
 							<p:dataTable id="teacherlist"
-								value="#{teacherController.teachers}" var="teacher"
-								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								value="#{assignClassController.teacherAsgnClasses}" var="assign"
+								paginator="true" paginatorPosition="bottom" rowKey="#{assign.id}"
 								rows="10" rowsPerPageTemplate="10,20,30,40,50">
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Name" />
+										<h:outputText value="ID" />
 									</f:facet>
-									<h:outputText value="#{teacher.teacherName}" />
+									<h:outputText value="#{assign.id}" />
 								</p:column>
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Date Of Birth" />
+										<h:outputText value="Teacher Name" />
 									</f:facet>
-									<h:outputText value="#{teacher.joiningDate}" />
+									<h:outputText value="#{assign.teacher.teacherName}" />
 								</p:column>
+								
 								<p:column>
 									<f:facet name="header">
-										<h:outputText value="Date Of Birth" />
+										<h:outputText value="Class Name" />
 									</f:facet>
-									<h:outputText value="#{teacher.birthDate}" />
-								</p:column>
-								<p:column>
-									<f:facet name="header">
-										<h:outputText value="Mobile No" />
-									</f:facet>
-									<h:outputText value="#{teacher.mobileNo}" />
-								</p:column>
-								<p:column>
-									<f:facet name="header">
-										<h:outputText value="Note" />
-									</f:facet>
-									<h:outputText value="#{teacher.note}" />
+									<h:outputText value="#{assign.studentClass.className}" />
 								</p:column>
 
 

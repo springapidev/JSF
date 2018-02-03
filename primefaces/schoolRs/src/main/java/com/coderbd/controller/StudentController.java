@@ -1,6 +1,7 @@
 package com.coderbd.controller;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -41,9 +42,10 @@ public class StudentController {
 			student.setStudentClass(studentClass);
 			studentService = new StudentService();
 			studentService.persist(student);
-		
+			student =null;
 			notificationSuccess("Persist Success!");
 		} catch (Exception e) {
+			e.printStackTrace();
 			notificationError(e, "Persist Error!");
 			logger.debug("This is debug :" + e);
 			logger.error("This is error : " + e);
@@ -110,6 +112,7 @@ public class StudentController {
 	public List<Student> getStudents() {
 		try {
 			studentService = new StudentService();
+			students = new ArrayList<>();
 			students = studentService.findAll();
 			notificationSuccess("Persist Success!");
 		} catch (Exception e) {

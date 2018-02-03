@@ -40,7 +40,7 @@ public class TeacherController {
 			teacher.setSubject(subject);
 			teacherService = new TeacherService();
 			teacherService.persist(teacher);
-		
+			teacher = null;
 			notificationSuccess("Persist Success!");
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");

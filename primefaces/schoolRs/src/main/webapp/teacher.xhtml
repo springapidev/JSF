@@ -71,9 +71,15 @@
 						<p:panel header="Teacher List">
 							<p:dataTable id="teacherlist"
 								value="#{teacherController.teachers}" var="teacher"
-								paginator="true" paginatorPosition="bottom" rowKey="#{std.id}"
+								paginator="true" paginatorPosition="bottom" rowKey="#{teacher.id}"
 								rows="10" rowsPerPageTemplate="10,20,30,40,50">
 								<p:column>
+									<f:facet name="header">
+										<h:outputText value="ID" />
+									</f:facet>
+									<h:outputText value="#{teacher.id}" />
+								</p:column>
+									<p:column>
 									<f:facet name="header">
 										<h:outputText value="Name" />
 									</f:facet>

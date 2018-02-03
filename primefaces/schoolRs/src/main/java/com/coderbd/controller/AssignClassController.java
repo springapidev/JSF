@@ -28,7 +28,6 @@ public class AssignClassController {
 	private StudentClassService studentClassService;
 
 	private List<StudentClass> studentClasses;
-	
 
 	private int teacherID;
 	private int[] classIDs;
@@ -45,10 +44,12 @@ public class AssignClassController {
 		try {
 			teacherService = new TeacherService();
 			if (teacherID != 0) {
-				teacher=new Teacher();
+				teacher = new Teacher();
 				teacher = teacherService.findById(teacherID);
 				if (teacher != null) {
 					renPanel = "true";
+				} else {
+					renPanel = "false";
 				}
 			}
 		} catch (Exception e) {
@@ -62,28 +63,26 @@ public class AssignClassController {
 
 	public String saveDynamicList() {
 		try {
-			teacherAsgnClasses = new ArrayList<>();
-
-
-				for (int i=0; i <classIDs.length; i++) {
+		
+			for (int i = 0; i < classIDs.length; i++) {
 				teacherAsgnClass = new TeacherAsgnClass();
 				Teacher teacher = new Teacher();
-				System.out.println("sami========== teacher id: "+teacherID);
+				System.out.println("sami========== teacher id: " + teacherID);
 				teacher.setId(teacherID);
 				teacherAsgnClass.setTeacher(teacher);
-				StudentClass sc=new StudentClass();
+				StudentClass sc = new StudentClass();
 				sc.setId(classIDs[i]);
 				teacherAsgnClass.setStudentClass(sc);
 				System.out.println(teacherAsgnClass.toString());
-				
+
 				teacherAsgnClassService = new TeacherAsgnClassService();
 				teacherAsgnClassService.persist(teacherAsgnClass);
+
 			}
-
-				
 			
-
 			notificationSuccess("Persist Success!");
+			teacherAsgnClass = null;
+			classIDs =null;
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");
 			logger.debug("This is debug :" + e);
@@ -126,8 +125,6 @@ public class AssignClassController {
 		this.studentClasses = studentClasses;
 	}
 
-	
-
 	public Teacher getTeacher() {
 		if (teacher == null) {
 			teacher = new Teacher();
@@ -153,6 +150,14 @@ public class AssignClassController {
 	}
 
 	public List<TeacherAsgnClass> getTeacherAsgnClasses() {
+		try {
+			teacherAsgnClassService = new TeacherAsgnClassService();
+			teacherAsgnClasses = teacherAsgnClassService.findAll();
+		} catch (Exception e) {
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
 		return teacherAsgnClasses;
 	}
 

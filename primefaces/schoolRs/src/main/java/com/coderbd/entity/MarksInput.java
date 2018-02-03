@@ -32,6 +32,14 @@ public class MarksInput {
 	@Column(name = "pass_mark")
 	private double passMark;
 
+	public MarksInput(Student student, Subject subject, double obtaintedMarks, double passMark) {
+		super();
+		this.student = student;
+		this.subject = subject;
+		this.obtaintedMarks = obtaintedMarks;
+		this.passMark = passMark;
+	}
+
 	public MarksInput() {
 		super();
 	}

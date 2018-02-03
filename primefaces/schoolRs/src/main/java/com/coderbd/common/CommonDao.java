@@ -33,5 +33,7 @@ public interface CommonDao<E> {
 	public void dynamicListPersists(List<E> entities) throws Exception;
 
 	public void dynamicListMerge(List<E> listForMerge) throws Exception;
+	
+
 
 }

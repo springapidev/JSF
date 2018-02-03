@@ -24,28 +24,27 @@ public class SubjectController {
 	private Subject subject;
 	private Subject subjectSelected;
 	private List<Subject> subjects;
-	
-	
-	
-	public void save() {
-			try {
-				System.out.println(subject.toString());
-				subjectService = new SubjectService();
-				subjectService.persist(subject);
+
+	public String save() {
+		try {
+			System.out.println(subject.toString());
+			subjectService = new SubjectService();
+			subjectService.persist(subject);
 			notificationSuccess("Persist Success!");
+			subject = null;
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");
 			logger.debug("This is debug :" + e);
 			logger.error("This is error : " + e);
 			logger.fatal("This is fatal : " + e);
 		}
-
+		return null;
 	}
-	
+
 	public void update() {
-			try {
-				subjectService = new SubjectService();
-				subjectService.merge(subject);
+		try {
+			subjectService = new SubjectService();
+			subjectService.merge(subject);
 			notificationSuccess("Persist Success!");
 		} catch (Exception e) {
 			notificationError(e, "Persist Error!");
@@ -55,22 +54,21 @@ public class SubjectController {
 		}
 
 	}
+
 	public void delete() {
 		try {
 			subjectService = new SubjectService();
 			subjectService.remove(subject);
-		notificationSuccess("Persist Success!");
-	} catch (Exception e) {
-		notificationError(e, "Persist Error!");
-		logger.debug("This is debug :" + e);
-		logger.error("This is error : " + e);
-		logger.fatal("This is fatal : " + e);
+			notificationSuccess("Persist Success!");
+		} catch (Exception e) {
+			notificationError(e, "Persist Error!");
+			logger.debug("This is debug :" + e);
+			logger.error("This is error : " + e);
+			logger.fatal("This is fatal : " + e);
+		}
+
 	}
 
-}
-	
-
-	
 	public SubjectService getSubjectService() {
 		return subjectService;
 	}
@@ -80,7 +78,7 @@ public class SubjectController {
 	}
 
 	public Subject getSubject() {
-		if(subject == null ){
+		if (subject == null) {
 			subject = new Subject();
 		}
 		return subject;
@@ -118,18 +116,17 @@ public class SubjectController {
 	}
 
 	public void notificationSuccess(String operation) {
-		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Operation "+operation+" success");
-		FacesMessage msg = null;  
-		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Success"); 
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
+		Logger.getLogger(this.getClass().getName()).log(Level.INFO, "Operation " + operation + " success");
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Success");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
-
 	public void notificationError(Exception e, String operation) {
-		Logger.getLogger(this.getClass().getName()).log(Level.ERROR, "Operation "+operation+" Error ",e);
-		FacesMessage msg = null;  
-		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Une erreur est survenue");  
-		FacesContext.getCurrentInstance().addMessage(null, msg);  
+		Logger.getLogger(this.getClass().getName()).log(Level.ERROR, "Operation " + operation + " Error ", e);
+		FacesMessage msg = null;
+		msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Notification", "Une erreur est survenue");
+		FacesContext.getCurrentInstance().addMessage(null, msg);
 	}
 
 }
