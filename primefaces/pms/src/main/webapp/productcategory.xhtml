@@ -1,0 +1,77 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+      <div>Add Product Category </div>
+
+        <div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="pcForm">
+						<h:panelGroup id="display">
+							<p:panelGrid columns="2">
+								<h:outputText value="Name"
+									style="padding-left: 30px; padding-right: 30px;" />
+
+								<p:inputText id="name" required="true" label="Name"
+									value="#{productCategoryController.productCategory.categoryName}"
+									requiredMessage="Required" />
+
+
+								<h:outputText value="Note"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{productCategoryController.productCategory.note}" />
+
+							</p:panelGrid>
+							<p:commandButton actionListener="#{productCategoryController.save}"
+								value="Add" update="pcForm :pcListForm" />
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="pcListForm">
+						<p:panel header="Product Category List">
+							<p:dataTable id="datalist"
+								value="#{productCategoryController.productCategories}" var="pc"
+								paginator="true" paginatorPosition="bottom"
+								rowKey="#{pc.id}" rows="10"
+								rowsPerPageTemplate="10,20,30,40,50">
+
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Name" />
+									</f:facet>
+									<h:outputText value="#{pc.categoryName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{pc.note}" />
+								</p:column>
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>

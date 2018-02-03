@@ -1,0 +1,148 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	template="template/template.xhtml">
+
+	<ui:define name="metadata">
+	</ui:define>
+	<ui:define name="content">
+		<div>Product Sales</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<h:form id="pcForm">
+						<p:growl id="msg" showSummary="true" />
+						<h:panelGroup id="display">
+							<p:panelGrid columns="2">
+
+
+								<h:outputText value="Product Category"
+									style="padding-left: 10px; padding-right: 10px;" />
+
+								<p:selectOneMenu id="pc" style="width:150px"
+									value="#{productSalesController.productCategory.id}">
+								
+									<f:selectItem itemLabel="Select Category" itemValue="0" />
+									<f:selectItems
+										value="#{productCategoryController.productCategories}"
+										var="pc" itemLabel="#{pc.categoryName}" itemValue="#{pc.id}" />
+									<p:ajax event="change" process="@this" update="pname" listener="#{productSalesController.loadProductListByCategory}"/> 
+								</p:selectOneMenu>
+
+								<h:outputText value="Product Name"
+										style="padding-left: 10px; padding-right: 10px;" />
+								<p:selectOneMenu id="pname" style="width:150px"
+									value="#{productSalesController.productPurchase.id}">
+									<f:selectItem itemLabel="Select A Product" itemValue="0" />
+									<f:selectItems
+										value="#{productSalesController.productPurchases}" var="p"
+										itemLabel="#{p.productName}" itemValue="#{p.id}" />
+								</p:selectOneMenu>
+
+
+								<h:outputText value="Unit Price"
+										style="padding-left: 10px; padding-right: 10px;" />
+								<p:inputText id="uprice" required="true" label="Unit Price"
+									value="#{productSalesController.productSales.unitPrice}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Qty"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputText id="qty" required="true" label="Total Price"
+									value="#{productSalesController.productSales.qty}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Total Price"
+									style="padding-left: 10px; padding-right: 10px;" />
+								<p:inputText id="totalprice" required="true" label="Total Price"
+									value="#{productSalesController.productSales.totalPrice}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Customer Name"
+									style="padding-left: 30px; padding-right: 30px;" />
+								<p:inputText id="cname" required="true" label="Customer Name"
+									value="#{productSalesController.productSales.customerName}"
+									requiredMessage="Required" />
+								<h:outputText value="Customer Mobile"
+									style="padding-left: 10px; padding-right: 10px;" />
+								<p:inputText id="cmobile" required="true"
+									label="Customer Mobile"
+									value="#{productSalesController.productSales.customerMobile}"
+									requiredMessage="Required" />
+
+								<h:outputText value="Note"
+									style="padding-left: 10px; padding-right: 10px;" />
+								<p:inputTextarea rows="5" cols="30" maxlength="100"
+									counterTemplate="{0} characters remaining." autoResize="false"
+									value="#{productSalesController.productSales.note}" />
+							</p:panelGrid>
+							<h:commandButton type="submit"
+								action="#{productSalesController.save}" value="Add"
+								update="pcForm :pcListForm" />
+
+
+						</h:panelGroup>
+					</h:form>
+
+				</div>
+				<div class="col-md-8">
+
+					<h:form id="pcListForm">
+						<p:growl showSummary="true" />
+						<p:panel header="Product Category List">
+							<p:dataTable id="datalist"
+								value="#{productSalesController.productSaleses}" var="sales"
+								paginator="true" paginatorPosition="bottom" rowKey="#{sales.id}"
+								rows="10" rowsPerPageTemplate="10,20,30,40,50">
+
+
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Product Name" />
+									</f:facet>
+									<h:outputText value="#{sales.productPurchase.productName}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Qty" />
+									</f:facet>
+									<h:outputText value="#{sales.qty}" />
+								</p:column>
+
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Unit Price" />
+									</f:facet>
+									<h:outputText value="#{sales.unitPrice}" />
+								</p:column>
+								
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Sales Date" />
+									</f:facet>
+									<h:outputText value="#{sales.purchaseDate}" >
+									<f:convertDateTime pattern="yyyy-MM-dd"/>
+									</h:outputText>
+								</p:column>
+								<p:column>
+									<f:facet name="header">
+										<h:outputText value="Note" />
+									</f:facet>
+									<h:outputText value="#{sales.note}" />
+								</p:column>
+
+							</p:dataTable>
+						</p:panel>
+					</h:form>
+
+				</div>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
