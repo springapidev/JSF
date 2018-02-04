@@ -13,9 +13,9 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
-					<h:form id="pcForm">
-						<p:growl id="msg" showSummary="true" />
-						<h:panelGroup id="display">
+					<h:form id="psForm">
+						<p:growl showSummary="true" />
+						<h:panelGroup id="displayx">
 							<p:panelGrid columns="2">
 
 
@@ -81,7 +81,7 @@
 							</p:panelGrid>
 							<h:commandButton type="submit"
 								action="#{productSalesController.save}" value="Add"
-								update="pcForm :pcListForm" />
+								update="psForm :psListForm" />
 
 
 						</h:panelGroup>
@@ -90,22 +90,17 @@
 				</div>
 				<div class="col-md-8">
 
-					<h:form id="pcListForm">
+					<h:form id="psListForm">
 						<p:growl showSummary="true" />
 						<p:panel header="Product Category List">
-							<p:dataTable id="datalist"
+							<p:dataTable id="datalistc"
 								value="#{productSalesController.productSaleses}" var="sales"
 								paginator="true" paginatorPosition="bottom" rowKey="#{sales.id}"
 								rows="10" rowsPerPageTemplate="10,20,30,40,50">
 
 
 
-								<p:column>
-									<f:facet name="header">
-										<h:outputText value="Product Name" />
-									</f:facet>
-									<h:outputText value="#{sales.productPurchase.productName}" />
-								</p:column>
+								
 
 								<p:column>
 									<f:facet name="header">
@@ -125,7 +120,7 @@
 									<f:facet name="header">
 										<h:outputText value="Sales Date" />
 									</f:facet>
-									<h:outputText value="#{sales.purchaseDate}" >
+									<h:outputText value="#{sales.salesDate}" >
 									<f:convertDateTime pattern="yyyy-MM-dd"/>
 									</h:outputText>
 								</p:column>
