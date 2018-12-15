@@ -10,12 +10,12 @@
       </head>
       <body>
             <h3>You entered these search parameters</h3>
-            <p>Origination: <h:outputText value="#{flight.origination}"/>
-            <p>Depart date: <h:outputText value="#{flight.departDate}"/>
-            <p>Depart time: <h:outputText value="#{flight.departTime}"/>
-            <p>Destination: <h:outputText value="#{flight.destination}"/>
-            <p>Return date: <h:outputText value="#{flight.returnDate}"/>
-            <p>Return time: <h:outputText value="#{flight.returnTime}"/>
+            <p>Origination: <h:outputText value="#{flightSearchController.flight.origination}"/>
+            <p>Depart date: <h:outputText value="#{flightSearchController.flight.departDate}"/>
+            <p>Depart time: <h:outputText value="#{flightSearchController.flight.departTime}"/>
+            <p>Destination: <h:outputText value="#{flightSearchController.flight.destination}"/>
+            <p>Return date: <h:outputText value="#{flightSearchController.flight.returnDate}"/>
+            <p>Return time: <h:outputText value="#{flightSearchController.flight.returnTime}"/>
       </body>      
    
        </f:view>

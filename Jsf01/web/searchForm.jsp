@@ -24,10 +24,10 @@
         </tr>
         <tr>
           <td colspan="2">
-            <h:inputText value="#{flight.origination}" size="35"/>
+            <h:inputText value="#{flightSearchController.flight.origination}" size="35"/>
           </td>
           <td colspan="2">
-            <h:inputText value="#{flight.destination}" size="35"/>
+            <h:inputText value="#{flightSearchController.flight.destination}" size="35"/>
           </td>
         </tr>
         <tr>
@@ -36,16 +36,16 @@
         </tr>
         <tr>
           <td>
-            <h:inputText value="#{flight.departDate}"/>
+            <h:inputText value="#{flightSearchController.flight.departDate}"/>
           </td>
           <td>
-            <h:inputText value="#{flight.departTime}"/>
+            <h:inputText value="#{flightSearchController.flight.departTime}"/>
           </td>
           <td>
-            <h:inputText value="#{flight.returnDate}"/>
+            <h:inputText value="#{flightSearchController.flight.returnDate}"/>
           </td>
           <td>
-            <h:inputText value="#{flight.returnTime}"/>
+            <h:inputText value="#{flightSearchController.flight.returnTime}"/>
           </td>
         </tr>
       </table>

@@ -11,7 +11,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.idb</url-pattern>
+        <url-pattern>*.bd</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
