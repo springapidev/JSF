@@ -18,7 +18,7 @@
         <td align="right">
 
           <jsp:include page="box.jsp">
-            <jsp:param name="color" value="#CC0033"/>
+            <jsp:param name="color" value="#065"/>
             <jsp:param name="title" value="Pro JSP 2, 4th Edition"/>
             <jsp:param name="body" value="Pro JSP 2, 4th Edition is 
             now out. It covers all of the new features of the JSP 2.1 

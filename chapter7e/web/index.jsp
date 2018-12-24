@@ -2,26 +2,33 @@
 
 <html>
 
-  <head>
-    <title>Professional JSP 2, 4th Edition</title>
-    <link rel="stylesheet" href="projsp.css">
-  </head>
+    <head>
+        <title>Professional JSP 2, 4th Edition</title>
+        <link rel="stylesheet" href="projsp.css">
+    </head>
 
-  <body>
+    <body>
 
-    <%@ taglib uri="/WEB-INF/tlds/ch07.tld" prefix="ch07" %>
+        <%@ taglib uri="/WEB-INF/tlds/ch07.tld" prefix="ch07" %>
 
-    <%
-      pageContext.setAttribute("countries", Countries.getInstance().getCountries());
-    %>
+        <%
+            pageContext.setAttribute("countries", Countries.getInstance().getCountries());
+        %>
 
-    Countries :
-    <ul>
-    <ch07:iterate var="country" items="${countries}">
-      <li>${country.name}
-    </ch07:iterate>
-    </ul>
+        Countries :
+        <table style="border:1px solid #000; width: 100%;">            
+            <tr>
+                <th>ID</th>
+                 <th>Name</th>
+            </tr>
+            <ch07:iterate var="country" items="${countries}">    
+                <tr>
+                    <td style="border:1px solid #000"> ${country.id}</td> 
+                       <td style="border:1px solid #000"> ${country.name}</td> 
+                    </tr>
+                </ch07:iterate>
+        </table>
 
-  </body>
+    </body>
 
 </html>

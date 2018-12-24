@@ -1,6 +1,6 @@
 <table width="260" bordercolor="${param.color}" border="1" cellpadding="4" 
        cellspacing="0">
-  <tr bgcolor="${param.color}" color="#ffffff">
+  <tr bgcolor="${param.color}" color="#c09">
     <td class="boxHeader">
       ${param.title}
     </td>

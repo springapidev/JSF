@@ -24,7 +24,7 @@
         </tr>
         <tr>
           <td colspan="2">
-            <h:inputText value="#{flightSearchController.flight.origination}" size="35"/>
+              <h:inputText value="#{flightSearchController.flight.origination}" size="35"/>
           </td>
           <td colspan="2">
             <h:inputText value="#{flightSearchController.flight.destination}" size="35"/>

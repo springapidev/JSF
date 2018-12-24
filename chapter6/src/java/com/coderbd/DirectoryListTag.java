@@ -46,6 +46,7 @@ public class DirectoryListTag extends SimpleTagSupport {
     return filteredResources;
   }
 
+  @Override
   public void doTag() throws JspException, IOException {
     // first of all, find the names of the files
     Collection files = findFiles();

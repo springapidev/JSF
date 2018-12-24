@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"     
+      xmlns:jsf="http://xmlns.jcp.org/jsf"         
+      xmlns:passthrough="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">   
+
+
+    <f:view contracts="default" transient="false">
+        <ui:composition template="/template.xhtml">              
+            <ui:define name="content">                                 
+                <div class="container">
+
+                    <h:form>
+                        <h3><h:outputText value="Add New User"/></h3>
+                        <p:panelGrid columns="2" styleClass="table">
+
+                            <p:outputLabel value="Firstname:" for="firstname" />
+
+                            <h:inputText id="firstname" value="#{userController.entity.firstname}" class="form-control" required="true" title="Firstname" />
+                            <p:outputLabel value="Lastname:" for="lastname" />
+                            <h:inputText id="lastname" value="#{userController.entity.lastname}" class="form-control" required="true" title="Lastname" />
+                            <p:outputLabel value="Email:" for="email" />
+                            <h:inputText id="email" value="#{userController.entity.email}" required="true" class="form-control" title="Email" />
+                            <p:outputLabel value="Passwd:" for="passwd" />
+                            <h:inputSecret id="passwd" value="#{userController.entity.passwd}"  required="true" class="form-control" title="Passwd" />
+
+
+                        </p:panelGrid>
+                        <h:commandButton value="Save" action="#{userController.save()}" styleClass="btn btn-danger"/>
+                    </h:form>
+
+                </div>
+            </ui:define>
+        </ui:composition>
+    </f:view>
+</html>

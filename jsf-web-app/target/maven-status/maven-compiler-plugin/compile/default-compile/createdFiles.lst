@@ -1,0 +1,6 @@
+com\project\test\Main.class
+com\project\web\controllers\user\UpdateUserBean.class
+com\project\web\controllers\DatabaseServiceBean.class
+com\project\web\controllers\user\UserController.class
+com\project\web\entities\User.class
+com\project\web\util\ParamUtil.class

@@ -33,7 +33,7 @@ public class ThumbnailTag extends SimpleTagSupport {
         getJspContext().getOut().write(filename);
         getJspContext().getOut().write("\" alt=\"");
         getJspContext().getOut().write(filename);
-        getJspContext().getOut().write("\" width=\"128\" height=\"96\"> ");
+        getJspContext().getOut().write("\" width=\"228\" height=\"186\"> ");
       }
     }
   }

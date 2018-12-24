@@ -16,7 +16,7 @@
     %>
 
     Countries : 
-    <ch07:selectWithDynamicAttributes name="country" label="name" value="id" items="${countries}" size="3"/>
+    <ch07:selectWithDynamicAttributes name="country" label="name" value="id" items="${countries}" size="2"/>
 
   </body>
 
