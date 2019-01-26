@@ -14,10 +14,11 @@ public class CreateData {
 		Session session = sessFact.getCurrentSession();
 		org.hibernate.Transaction tr = session.beginTransaction();
 		Employee emp = new Employee();
-		emp.setEmpName("Sami");
+                emp.setId(1);
+		emp.setEmpName("Mr. Sami");
 		emp.setEmpMobileNos("01686239145");
 		emp.setEmpAddress("Dhaka");
-		session.save(emp);
+		session.saveOrUpdate(emp);
 		tr.commit();
 		System.out.println("Successfully inserted");
 		sessFact.close();

@@ -1,4 +1,3 @@
-com\coderbd\util\HibernateUtil.class
 com\coderbd\dao\EmployeeDao.class
 com\coderbd\common\CommonDao.class
 com\coderbd\test\AnothertestUsingChain.class
@@ -6,5 +5,7 @@ com\coderbd\entity\Employee.class
 com\coderbd\test\CreateData.class
 com\coderbd\common\CommonService.class
 com\coderbd\entity\Student.class
+com\coderbd\test\GetAll.class
+com\coderbd\util\HibernateUtil.class
 com\coderbd\service\EmployeeService.class
 com\coderbd\test\GetAllData.class

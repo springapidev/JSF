@@ -6,6 +6,7 @@ import javax.servlet.*;
 public final class SimpleFilter2 implements Filter {
   private FilterConfig filterConfig = null;
 
+  @Override
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {
     filterConfig.getServletContext().log("in SimpleFilter2");

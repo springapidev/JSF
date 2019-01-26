@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.coderbd.common;
 
 import com.coderbd.util.HibernateUtil;
@@ -14,6 +9,7 @@ import java.util.List;
 
 import javassist.bytecode.SignatureAttribute.TypeVariable;
 import javax.transaction.Transactional;
+import org.hibernate.Transaction;
 
 /**
  *
@@ -24,7 +20,7 @@ public class CommonService<E> implements CommonDao<E> {
 
     SessionFactory sessFact = HibernateUtil.getSessionFactory();
     Session session = sessFact.getCurrentSession();
-    org.hibernate.Transaction tr = session.beginTransaction();
+   Transaction tr = session.beginTransaction();
 
     protected E instance;
     private Class<E> entityClass;

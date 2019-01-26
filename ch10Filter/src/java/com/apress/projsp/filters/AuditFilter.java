@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 public final class AuditFilter implements Filter {
   private FilterConfig filterConfig = null;
 
+  @Override
   public void doFilter(ServletRequest request, ServletResponse response,
       FilterChain chain) throws IOException, ServletException {
     long startTime = System.currentTimeMillis();
