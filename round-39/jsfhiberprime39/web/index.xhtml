@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+
+            Welcome to PrimeFaces
+            <h:form>
+                <p:outputLabel value="ID"/>
+                <p:inputText value="#{studentController.student.id}"/>
+                <hr/>
+                <p:outputLabel value="Student Name"/>
+                <p:inputText value="#{studentController.student.studentName}"/>
+                <hr/>
+                <p:outputLabel value="Gender"/>
+                <p:selectOneRadio id="gender" value="#{studentController.student.gender}" >
+                    <f:selectItem itemLabel="Male" itemValue="m" />
+                    <f:selectItem itemLabel="Female" itemValue="f" />                         
+                </p:selectOneRadio>
+                <hr/>
+                <p:outputLabel value="Round"/>
+                <p:selectOneMenu id="Round" value="#{studentController.student.round}" style="width:125px">
+                    <f:selectItem itemLabel="Select Round" itemValue="" />
+                    <f:selectItem itemLabel="Round-37" itemValue="Round-37" />
+                    <f:selectItem itemLabel="Round-38" itemValue="Round-38" />
+                    <f:selectItem itemLabel="Round-39" itemValue="Round-39" />
+                    <f:selectItem itemLabel="Round-40" itemValue="Round-40" />
+                </p:selectOneMenu>
+                <hr/>
+                <p:outputLabel value="Status"/>
+                <p:selectOneRadio id="status" value="#{studentController.student.courseStatus}" >
+                    <f:selectItem  itemLabel="Going On" itemValue="go" />
+                    <f:selectItem itemLabel="Complete" itemValue="c" />                         
+                </p:selectOneRadio>
+                <hr/>
+                <p:outputLabel value="Joining Date"/>
+                <p:calendar value="#{studentController.student.courseStartDate}"/>
+
+                <hr/>
+                <p:outputLabel value="Completed Course"/>
+                <p:selectManyCheckbox id="cc" value="#{studentController.student.completedCourse}">
+                    <f:selectItem itemLabel="HTML" itemValue="HTML" />
+                    <f:selectItem itemLabel="JAVA" itemValue="Java" />
+                    <f:selectItem itemLabel="Swing" itemValue="Swing" />
+                    <f:selectItem itemLabel="Oracle" itemValue="Oracle" />
+                </p:selectManyCheckbox>
+                <hr/>
+                <p:outputLabel value="Note"/>
+                <p:inputTextarea value="#{studentController.student.note}"/>
+                <hr/>
+                <p:commandButton action="#{studentController.save()}" value="Add Student" />
+            </h:form>
+
+
+
+            <hr/>
+            <p:dataTable var="stu" value="#{studentController.students}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{stu.id}" />
+                </p:column>
+                <p:column headerText="Student Name">
+                    <h:outputText value="#{stu.studentName}" />
+                </p:column>
+
+                <p:column headerText="Gender">
+                    <h:outputText value="#{stu.gender}" />
+                </p:column>
+
+                <p:column headerText="Round">
+                    <h:outputText value="#{stu.round}" />
+                </p:column>
+                <p:column headerText="Status">
+                    <h:outputText value="#{stu.courseStatus}" />
+                </p:column>
+                <p:column headerText="Couse Completed">
+                    <p:dataList value="#{stu.completedCourse}" var="c" type="ordered">
+                        <h:outputText value="#{c}" /></p:dataList>
+
+                </p:column>
+
+                <p:column headerText="Joining Date">
+                    <h:outputText value="#{stu.courseStartDate}" >
+                        <f:convertDateTime pattern="dd-MM-yyyy" />
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+
+        </h:body>
+
+    </f:view>
+</html>
+
