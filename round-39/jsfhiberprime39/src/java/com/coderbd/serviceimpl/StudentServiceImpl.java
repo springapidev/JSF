@@ -31,4 +31,13 @@ public class StudentServiceImpl implements StudentService {
         return list;
     }
 
+    @Override
+    public void updateStudent(Student student) {
+         SessionFactory sessionFactory = NewHibernateUtil.getSessionFactory();
+        Session session = sessionFactory.getCurrentSession();
+        Transaction tr = session.beginTransaction();
+        session.saveOrUpdate(student);
+        tr.commit();
+    }
+
 }

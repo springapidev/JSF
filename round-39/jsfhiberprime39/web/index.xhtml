@@ -17,7 +17,9 @@
 
 
             Welcome to PrimeFaces
-            <h:form>
+            <h:form>              
+               <p:messages for="MessageId" showDetail="true" autoUpdate="true" closable="true"/>
+                <p:messages for="MessageIdUp" showDetail="true" autoUpdate="true" closable="true"/>
                 <p:outputLabel value="ID"/>
                 <p:inputText value="#{studentController.student.id}"/>
                 <hr/>
@@ -60,13 +62,15 @@
                 <p:outputLabel value="Note"/>
                 <p:inputTextarea value="#{studentController.student.note}"/>
                 <hr/>
-                <p:commandButton action="#{studentController.save()}" value="Add Student" />
+                <p:commandButton action="#{studentController.save()}" value="Add Student" update=":list:stulist"/>
+                <p:commandButton action="#{studentController.update()}" value="Update Student"  update=":list:stulist"/>
             </h:form>
 
 
 
             <hr/>
-            <p:dataTable var="stu" value="#{studentController.students}">
+            <h:form id="list">
+                <p:dataTable id="stulist" var="stu" value="#{studentController.students}">
                 <p:column headerText="Id">
                     <h:outputText value="#{stu.id}" />
                 </p:column>
@@ -96,7 +100,7 @@
                     </h:outputText>
                 </p:column>
             </p:dataTable>
-
+            </h:form>
         </h:body>
 
     </f:view>
