@@ -5,6 +5,6 @@
       <link rel="stylesheet" href="projsp.css">
   </head>
   <body>
-    The current date and time is <ch06:datetime/>
+    The current date and time is <ch06:bddatetime/>
   </body>
 </html>

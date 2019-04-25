@@ -13,7 +13,7 @@
     </navigation-rule>
     <managed-bean>
         <managed-bean-name>studentCon</managed-bean-name>
-        <managed-bean-class>com.coderbd.controller.StudentController</managed-bean-class>
+        <managed-bean-class>com.coderbd.controller.Student</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
 
     </managed-bean>

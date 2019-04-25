@@ -16,7 +16,7 @@
     <uri>http://localhost:8084/chapter6/</uri>
 
     <tag>
-      <name>datetime</name>
+      <name>bddatetime</name>
       <tag-class>com.coderbd.DateTimeTag</tag-class>
       <body-content>empty</body-content>
       <description>

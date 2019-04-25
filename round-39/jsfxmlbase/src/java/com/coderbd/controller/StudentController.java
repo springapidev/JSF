@@ -1,6 +1,8 @@
 package com.coderbd.controller;
 
 import com.coderbd.pojo.Student;
+import javax.faces.bean.ManagedBean;
+
 
 public class StudentController {
 
