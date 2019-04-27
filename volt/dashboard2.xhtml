@@ -1,0 +1,412 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+    
+    <ui:define name="subheader">
+        Dashboard
+    </ui:define>
+
+    <ui:define name="content">
+        
+        <!-- left content -->
+        <div class="Container50 Responsive100 NoIndent">
+            <div class="Container100">
+                <div class="Card TealGreenBack">
+                    <div class="EmptyBox5"></div>
+                    <div class="CardTopic White">ENTRIES FOR RENTAL OR SALE </div>
+                    <div class="EmptyBox20"></div>
+                    <div class="Container33 Responsive100">
+                        <i class="icon-home-outline Fs50 Leaden Fleft MarRight10"></i>
+                        <span class="Fs12 FontVoltLight Opac50 White">Real Estate For Sale <br/></span>
+                        <span class="White Fs40 FontVoltLight" style="line-height:40px;">34,564</span>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                    <div class="Container33 Responsive100">
+                        <i class="icon-home-outline Fs50 Leaden Fleft MarRight10"></i>
+                        <span class="Fs12 FontVoltLight Opac50 White">Real Estate For Rental <br/></span>
+                        <span class="White Fs40 FontVoltLight" style="line-height:40px;">12,217</span>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                    <div class="Container33 Responsive100">
+                        <i class="icon-location-outline Fs50 Leaden Fleft MarRight10"></i>
+                        <span class="Fs12 FontVoltLight Opac50 White">Land For Sale<br/></span>
+                        <span class="White Fs40 FontVoltLight" style="line-height:40px;">11,310</span>
+                        <div class="EmptyBox10"></div>
+                    </div>
+                    <div class="EmptyBox10"></div>
+                </div>
+            </div>
+
+            <div class="Container100">
+                <div class="Card LeadenBack">
+                    <div class="CardTopic TealGreen">New Entry For Sale Or Rental</div>
+                    <div class="Separator"></div>
+
+                    <div class="Card">
+                        <div class="Container100">
+                            <div class="ContainerIndent"><p:inputText placeholder="Entry Name" styleClass="Wid100 BoxSizeBorder"/></div>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="min" value="Min Price" style="width:75%">
+                                <f:selectItem itemLabel="Min Price" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="max" value="Max Price" style="width:75%">
+                                <f:selectItem itemLabel="Max Price" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="type" value="Type" style="width:75%">
+                                <f:selectItem itemLabel="Type" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="bed" value="Beds" style="width:75%">
+                                <f:selectItem itemLabel="Beds" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="bath" value="Baths" style="width:75%">
+                                <f:selectItem itemLabel="Baths" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                        <div class="Container33 Responsive100">
+                            <p:selectOneMenu id="age" value="Age" style="width:75%">
+                                <f:selectItem itemLabel="Age" itemValue="" />
+                                <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                                <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                                <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                            </p:selectOneMenu>
+                        </div>
+                    </div>
+
+                    <div class="EmptyBox20"></div>
+
+                    <div class="Card">
+                        <p:selectManyCheckbox layout="pageDirection" styleClass="Fleft">
+                            <f:selectItem itemLabel="Only Open Houses" itemValue="fc" />
+                            <f:selectItem itemLabel="Assisted Living" itemValue="sc" />
+                            <f:selectItem itemLabel="Waterfront Property" itemValue="tc" />
+                            <f:selectItem itemLabel="Fireplace" itemValue="tc" />
+                        </p:selectManyCheckbox>
+                        <p:selectManyCheckbox layout="pageDirection" styleClass="Fleft">
+                            <f:selectItem itemLabel="Basement" itemValue="tc" />
+                            <f:selectItem itemLabel="Golf Property" itemValue="tc" />
+                            <f:selectItem itemLabel="Dining Room" itemValue="tc" />
+                            <f:selectItem itemLabel="Central Air" itemValue="tc" />
+                        </p:selectManyCheckbox>
+                        <p:selectManyCheckbox layout="pageDirection" styleClass="Fleft">
+                            <f:selectItem itemLabel="Family Room" itemValue="tc" />
+                            <f:selectItem itemLabel="Swimming Pool" itemValue="tc" />
+                            <f:selectItem itemLabel="Wheelchair Access" itemValue="tc" />
+                            <f:selectItem itemLabel="Garage" itemValue="tc" />
+                        </p:selectManyCheckbox>
+                    </div>
+
+                    <div class="EmptyBox10"></div>
+                    <div class="Container100 TexAlRight">
+                        <p:button value="Send Form" styleClass="TealGreenButton MarRight10" />
+                        <p:button value="Clear All" styleClass="OrangeButton"/>
+                    </div>
+                    <div class="EmptyBox20"></div>
+                </div>
+            </div>
+
+            <div class="Container100">
+                <div class="Card LeadenBorder">
+                    <div class="EmptyBox5"></div>
+                    <div class="FontVoltSemiBold Fs18">Weekly Sales Charts From Portal</div>
+                    <div class="Separator"></div>
+                    <div class="EmptyBox20"></div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card TealGreenBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">18</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /></div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card BlueBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">19</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card RedBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">20</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card LimeBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">21</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card PurpleBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">22</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="Container50 Responsive100 NoIndent">
+                        <div class="Container25 BorderRight NoIndent">
+                            <div class="Container90 NoIndent">
+                                <div class="Card BrownBack TexAlCenter" style="padding:15px 5px;">
+                                    <span class="Fs12 White Opac90">Aug</span><br/><span class="Fs30 Opac50 White">23</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Container70 TexAlCenter NoIndent"><h:graphicImage name="images/chartmini.svg" styleClass="Wid90" library="volt-layout" /> </div>
+                        <div class="EmptyBox30"></div>
+                    </div>
+                    <div class="EmptyBox30"></div>
+                </div>
+            </div>
+            
+            <div class="Container100">
+                <h:form id="form2">
+                    <p:dataList value="#{dataListView.cars3}" var="car" type="unordered" itemType="none" paginator="true" rows="10" styleClass="paginated">
+                        <f:facet name="header">
+                            Sold Company Vehicles Ranking
+                        </f:facet>
+                        <p:commandLink update=":form2:carDetail" oncomplete="PF('carDialog2').show()" title="View Detail" styleClass="" style="margin-right:10px;">
+                            <f:setPropertyActionListener value="#{car}" target="#{dataListView.selectedCar}" />
+                            <i class="fa fa-table gray Fs18" style="margin-top:5px;"></i>
+                        </p:commandLink>
+
+                        <h:outputText value="#{car.brand}, #{car.year}" style="display:inline-block"/>
+                    </p:dataList>
+
+                    <p:dialog header="Car Info" widgetVar="carDialog2" modal="true" showEffect="blind" hideEffect="explode" resizable="false" responsive="true">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <p:panelGrid  columns="2" rendered="#{not empty dataListView.selectedCar}" columnClasses="label,value">
+                                <f:facet name="header">
+                                    <p:graphicImage name="demo/images/car/#{dataListView.selectedCar.brand}-big.gif"/> 
+                                </f:facet>
+
+                                <h:outputText value="Id:" />
+                                <h:outputText value="#{dataListView.selectedCar.id}" />
+
+                                <h:outputText value="Year" />
+                                <h:outputText value="#{dataListView.selectedCar.year}" />
+
+                                <h:outputText value="Color:" />
+                                <h:outputText value="#{dataListView.selectedCar.color}" style="color:#{dataListView.selectedCar.color}"/>
+
+                                <h:outputText value="Price" />
+                                <h:outputText value="\$#{dataListView.selectedCar.price}" />
+                            </p:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </div>
+        </div>  
+
+        <!-- right content -->
+        <div class="Container50 Responsive100 NoIndent">
+            <div class="Container100">
+                <div class="Card LeadenBorder">
+                    <div class="EmptyBox5"></div>
+                    <div class="FontVoltBold Fs20">Latest Favorite Listed Real Estates On Portal</div>
+                    <div class="Separator"></div>
+
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive100" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive100" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive50" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Container33 Responsive100" style="padding:10px 5px;">
+                        <div class="Card" style="padding:10px;">
+                            <h:graphicImage name="demo/images/home.jpg" styleClass="Wid90 MarAuto"/>
+                            <div class="EmptyBox10"></div>
+                            <div class="Card LeadenBack" style="padding:15px;">
+                                <span class="FontVoltBold Fs14 TealGreen">Bungalow Forest Home</span>
+                                <div class="EmptyBox10"></div>
+                                <span class="White FontVoltLight Fs24">247,500 $</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            
+            <div class="Container100">
+                <h:form id="form">
+                    <p:dataTable id="singleDT" var="car" value="#{dtSelectionView.cars7}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}"
+                                 rows="17" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                 rowsPerPageTemplate="5,10,17" emptyMessage="No cars found with given criteria" reflow="true">
+                        <f:facet name="header">
+                            Sold Real Estates States
+                        </f:facet>
+
+                        <p:ajax event="rowSelect" update=":form:carDetail" oncomplete="PF('carDialog').show()" />
+
+                        <p:column headerText="Id" sortBy="#{car.id}" footerText="Id">
+                            <h:outputText value="#{car.id}" />
+                        </p:column>
+                        <p:column headerText="Year" sortBy="#{car.year}" footerText="Year">
+                            <h:outputText value="#{car.year}" />
+                        </p:column>
+                        <p:column headerText="Brand" sortBy="#{car.brand}" footerText="Brand">
+                            <h:outputText value="#{car.brand}" />
+                        </p:column>
+                        <p:column headerText="Color" sortBy="#{car.color}" footerText="Color">
+                            <h:outputText value="#{car.color}" />
+                        </p:column>
+                    </p:dataTable>
+
+                    <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" responsive="true">
+                        <p:outputPanel id="carDetail" style="text-align:center;">
+                            <h:panelGrid  columns="2" rendered="#{not empty dtSelectionView.selectedCar}">
+                                <f:facet name="header">
+                                    <p:graphicImage name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif"/> 
+                                </f:facet>
+
+                                <h:outputText value="Id:" style="font-weight: bold"/>
+                                <h:outputText value="#{dtSelectionView.selectedCar.id}" />
+
+                                <h:outputText value="Year" style="font-weight: bold"/>
+                                <h:outputText value="#{dtSelectionView.selectedCar.year}" />
+
+                                <h:outputText value="Color:" style="font-weight: bold"/>
+                                <h:outputText value="#{dtSelectionView.selectedCar.color}" style="color:#{dtSelectionView.selectedCar.color}"/>
+
+                                <h:outputText value="Price" style="font-weight: bold"/>
+                                <h:outputText value="\$#{dtSelectionView.selectedCar.price}" />
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </p:dialog>
+                </h:form>
+            </div>
+        </div>
+        
+    </ui:define>
+
+</ui:composition>

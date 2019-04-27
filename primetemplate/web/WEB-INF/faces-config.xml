@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+  <component>
+        <component-type>org.primefaces.component.VoltMenu</component-type>
+        <component-class>org.primefaces.volt.component.menu.VoltMenu</component-class>
+    </component>
+    
+    <render-kit>
+        <renderer>
+            <component-family>org.primefaces.component</component-family>
+            <renderer-type>org.primefaces.component.VoltMenuRenderer</renderer-type>
+            <renderer-class>org.primefaces.volt.component.menu.VoltMenuRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+</faces-config>

@@ -1,0 +1,84 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="subheader">
+        DataTable
+    </ui:define>
+    
+    <ui:define name="head">
+        <style type="text/css">
+            .actions .ui-panelgrid .ui-panelgrid-cell {
+                padding: 0px 10px;
+            }
+        </style>
+    </ui:define>
+    
+    <ui:define name="content">
+        
+        <div class="Container100">
+                <div class="Card">
+                    <div class="CardTopic TexAlCenter">DataTable</div>
+                    <div class="SeparatorFull"></div>
+                    <div class="Container100">
+                        <h:form id="form">
+                            <p:dataTable id="singleDT" var="car" value="#{dtSelectionView.cars7}" selectionMode="single" selection="#{dtSelectionView.selectedCar}" rowKey="#{car.id}"
+                                         rows="10" paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                                         rowsPerPageTemplate="5,10,15" emptyMessage="No cars found with given criteria" reflow="true">
+                                <f:facet name="header">
+                                    Car Sales Ranks
+                                </f:facet>
+
+                                <p:ajax event="rowSelect" update=":form:carDetail" oncomplete="PF('carDialog').show()" />
+
+                                <p:column headerText="Id" sortBy="#{car.id}" footerText="Id">
+                                    <h:outputText value="#{car.id}" />
+                                </p:column>
+                                <p:column headerText="Year" sortBy="#{car.year}" footerText="Year">
+                                    <h:outputText value="#{car.year}" />
+                                </p:column>
+                                <p:column headerText="Brand" sortBy="#{car.brand}" footerText="Brand">
+                                    <h:outputText value="#{car.brand}" />
+                                </p:column>
+                                <p:column headerText="Action" footerText="Action" styleClass="ui-fluid actions">
+                                    <div class="Container50 Responsive100">
+                                        <p:commandButton icon="fa fa-print" value="Print" styleClass="RedButton" type="button" style="margin-bottom:2px;"/>
+                                    </div>
+                                    <div class="Container50 Responsive100">
+                                        <p:commandButton icon="fa fa-book" value="Docs" styleClass="OrangeButton" type="button" style="margin-bottom:2px;"/>
+                                    </div>
+                                </p:column>
+                            </p:dataTable>
+
+                            <p:dialog header="Car Info" widgetVar="carDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false" responsive="true">
+                                <p:outputPanel id="carDetail" style="text-align:center;">
+                                    <p:panelGrid  columns="2" rendered="#{not empty dtSelectionView.selectedCar}" layout="grid" styleClass="ui-panelgrid-blank">
+                                        <f:facet name="header">
+                                            <p:graphicImage name="demo/images/car/#{dtSelectionView.selectedCar.brand}-big.gif"/> 
+                                        </f:facet>
+
+                                        <h:outputText value="Id:" style="font-weight: bold"/>
+                                        <h:outputText value="#{dtSelectionView.selectedCar.id}" />
+
+                                        <h:outputText value="Year" style="font-weight: bold"/>
+                                        <h:outputText value="#{dtSelectionView.selectedCar.year}" />
+
+                                        <h:outputText value="Color:" style="font-weight: bold"/>
+                                        <h:outputText value="#{dtSelectionView.selectedCar.color}" style="color:#{dtSelectionView.selectedCar.color}"/>
+
+                                        <h:outputText value="Price" style="font-weight: bold"/>
+                                        <h:outputText value="\$#{dtSelectionView.selectedCar.price}" />
+                                    </p:panelGrid>
+                                </p:outputPanel>
+                            </p:dialog>
+                        </h:form>
+                    </div>
+                </div>
+        </div>
+
+    </ui:define>
+
+</ui:composition>

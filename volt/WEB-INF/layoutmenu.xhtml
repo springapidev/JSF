@@ -1,0 +1,108 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pv="http://primefaces.org/volt">
+
+    <h:form id="menuform">
+        <pv:menu>
+            <p:submenu id="rm_dashboards" label="Dashboards" icon="icon-leaf">
+                <p:menuitem id="rm_db_landing" value="Your Promotion Page" icon="icon-leaf" outcome="/promotion-page"/>
+                <p:menuitem id="rm_db_v1" value="Dashboard V1" icon="icon-leaf" outcome="/dashboard"/>
+                <p:menuitem id="rm_db_v2" value="Dashboard V2" icon="icon-leaf" outcome="/dashboard2"/>
+            </p:submenu>
+            <p:submenu id="rm_menupos" label="Menu Position" icon="icon-select">
+                <p:menuitem id="rm_left" url="#" value="Inline Menu" icon="icon-uniE675" onclick="$('body').removeClass('PopupMenu');return false;"/>
+                <p:menuitem id="rm_popup" url="#" value="Popup Menu" icon="icon-windows" onclick="$('body').addClass('PopupMenu');return false;"/>
+            </p:submenu>
+            <p:submenu id="rm_colors" label="Body Colors" icon="icon-lab">
+                <p:menuitem id="rm_bg_blue" url="#" value="Blue" icon="icon-syringe" onclick="$('body').removeClass().addClass('BlueBody');return false;"/>
+                <p:menuitem id="rm_bg_leaden" url="#" value="Leaden" icon="icon-syringe" onclick="$('body').removeClass().addClass('LeadenBody');return false;"/>
+                <p:menuitem id="rm_bg_red" url="#" value="Red" icon="icon-syringe" onclick="$('body').removeClass().addClass('RedBody');return false;"/>
+                <p:menuitem id="rm_bg_green" url="#" value="Green" icon="icon-syringe" onclick="$('body').removeClass().addClass('GreenBody');return false;"/>
+                <p:menuitem id="rm_bg_cf" url="#" value="CornFlower" icon="icon-syringe" onclick="$('body').removeClass().addClass('CornFlowerBody');return false;"/>
+                <p:menuitem id="rm_bg_gray" url="#" value="Gray" icon="icon-syringe" onclick="$('body').removeClass().addClass('DarkGrayBody');return false;"/>
+            </p:submenu>
+            <p:submenu id="rm_theme" label="Volt Theme" icon="icon-meter">
+                <p:menuitem id="rm_sample" value="Sample Page" icon="fa fa-columns" outcome="/sample" />
+                <p:menuitem id="rm_forms" value="Form Elements" icon="icon-document-text" outcome="/forms" />
+                <p:menuitem id="rm_data" value="Data Components" icon="icon-cube" outcome="/data" />
+                <p:menuitem id="rm_datatable" value="DataTable" icon="icon-news" outcome="/datatable" />
+                <p:menuitem id="rm_panels" value="Panels" icon="icon-window" outcome="/panel" />
+                <p:menuitem id="rm_overlays" value="Overlays" icon="icon-windows" outcome="/overlay" />
+                <p:menuitem id="rm_menus" value="Menus" icon="icon-uniE675" outcome="/menu" />
+                <p:menuitem id="rm_messages" value="Messages" icon="icon-messages" outcome="/messages" />
+                <p:menuitem id="rm_charts" value="Charts" icon="icon-connection-50" outcome="/charts" />
+                <p:menuitem id="rm_fileupload" value="FileUpload" icon="icon-upload" outcome="/file" />
+                <p:menuitem id="rm_misc" value="Misc" icon="icon-pill" outcome="/misc" />
+            </p:submenu>
+            <p:submenu id="rm_default" label="Default Pages" icon="icon-list">
+                <p:menuitem id="rm_empty" value="Empty Page" icon="icon-code-outline" outcome="/empty-page" />
+                <p:menuitem id="rm_login" value="Login Page" icon="icon-key-outline" outcome="/login" />
+                <p:menuitem id="rm_error" value="Error Page" icon="icon-radar-outline" outcome="/error" />
+                <p:menuitem id="rm_404" value="404 Page" icon="icon-search" outcome="/404" />
+                <p:menuitem id="rm_access" value="Access Denied Page" icon="icon-eye-outline" outcome="/access-denied" />
+            </p:submenu>
+            <p:submenu id="rm_hierarchy" label="Menu Hierarchy" icon="icon-flow-switch">
+                <p:submenu id="rm_sm1" label="Submenu 1" icon="icon-folder2">
+                    <p:submenu id="rm_sm11" label="Submenu 1.1" icon="icon-folder2">
+                        <p:submenu id="rm_sm111" label="Submenu 1.1.1" icon="icon-folder2">
+                            <p:menuitem id="rm_lnk1111" value="Link 1" icon="icon-link-outline" url="#" />
+                            <p:menuitem id="rm_lnk1112" value="Link 2" icon="icon-link-outline" url="#" />
+                            <p:menuitem id="rm_lnk1113" value="Link 3" icon="icon-link-outline" url="#" />
+                        </p:submenu>
+                    </p:submenu>
+                </p:submenu>
+                <p:submenu id="rm_sm2" label="Submenu 2" icon="icon-folder2">
+                    <p:submenu id="rm_22" label="Submenu 2.2" icon="icon-folder2">
+                        <p:submenu id="rm_221" label="Submenu 2.2.1" icon="icon-folder2">
+                            <p:menuitem id="rm_lnk2211" value="Link 1" icon="icon-link-outline" url="#" />
+                            <p:menuitem id="rm_lnk2212" value="Link 2" icon="icon-link-outline" url="#" />
+                            <p:menuitem id="rm_lnk2213" value="Link 3" icon="icon-link-outline" url="#" />
+                        </p:submenu>
+                    </p:submenu>
+                </p:submenu>
+            </p:submenu>
+
+            <p:submenu id="rm_links" label="Links" icon="icon-atom">
+                <p:menuitem id="rm_icons" value="Font Icons" icon="icon-lightbulb" outcome="/font-icons" />
+                <p:submenu id="rm_docs" label=" Documentation" icon="icon-clipboard2">
+                    <p:submenu id="rm_docs_core" label=" Core CSS Docs" icon="fa fa-code">
+                        <p:menuitem id="rm_docs_1" value="Installation" icon="icon-menu" outcome="/docs/core/installation" />
+                        <p:menuitem id="rm_docs_2" value="Menus" icon="icon-menu" outcome="/docs/core/menus" />
+                        <p:menuitem id="rm_docs_3" value="Responsive Mode" icon="icon-menu" outcome="/docs/core/responsive-mode" />
+                        <p:menuitem id="rm_docs_4" value="ContainerX" icon="icon-menu" outcome="/docs/core/containerx" />
+                        <p:menuitem id="rm_docs_27" value="Flex Boxes" icon="icon-menu" outcome="/docs/core/flex" />
+                        <p:menuitem id="rm_docs_5" value="WidX" icon="icon-menu" outcome="/docs/core/widx" />
+                        <p:menuitem id="rm_docs_6" value="Selection" icon="icon-menu" outcome="/docs/core/selection" />
+                        <p:menuitem id="rm_docs_7" value="Visibility" icon="icon-menu" outcome="/docs/core/visibilities" />
+                        <p:menuitem id="rm_docs_8" value="Displaying" icon="icon-menu" outcome="/docs/core/displaying" />
+                        <p:menuitem id="rm_docs_9" value="Positioning" icon="icon-menu" outcome="/docs/core/positioning" />
+                        <p:menuitem id="rm_docs_10" value="Underline" icon="icon-menu" outcome="/docs/core/underline" />
+                        <p:menuitem id="rm_docs_11" value="Floating" icon="icon-menu" outcome="/docs/core/floating" />
+                        <p:menuitem id="rm_docs_12" value="Overflows" icon="icon-menu" outcome="/docs/core/overflows" />
+                        <p:menuitem id="rm_docs_13" value="Empty Boxes" icon="icon-menu" outcome="/docs/core/empty-boxes" />
+                        <p:menuitem id="rm_docs_14" value="Opacity" icon="icon-menu" outcome="/docs/core/opacity" />
+                        <p:menuitem id="rm_docs_15" value="Text Aligning" icon="icon-menu" outcome="/docs/core/text-aligning" />
+                        <p:menuitem id="rm_docs_16" value="Box Sizing" icon="icon-menu" outcome="/docs/core/box-sizing" />
+                        <p:menuitem id="rm_docs_17" value="Font Size" icon="icon-menu" outcome="/docs/core/font-size" />
+                        <p:menuitem id="rm_docs_18" value="Font Weights" icon="icon-menu" outcome="/docs/core/font-weights" />
+                        <p:menuitem id="rm_docs_19" value="Transitions" icon="icon-menu" outcome="/docs/core/transitions" />
+                    </p:submenu>
+                    <p:submenu id="rm_docs_layout" label="Layout CSS Docs" icon="fa fa-code">
+                        <p:menuitem id="rm_docs_20" value="LESS" icon="icon-menu" outcome="/docs/layout/less" />
+                        <p:menuitem id="rm_docs_21" value="Cards" icon="icon-menu" outcome="/docs/layout/cards" />
+                        <p:menuitem id="rm_docs_22" value="Text Colors" icon="icon-menu" outcome="/docs/layout/text-colors" />
+                        <p:menuitem id="rm_docs_23" value="Background Colors" icon="icon-menu" outcome="/docs/layout/background-colors" />
+                        <p:menuitem id="rm_docs_24" value="Borders" icon="icon-menu" outcome="/docs/layout/borders" />
+                        <p:menuitem id="rm_docs_25" value="Separators" icon="icon-menu" outcome="/docs/layout/separators" />
+                        <p:menuitem id="rm_docs_26" value="Effects" icon="icon-menu" outcome="/docs/layout/effects" />
+                    </p:submenu>
+                </p:submenu>
+            </p:submenu>
+        </pv:menu>
+    </h:form>
+
+</ui:composition>

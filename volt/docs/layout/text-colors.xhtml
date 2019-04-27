@@ -1,0 +1,74 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    <ui:define name="content">
+        <div class="Container100">
+            
+                <div class="Card">
+                    <div class="Container100">
+                        
+                            <div class="Container100 TexAlCenter"><i class="icon-mountains14 Red Fs130 MarTop20" style="line-height:1 !important;"></i></div>
+                            <h1 class="TexAlCenter Fs40 Red">Volt Documentation</h1>
+                            <div class="EmptyBox40"></div>
+
+                            
+                                <h1 class="TexAlCenter gray Fs30">
+                                    <span class="Red Fs30">Volt Layout<br/></span>
+                                </h1>
+                            
+
+                            <p:panel styleClass="">
+                                <div class="Fs20 TexAlCenter Red">Text Colors</div>
+                                <div class="EmptyBox10"></div>
+                                <p:panelGrid columns="3" styleClass="Wid100">
+                                    <h:outputText value="Class Group" styleClass="Orange Fs20 Wid30"/>
+                                    <h:outputText value="Class Name" styleClass="Orange Fs20 Wid30"/>
+                                    <h:outputText value="Instructions" styleClass="Orange Fs20 Wid40"/>
+
+                                    <h:outputText value="Text Coloring" styleClass="Fs20 Wid30" escape="false"/>
+                                    <h:outputText value=".Orange &lt;br /&gt;
+                                                        .Purple &lt;br /&gt;
+                                                        .Blue &lt;br /&gt;
+                                                        .Red &lt;br /&gt;
+                                                        .Brown &lt;br /&gt;
+                                                        .Lime &lt;br /&gt;
+                                                        .TealGreen &lt;br /&gt;
+                                                        .Green &lt;br /&gt;
+                                                        .DarkGreen &lt;br /&gt;
+                                                        .Leaden &lt;br /&gt;
+                                                        .Pink &lt;br /&gt;
+                                                        .White" styleClass="Blue Wid30" escape="false"/>
+                                    <h:outputText value="Predefined text colors. &lt;br /&gt; &lt;br /&gt;" escape="false"/>
+                                </p:panelGrid>
+                            </p:panel>
+                            <p:panel styleClass="">
+                                <div class="Container">
+                                    <div class="Container20 Responsive "><div class="Orange Fs24">Orange Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Purple Fs24">Purple Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Blue Fs24">Blue Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Red Fs24">Red Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Brown Fs24">Brown Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Lime Fs24">Lime Text</div></div>
+                                    <div class="Container20 Responsive "><div class="TealGreen Fs24">TealGreen Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Green Fs24">Green Text</div></div>
+                                    <div class="Container20 Responsive "><div class="DarkGreen Fs24">DarkGreen Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Leaden Fs24">Leaden Text</div></div>
+                                    <div class="Container20 Responsive "><div class="Pink Fs24">Pink Text</div></div>
+                                    <div class="Container20 Responsive "><div class="White Fs24 LeadenBack">White Text</div></div>                                    
+                                </div>
+                            </p:panel>
+
+
+                            <div class="EmptyBox60"></div>
+                        
+                    </div>
+                </div>
+            
+        </div>
+    </ui:define>
+
+</ui:composition>

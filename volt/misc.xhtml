@@ -1,0 +1,102 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/WEB-INF/template.xhtml">
+
+    
+    <ui:define name="subheader">
+        Misc
+    </ui:define>
+    <ui:define name="content">
+        <script type="text/javascript">
+            function start() {
+                PF('startButton1').disable();
+
+                window['progress'] = setInterval(function() {
+                    var pbClient = PF('pbClient'),
+                            oldValue = pbClient.getValue(),
+                            newValue = oldValue + 10;
+
+                    pbClient.setValue(pbClient.getValue() + 10);
+
+                    if (newValue === 100) {
+                        clearInterval(window['progress']);
+                    }
+
+
+                }, 1000);
+            }
+
+            function cancel() {
+                clearInterval(window['progress']);
+                PF('pbClient').setValue(0);
+                PF('startButton1').enable();
+            }
+
+        </script>
+                
+        <div class="Container100">
+                <div class="Card">
+                    <div class="CardTopic">ProgressBar - Galleria</div>
+                    <div class="SeparatorFull"></div>
+                    <div class="Container30 Responsive100 NoIndent">
+                        <div class="Container100">
+                                <h2 class="BigTopic">ProgressBar - Client</h2>
+                                <p:growl id="progressGrowl" />
+
+                                <h:form> 
+                                    <p:commandButton value="Start" id="start" type="button" onclick="start()" widgetVar="startButton1"/>
+                                    <p:commandButton value="Cancel" id="cancel" type="button" onclick="cancel()" />
+                                    <br /><br />
+                                    <p:progressBar id="progressBarClient" widgetVar="pbClient"/>
+                                </h:form>
+                        </div>
+                        <div class="Container100">
+                                <h2 class="BigTopic">ProgressBar - Ajax</h2>
+                                <h:form>
+                                    <p:commandButton value="Start" type="button" onclick="PF('pbAjax').start();
+                                            PF('startButton2').disable();" widgetVar="startButton2" />
+                                    <p:commandButton value="Cancel" actionListener="#{progressBarView.cancel}" oncomplete="PF('pbAjax').cancel();PF('startButton2').enable();" />
+                                    <br /><br />
+                                    <p:progressBar widgetVar="pbAjax" ajax="true" value="#{progressBarView.progress}" labelTemplate="{value}%" styleClass="animated" global="false">
+                                        <p:ajax event="complete" listener="#{progressBarView.onComplete}" update="progressGrowl" oncomplete="PF('startButton2').enable()"/>
+                                    </p:progressBar>
+                                </h:form>
+                        </div>
+                        <div class="Container100">
+                                <h2 class="BigTopic">ProgressBar - Static Display</h2>
+                                <h:form>
+                                    <p:progressBar value="50" labelTemplate="{value}%" displayOnly="true"/>
+                                </h:form>
+                        </div>
+                    </div>
+                    <div class="Container70 Responsive100">
+                            <h2 class="BigTopic">Galleria</h2>
+                            <p:galleria value="#{imagesView.images}" var="image" panelWidth="500" panelHeight="313" showCaption="true">
+                                <p:graphicImage name="demo/images/nature/#{image}" alt="Image Description for #{image}" title="#{image}"/>
+                            </p:galleria>
+                    </div>
+                </div>
+        </div>
+        
+        <div class="Container100">
+                <div class="Card">
+                    <div class="CardTopic">Clock</div>
+                    <div class="SeparatorFull"></div>
+                    <div class="Container25 Responsive100">
+                        <h2 class="BigTopic">Clock Sample - Client</h2>
+                        <p:clock />
+                    </div>
+                    <div class="Container25 Responsive100">
+                        <h2 class="BigTopic">Clock Sample - Server</h2>
+                        <p:clock pattern="HH:mm:ss dd.MM.yyyy" mode="server" />
+                    </div>
+                </div>
+        </div>
+
+
+    </ui:define>
+
+</ui:composition>

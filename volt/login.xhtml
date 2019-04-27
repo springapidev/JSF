@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Volt</title>
+        <ui:insert name="head" />
+    </h:head>
+
+    <h:body styleClass="BlueBody">
+        
+        <div class="Container100">
+            <div class="Container100">
+                <div class="Wid50 OvHidden DispBlock MarAuto WidAutoOnMobile" style="margin-top:7%;">
+                    <div class="Card ShadowEffect">
+                        <div class="Container100">
+                            <div class="Card OrangeBack White TexAlCenter Fs20 FontVoltBold">Log In | Sign Up Panel</div>
+                        </div>
+                        
+                        <div class="Container20 TexAlCenter Responsive100">
+                            <h:graphicImage name="images/logo.svg" styleClass="Wid80" library="volt-layout" style="max-width:200px;"/>
+                            <div class="EmptyBox10"></div>
+                            <span class="FontVoltSemiBold DispBlock Fs20">Log In / Sign Up Directions</span>
+                            <div class="EmptyBox10"></div>
+                            <span class="FontVoltRegular Fs12">In a parturient parturient consectetur dis dis justo condimentum bibendum tellus sem
+                                scelerisque facilisi convallis a turpis.. <br/>
+                                <p:link value="Get More Info"/>
+                            </span>
+                        </div>
+                        <div class="Container40 Responsive100">
+                            <div class="Card TexAlCenter">
+                                <i class="icon-unlocked2 Fs60 TealGreen"></i>
+                                <div class="EmptyBox10"></div>
+                                <p:inputText styleClass="Wid90" placeholder="E-Mail"/>
+                                <div class="EmptyBox10"></div>
+                                <p:password styleClass="Wid90" placeholder="Password"/>
+                                <div class="Separator"></div>
+                                <p:button value="Log In" icon="fa fa-unlock" styleClass="GreenButton" href="dashboard.xhtml"/>
+                                <div class="SeparatorFull"></div>
+                                <span class="Fs14"> Lost your password ? - <p:link value="Get New !"/></span>
+                            </div>
+                        </div>
+                        <div class="Container40 Responsive100">
+                            <div class="Card TexAlCenter">
+                                <i class="icon-user-add-outline Fs60 Blue"></i>
+                                <div class="EmptyBox10"></div>
+                                <p:inputText styleClass="Wid90" placeholder="E-Mail"/>
+                                <div class="EmptyBox10"></div>
+                                <p:password styleClass="Wid90" placeholder="Password"/>
+                                <div class="EmptyBox10"></div>
+                                <p:password styleClass="Wid90" placeholder="Password Again"/>
+                                <div class="Separator"></div>
+                                <p:button value="Sign Up" icon="fa fa-check-circle-o" styleClass="RedButton" href="dashboard.xhtml"/>
+                                <p:button value="More Info" icon="fa fa-coffee" styleClass="BlueButton" href="dashboard.xhtml"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <h:outputStylesheet name="css/core-layout.css" library="volt-layout" />
+        <h:outputStylesheet name="css/animate.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-font.css" library="volt-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-layout.css" library="volt-layout" />
+    </h:body>
+
+</html>

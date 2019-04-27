@@ -1,0 +1,26 @@
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pv="http://primefaces.org/volt">
+
+    <h:form id="menuform">
+        <pv:menu>
+            <p:submenu id="rm_dashboards" label="Dashboards" icon="icon-leaf">
+                <p:menuitem id="rm_db_landing" value="Your Promotion Page" icon="icon-leaf" outcome="/promotion-page"/>
+                 <p:menuitem id="test" value="Test" icon="icon-leaf" outcome="/test"/>
+                
+                
+            </p:submenu>
+             <p:submenu id="product" label="Product" icon="icon-leaf">
+                <p:menuitem  value="Add Product Category" icon="icon-leaf" outcome="/product-category"/>
+                 <p:menuitem  value="Product Purchase" icon="icon-leaf" outcome="/product-purchase"/>
+                  <p:menuitem  value="Product Sale" icon="icon-leaf" outcome="/product-sales"/> <p:menuitem  value="Product Summary" icon="icon-leaf" outcome="/product-summary"/>
+                
+            </p:submenu>
+        </pv:menu>
+    </h:form>
+
+</ui:composition>

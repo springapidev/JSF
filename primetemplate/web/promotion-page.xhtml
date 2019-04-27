@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <f:facet name="first">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+            <meta name="apple-mobile-web-app-capable" content="yes" />
+        </f:facet>
+        <title>PrimeFaces Volt Promotional Landing Page</title>
+        
+        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+
+        <style>
+            #menubutton{height:auto; width:25px; float:left; display:block; text-align:center; cursor:pointer; margin-left:20px;}
+            #menubutton i{color:#fff; font-size:20px; margin:0px auto 0px auto; vertical-align:middle;}
+            #menubutton:hover i, #menubutton:active i, #menubutton:focus i{color:rgba(255,255,255,0.7);}
+            #menubody{width:270px; height:auto; background-color:#fff; position:absolute; overflow:hidden; border-radius:5px; margin-top:30px; display:none;
+                      box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+                      -webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+                      -moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);}
+            #menubody.active{display:block;}
+            #menubody li{display:block; padding:0px;}
+            #menubody li a{display:block; padding:15px 20px; color:#567a84; font-size:16px;}
+            #menubody li a:hover, #menubody li a:active, #menubody li a:focus{background-color:#f2f2f2;}
+        </style>
+    </h:head>
+
+    <h:body style="margin: 0px; background-color:#fff;" styleClass="BlueBody PopupMenu">
+
+        <div class="Container100 PosFixed" style="background-color:#29506B; z-index:999;">
+            <div class="EmptyBox10"></div>
+            <div class="Wid90 OvHidden MarAuto">
+                <h:graphicImage name="images/logo-white.svg" library="volt-layout" style="height:24px; float:left;"/>
+
+                <a id="menubutton"><i class="fa fa-bars"></i></a>
+                <ul class="" style="padding:0px;" id="menubody">
+                    <li class=""><a href="dashboard.xhtml" class="">Volt Dashboard</a></li>
+                    <li class=""><a href="#volt-highlight" class="">Promotion Page Slogan</a></li>
+                    <li class=""><a href="#volt-cardsArea" class=""> How It Works</a></li>
+                    <li class=""><a href="#volt-infoArea" class=""> Try Now !</a></li>
+                    <li class=""><a href="#volt-pricingtables" class="">Pricing Tables</a></li>
+                    <li class=""><a href="#volt-features" class="">Features</a></li>
+                    <li class=""><a href="#volt-customers" class="">Customers</a></li>
+                    <li class=""><a href="#volt-contact" class="">Contact</a></li>
+                </ul>
+            </div>
+            <div class="EmptyBox10"></div>
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent" id="volt-highlight" style="background-color:#29506B; padding:10rem 0px;">
+
+            <div class="Wid90 OvHidden MarAuto">
+                <div class="Container100">
+                    <div class="EmptyBox90 ShowOnDesktop"></div>
+                    <div class="Wid80 Responsive100 MarAuto Flex FlexWrap ui-fluid">
+                        <div class="Container20 Responsive Flex">
+                            <div class="Card Green TexAlCenter">
+                                <i class="icon-cloud DispBlock Fs50"></i>
+                                <span class="DispBlock FontVoltSemiBold">Cloud Basic</span>
+                                <div class="EmptyBox5"></div>
+                                <p:commandButton value="Go App" styleClass="TealGreenButton"/>
+                            </div>
+                        </div>
+                        <div class="Container20 Responsive Flex">
+                            <div class="Card Red TexAlCenter">
+                                <i class="icon-flag DispBlock Fs50"></i>
+                                <span class="DispBlock FontVoltSemiBold">Cloud Pro</span>
+                                <div class="EmptyBox5"></div>
+                                <p:commandButton value="Go App" styleClass="TealGreenButton"/>
+                            </div>
+                        </div>
+                        <div class="Container20 Responsive Flex">
+                            <div class="Card Orange TexAlCenter">
+                                <i class="icon-feather DispBlock Fs50"></i>
+                                <span class="DispBlock FontVoltSemiBold">Cloud Gold</span>
+                                <div class="EmptyBox5"></div>
+                                <p:commandButton value="Go App" styleClass="TealGreenButton"/>
+                            </div>
+                        </div>
+                        <div class="Container20 Responsive Flex">
+                            <div class="Card Purple TexAlCenter">
+                                <i class="icon-meter DispBlock Fs50"></i>
+                                <span class="DispBlock FontVoltSemiBold">Cloud Expert</span>
+                                <div class="EmptyBox5"></div>
+                                <p:commandButton value="Go App" styleClass="TealGreenButton"/>
+                            </div>
+                        </div>
+                        <div class="Container20 Responsive Flex">
+                            <div class="Card Leaden TexAlCenter">
+                                <i class="icon-atom DispBlock Fs50"></i>
+                                <span class="DispBlock FontVoltSemiBold">Cloud Ultimate</span>
+                                <div class="EmptyBox5"></div>
+                                <p:commandButton value="Go App" styleClass="TealGreenButton"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="EmptyBox50"></div>
+                    <h1 class="FontVoltSemiBold Fs50 TealGreen TexAlCenter">YOUR APPLICATION SLOGAN COMES HERE</h1>
+                    <div class="EmptyBox20"></div>
+                    <span class="DispBlock Fs20 FontVoltRegular White TexAlCenter">“ You can use this page as a promotion page template for your application.<br/>
+                        So your web application and promotion website of application will work in complete harmony. ”</span>
+                    <div class="EmptyBox40"></div>
+                    <div class="Wid50 MarAuto ui-fluid Responsive100">
+                        <div class="Container50 Responsive100"><p:commandButton value="Create Free Account" styleClass="OrangeButton"/></div>
+                        <div class="Container50 Responsive100"><p:commandButton value="Learn More" styleClass="PinkButton"/></div>
+                    </div>
+
+                    <div class="EmptyBox20 ShowOnMobile"></div>
+                    <div class="EmptyBox120 ShowOnDesktop"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent" id="volt-cardsArea" style="background-color:#F0F2F5; padding:0px 3rem;">
+
+            <div class="EmptyBox80"></div>
+
+            <h1 class="FontVoltRegular Fs30 Leaden TexAlCenter">How It Works ?</h1>
+            <div class="EmptyBox30"></div>
+
+            <div class="Wid90 OvHidden MarAuto">
+                <div class="Container100">
+
+                    <div class="Container50 Responsive50">
+                        <i class="icon-calendar TealGreen Fs100 DispBlock Fleft"></i>
+                        <div class="Container10 Responsive50"></div>
+                        <div class="Container70 Responsive50">
+                            <h2 class="Leaden FontVoltSemiBold Fs30">1. Store Stats</h2>
+                            <div class="EmptyBox10"></div>
+                            <h3 class="Leaden FontVoltRegular Fs20">Monitor the app ecosystem and your competitors.</h3>
+                            <div class="EmptyBox20"></div>
+                            <span class="Leaden Fs14 FontVoltLight">Vitae potenti ante praesent a dui eget nibh eu quam accumsan porttitor tincidunt 
+                                ultrices vel auctor aenean placerat viverra ac vel parturient tristique malesuada hac 
+                                conubia sed tincidunt.Quisque a imperdiet suspendisse parturient adipiscing justo sem a 
+                                in eros eros luctus a turpis urna sapien ullamcorper vulputate at mi.Dis vestibulum vel 
+                                lectus sed vestibulum consectetur vivamus a feugiat pharetra fames ullamcorper adipiscing 
+                                condimentum tempor egestas at at lacus.</span>
+                            <div class="EmptyBox30"></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Learn More" styleClass="PinkButton Fleft"/></div></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Try Now" styleClass="TealGreenButton Fleft"/></div></div>
+                        </div>
+                    </div>
+
+                    <div class="Container50 Responsive50">
+                        <i class="icon-uniE66F TealGreen Fs100 DispBlock Fleft"></i>
+                        <div class="Container10 Responsive50"></div>
+                        <div class="Container70 Responsive50">
+                            <h2 class="Leaden FontVoltSemiBold Fs30">2. Server Stats Pro</h2>
+                            <div class="EmptyBox10"></div>
+                            <h3 class="Leaden FontVoltRegular Fs20">Monitor the app ecosystem and your competitors.</h3>
+                            <div class="EmptyBox20"></div>
+                            <span class="Leaden Fs14 FontVoltLight">Vitae potenti ante praesent a dui eget nibh eu quam accumsan porttitor tincidunt 
+                                ultrices vel auctor aenean placerat viverra ac vel parturient tristique malesuada hac 
+                                conubia sed tincidunt.Quisque a imperdiet suspendisse parturient adipiscing justo sem a 
+                                in eros eros luctus a turpis urna sapien ullamcorper vulputate at mi.Dis vestibulum vel 
+                                lectus sed vestibulum consectetur vivamus a feugiat pharetra fames ullamcorper adipiscing 
+                                condimentum tempor egestas at at lacus.</span>
+                            <div class="EmptyBox30"></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Learn More" styleClass="PinkButton Fleft"/></div></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Try Now" styleClass="TealGreenButton Fleft"/></div></div>
+                        </div>
+                    </div>
+
+                    <div class="Container50 Responsive50">
+                        <i class="icon-newspaper TealGreen Fs100 DispBlock Fleft"></i>
+                        <div class="Container10 Responsive50"></div>
+                        <div class="Container70 Responsive50">
+                            <h2 class="Leaden FontVoltSemiBold Fs30">3. Store Statistics</h2>
+                            <div class="EmptyBox10"></div>
+                            <h3 class="Leaden FontVoltRegular Fs20">Monitor the app ecosystem and your competitors.</h3>
+                            <div class="EmptyBox20"></div>
+                            <span class="Leaden Fs14 FontVoltLight">Vitae potenti ante praesent a dui eget nibh eu quam accumsan porttitor tincidunt 
+                                ultrices vel auctor aenean placerat viverra ac vel parturient tristique malesuada hac 
+                                conubia sed tincidunt.Quisque a imperdiet suspendisse parturient adipiscing justo sem a 
+                                in eros eros luctus a turpis urna sapien ullamcorper vulputate at mi.Dis vestibulum vel 
+                                lectus sed vestibulum consectetur vivamus a feugiat pharetra fames ullamcorper adipiscing 
+                                condimentum tempor egestas at at lacus.</span>
+                            <div class="EmptyBox30"></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Learn More" styleClass="PinkButton Fleft"/></div></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Try Now" styleClass="TealGreenButton Fleft"/></div></div>
+                        </div>
+                    </div>
+
+                    <div class="Container50 Responsive50">
+                        <i class="icon-graph TealGreen Fs100 DispBlock Fleft"></i>
+                        <div class="Container10 Responsive50"></div>
+                        <div class="Container70 Responsive50">
+                            <h2 class="Leaden FontVoltSemiBold Fs30">4. Usage Datas</h2>
+                            <div class="EmptyBox10"></div>
+                            <h3 class="Leaden FontVoltRegular Fs20">Monitor the app ecosystem and your competitors.</h3>
+                            <div class="EmptyBox20"></div>
+                            <span class="Leaden Fs14 FontVoltLight">Vitae potenti ante praesent a dui eget nibh eu quam accumsan porttitor tincidunt 
+                                ultrices vel auctor aenean placerat viverra ac vel parturient tristique malesuada hac 
+                                conubia sed tincidunt.Quisque a imperdiet suspendisse parturient adipiscing justo sem a 
+                                in eros eros luctus a turpis urna sapien ullamcorper vulputate at mi.Dis vestibulum vel 
+                                lectus sed vestibulum consectetur vivamus a feugiat pharetra fames ullamcorper adipiscing 
+                                condimentum tempor egestas at at lacus.</span>
+                            <div class="EmptyBox30"></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Learn More" styleClass="PinkButton Fleft"/></div></div>
+                            <div class="Container50 Responsive50 ui-fluid"><div class="ContainerIndent"><p:commandButton value="Try Now" styleClass="TealGreenButton Fleft"/></div></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="EmptyBox50"></div>
+
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent RedBack" id="volt-infoArea" style="padding:0px 3rem;">
+
+            <div class="EmptyBox80"></div>
+
+            <h1 class="FontVoltRegular Fs30 White TexAlCenter">Try Now !</h1>
+            <div class="EmptyBox30"></div>
+
+            <div class="Wid90 OvHidden MarAuto">
+                <div class="Container100">
+
+                    <div class="Wid70 WidAutoOnMobile MarAuto White Fs26 TexAlCenter FontVoltLight">Create your free account to get access to historical ranks and reviews
+                        To check out just top charts and daily ranks, go to Store Stats now !
+                        <div class="EmptyBox20"></div>
+                        <p:commandButton value="Create Free Account Now" styleClass="CyanButton"/>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="EmptyBox50"></div>
+
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent" id="volt-pricingtables" style="background-color:#F0F2F5; padding:0px 3rem;">
+
+            <div class="EmptyBox80"></div>
+
+            <h1 class="FontVoltRegular Fs30 Leaden TexAlCenter">Pricing Tables</h1>
+            <div class="EmptyBox30"></div>
+
+            <div class="Wid90 MarAuto Responsive100 Flex FlexWrap">
+
+                <div class="Container25 TexAlCenter Responsive50 Flex">
+                    <div class="Card Zoom1point05x">
+                        <div class="Container100 FontDosisSemibold BoldLeaden" style="font-size:1.4rem;">Standard</div>
+                        <div class="Separator"></div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Container100 FontVoltRegular BoldLeaden" style="font-size:3rem;">$2<span class="Fs30 Leaden">/mo*</span></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">Basic customer support for<br/> small business</div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Separator"></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">$25 for monthly</div>
+                        <div class="Container100 ui-fluid"> <p:button value="Get Started" styleClass="GreenButton Fleft"/> </div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container25 TexAlCenter Responsive50 Flex">
+                    <div class="Card Zoom1point05x">
+                        <div class="Container100 FontDosisSemibold Red" style="font-size:1.4rem;">Pro</div>
+                        <div class="Separator"></div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Container100 FontVoltRegular BoldLeaden" style="font-size:3rem;">$3<span class="Fs30 Leaden">/mo*</span></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">All-in-one customer support<br/> for small business</div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Separator"></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">$35 for monthly</div>
+                        <div class="Container100 ui-fluid"> <p:button value="Get Started" styleClass="RedButton Fleft"/> </div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container25 TexAlCenter Responsive50 Flex">
+                    <div class="Card Zoom1point05x">
+                        <div class="Container100 FontDosisSemibold BoldLeaden" style="font-size:1.4rem;">Business</div>
+                        <div class="Separator"></div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Container100 FontVoltRegular BoldLeaden" style="font-size:3rem;">$15<span class="Fs30 Leaden">/mo*</span></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">Business class customer <br/>support + One to one help</div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Separator"></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">$155 for monthly</div>
+                        <div class="Container100 ui-fluid"> <p:button value="Get Started" styleClass="GreenButton Fleft"/> </div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container25 TexAlCenter Responsive50 Flex">
+                    <div class="Card Zoom1point05x">
+                        <div class="Container100 FontDosisSemibold BoldLeaden" style="font-size:1.4rem;">Business Plus</div>
+                        <div class="Separator"></div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Container100 FontVoltRegular BoldLeaden" style="font-size:3rem;">$50<span class="Fs30 Leaden">/mo*</span></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">Business class customer <br/>support + One to one help</div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="Separator"></div>
+                        <div class="Container100 FontVoltRegular Leaden Fs16">$555 for monthly</div>
+                        <div class="Container100 ui-fluid"> <p:button value="Get Started" styleClass="GreenButton Fleft"/> </div>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="EmptyBox50"></div>
+
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent" id="volt-features" style="padding:0px 3rem;">
+
+            <div class="EmptyBox80"></div>
+
+            <h1 class="FontVoltRegular Fs30 Leaden TexAlCenter">Features</h1>
+            <div class="EmptyBox30"></div>
+
+            <div class="Wid90 MarAuto">
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-settings Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">HTML5 &amp; CSS3</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-world Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Cross-Browser</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-phone-landscape Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Responsive</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-heart Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Handcrafted</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-atom Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Rock-Solid</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-settings Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">HTML5 &amp; CSS3</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-world Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Cross-Browser</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-phone-landscape Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Responsive</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-heart Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Handcrafted</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+                <div class="Container20 Responsive TexAlCenter">
+                    <div class="Container100">
+                        <i class="icon-atom Green Wid100" style="font-size:5rem;"></i>
+                        <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                        <div class="FontVoltSemiBold Red" style="font-size:1.6rem;">Rock-Solid</div>
+                        <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                        <div class="FontVoltRegular Leaden Fs14">Lorem ipsum dolor sit ametconsetetur sadipscing elitr, sed diam nonumy eirmod tempor 
+                            invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</div>
+                        <div class="Wid100 OvHidden" style="height:3rem;"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="EmptyBox50"></div>
+
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent" id="volt-customers" style="background-color:#F0F2F5; padding:0px 3rem;">
+
+            <div class="EmptyBox80"></div>
+
+            <h1 class="FontVoltRegular Fs30 Leaden TexAlCenter">Hundreds Of Thousands Of Customers Trust Us !</h1>
+            <div class="EmptyBox30"></div>
+            <div class="Wid80 MarAuto">
+
+                <div class="Container33 Responsive50">
+                    <div class="Container100 TexAlCenter">
+                        <div class="EmptyBox20"></div>
+                        <h:graphicImage name="images/avatar1.svg" library="volt-layout" style="width:150px; height:150px;"/>
+                        <div class="EmptyBox20"></div>
+                        <span class="DispBlock Leaden FontVoltRegular">"We realized Volt was a great tool that would give us more insights
+                            on both a strategic and technical level, so we could make more intelligent business decisions."</span>
+                        <div class="EmptyBox20"></div>
+                        <span class="FontVoltSemiBold DispBlock">—Luke Skywalker, Vice President of Operations</span>
+                    </div>
+                </div>
+                <div class="Container33 Responsive50">
+                    <div class="Container100 TexAlCenter">
+                        <div class="EmptyBox20"></div>
+                        <h:graphicImage name="images/avatar2.svg" library="volt-layout" style="width:150px; height:150px;"/>
+                        <div class="EmptyBox20"></div>
+                        <span class="DispBlock Leaden FontVoltRegular">"We realized Volt was a great tool that would give us more insights
+                            on both a strategic and technical level, so we could make more intelligent business decisions."</span>
+                        <div class="EmptyBox20"></div>
+                        <span class="FontVoltSemiBold DispBlock">—Luke Skywalker, Vice President of Operations</span>
+                    </div>
+                </div>
+                <div class="Container33 Responsive50">
+                    <div class="Container100 TexAlCenter">
+                        <div class="EmptyBox20"></div>
+                        <h:graphicImage name="images/avatar1.svg" library="volt-layout" style="width:150px; height:150px;"/>
+                        <div class="EmptyBox20"></div>
+                        <span class="DispBlock Leaden FontVoltRegular">"We realized Volt was a great tool that would give us more insights
+                            on both a strategic and technical level, so we could make more intelligent business decisions."</span>
+                        <div class="EmptyBox20"></div>
+                        <span class="FontVoltSemiBold DispBlock">—Luke Skywalker, Vice President of Operations</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="EmptyBox50"></div>
+
+        </div>
+
+        <!-- -->
+
+        <div class="Container100 NoIndent TealBack" id="volt-contact">
+
+            <p:gmap center="40.701176, -74.006322" zoom="14" type="ROADMAP" style="width:100%;height:600px;"/>
+
+            <div class="Wid100 PosRelative MarAuto OvHidden" style="background-color:rgba(255,255,255,0.7); margin-top:-245px;">
+                <div class="Container100 TexAlCenter">
+                    <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                    <div class="Wid100 MarAuto DispBlock OvHidden FontVoltSemiBold Blue" style="font-size:2.0rem;">We Are Here !</div>
+                    <div class="Wid100 OvHidden" style="height:0.5rem;"></div>
+                    <div class="Wid100 MarAuto DispBlock OvHidden FontVoltRegular Fs20 Leaden">PO Box 16122, Collins Street West, New York 8007, USA</div>
+                    <div class="Wid100 OvHidden" style="height:1rem;"></div>
+                    <div class="Container100 ui-fluid"> <p:button value="Contact Us" styleClass="BlueButton MarAuto" style="max-width:250px;"/> </div>
+                    <div class="Wid100 OvHidden" style="height:2rem;"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="Container100 NoIndent LeadenBack">
+            <div class="Container100" style="border-bottom:solid 1px #5B616B;" id="footerlinks">
+                <a href="#" class="DispInlBlock FontVoltLight White Fs12 Fleft HoverEffect">TERMS OF CONDITIONS</a>
+                <span class="DispInlBlock Fleft Fs11 White" style="padding:0px 5px;">|</span>
+                <a href="#" class="DispInlBlock FontVoltLight White Fs12 Fleft HoverEffect">SITEMAP</a>
+                <span class="DispInlBlock Fleft Fs11 White" style="padding:0px 5px;">|</span>
+                <a href="#" class="DispInlBlock FontVoltLight White Fs12 Fleft HoverEffect">PRIVACY</a>
+                <span class="DispInlBlock Fleft Fs11 White" style="padding:0px 5px;">|</span>
+                <a href="#" class="DispInlBlock FontVoltLight White Fs12 Fleft HoverEffect">LINKING POLICY</a>
+
+                <div class="EmptyBox10 ShowOnMobile"></div>
+                <span class="DispInlBlock FontVoltLight White Fs12 Fright HoverEffect TexAlRight FloatNoneOnMobile"> PrimeFaces Volt Theme And Layout</span>
+            </div>
+
+            <div class="Container100">
+                <h:graphicImage name="images/logo-white.svg" styleClass="Fleft" library="volt-layout" style="height:20px;"/>
+                <span class="DispInlBlock FontVoltLight White Fs12 Fright HoverEffect TexAlRight">+1 888 123 4567 <br/> info@voltvolt.com
+                    <br/><br/> Copyright © 2015 <i class="icon-primitive-dot Fs10 White"></i> All rights reserved.</span>
+            </div>
+
+            <div class="EmptyBox30"></div>
+        </div>
+
+        <h:outputStylesheet name="css/core-layout.css" library="volt-layout" />
+        <h:outputStylesheet name="css/font-awesome.css" library="volt-layout" />
+        <h:outputStylesheet name="css/animate.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-layout.css" library="volt-layout" />
+        <h:outputStylesheet name="css/volt-font.css" library="volt-layout" />
+        
+        <script>
+            // FNC for detecting for click outside of any elements ============== 
+            $.fn.clickOff = function (callback, selfDestroy) {
+                var clicked = false;
+                var parent = this;
+                var destroy = selfDestroy || true;
+
+                parent.click(function () {
+                    clicked = true;
+                });
+
+                $(document).click(function (event) {
+                    if (!clicked) {
+                        callback(parent, event);
+                    }
+                    if (destroy) {
+                    }
+                    ;
+                    clicked = false;
+                });
+            };
+
+            var menubtn = $(document.getElementById("menubutton")),
+                menubody = $(document.getElementById("menubody")),
+                menustatus = true,
+                menuButtonClick = false;
+
+            menubtn.on("click", function () {
+                menuButtonClick = true;
+
+                if (menustatus) {
+                    menubody.addClass('active');
+                    menustatus = false;
+                } else {
+                    menubody.removeClass('active');
+                    menustatus = true;
+                }
+            });
+
+            menubody.clickOff(function (e) {
+                if (menuButtonClick) {
+                    menuButtonClick = false;
+                }
+                else {
+                    menubody.removeClass('active');
+                    menustatus = true;
+                }
+            });
+        </script>
+    </h:body>
+
+</html>
