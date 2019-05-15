@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+
+        <h3 style="margin-top:0">Horizontal MegaMenu</h3>
+        
+        <ui:include src="/views/chapter6/megaMenuStructure.xhtml">
+            <ui:param name="orientation" value="horizontal"/>
+        </ui:include>
+        
+        <h3 style="margin-top: 20px;">Vertical MegaMenu</h3>
+        
+        <ui:include src="/views/chapter6/tieredMenuStructure.xhtml"/>
+        
+        <ui:include src="/views/chapter6/megaMenuStructure.xhtml">
+            <ui:param name="orientation" value="vertical"/>
+        </ui:include>
+        
+        <p:dialog id="shoppingCart" header="Shopping Cart"
+                  widgetVar="wdgtShoppingCart">
+            <h:panelGroup id="shoppingCartGrp" layout="block"
+                          style="padding:20px;">
+                <h:outputText value="#{megaMenuBean.items}"/>
+            </h:panelGroup>
+            <p:commandButton value="Close" type="button"
+                             onclick="PF('wdgtShoppingCart').hide();"/>
+        </p:dialog>
+
+    </ui:define>
+</ui:composition>

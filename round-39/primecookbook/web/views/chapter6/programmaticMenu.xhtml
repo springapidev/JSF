@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+
+        <h3 style="margin-top:0">Programmatic menu</h3>
+
+        <p:growl id="growl"/>
+
+        <p:menu model="#{programmaticMenuBean.model}"/>
+        
+        <p:menu model="#{parametrizedCommandBean.model}"
+                style="width: 200px; margin-top: 20px;"/>
+
+    </ui:define>
+</ui:composition>

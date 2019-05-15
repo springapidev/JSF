@@ -1,0 +1,120 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">In-cell editing with DataTable</h3>
+        <p:growl id="growl" showDetail="true"/>
+
+        <h:panelGrid columns="2" cellpadding="5">
+
+            <h:outputText value="In cell editing (row mode)" />
+            <p:dataTable id="inCellEditing" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}"
+                         editable="true" style="width: 300px;">
+
+                <p:ajax event="rowEdit" listener="#{dataTableBean.onEdit}" update=":mainForm:growl" />
+                <p:ajax event="rowEditCancel" listener="#{dataTableBean.onCancel}" update=":mainForm:growl" />
+
+                <p:column headerText="Year">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.year}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{car.year}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Name">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.name}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="#{car.name}" >
+                                <f:selectItems value="#{dataTableBean.carNames}"
+                                               var="name"
+                                               itemLabel="#{name}"
+                                               itemValue="#{name}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Actions">
+                    <p:rowEditor />
+                </p:column>
+            </p:dataTable>
+
+            <h:outputText value="In cell editing (cell mode)" />
+            <p:dataTable id="inCellEditingCellMode" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}"
+                         editable="true" editMode="cell" style="width: 300px;">
+
+                <p:ajax event="rowEdit" listener="#{dataTableBean.onEdit}" update=":mainForm:growl" />
+                <p:ajax event="rowEditCancel" listener="#{dataTableBean.onCancel}" update=":mainForm:growl" />
+
+                <p:column headerText="Year">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.year}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{car.year}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Name">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.name}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="#{car.name}" >
+                                <f:selectItems value="#{dataTableBean.carNames}"
+                                               var="name"
+                                               itemLabel="#{name}"
+                                               itemValue="#{name}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+            </p:dataTable>
+
+            <h:outputText value="With Editing Row mode" />
+            <p:dataTable id="editingRowMode" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}"
+                         editable="true" style="width: 300px;" editingRow="#{car.year > 2000}">
+
+                <p:column headerText="Year">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.year}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:inputText value="#{car.year}" />
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Name">
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{car.name}" />
+                        </f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="#{car.name}" >
+                                <f:selectItems value="#{dataTableBean.carNames}"
+                                               var="name"
+                                               itemLabel="#{name}"
+                                               itemValue="#{name}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Actions">
+                    <p:rowEditor />
+                </p:column>
+            </p:dataTable>
+
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

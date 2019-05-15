@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+            <style type="text/css">
+                .ui-panel, div.ui-state-hover {
+                    margin: 10px;
+                    width:200px;
+                }
+
+                .ui-dashboard-column {
+                    width:220px;
+                }
+            </style>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">  
+                    <div style="height:500px">
+                        <h:form>
+                            <p:growl id="msgs" showDetail="true" />
+
+                            <p:dashboard id="board" model="#{dashboardView.model}">
+                                <p:ajax event="reorder" listener="#{dashboardView.handleReorder}" 
+                                        update="msgs" />
+
+                                <p:panel id="sports" header="Sports">
+                                    <h:outputText value="Sports Content" />
+                                </p:panel>
+
+                                <p:panel id="finance" header="Finance">
+                                    <h:outputText value="Finance Content" />
+                                </p:panel>
+
+                                <p:panel id="lifestyle" header="Lifestyle">
+                                    <h:outputText value="Lifestyle Content"  />
+                                </p:panel>
+
+                                <p:panel id="weather" header="Weather">
+                                    <h:outputText value="Weather Content" />
+                                </p:panel>
+
+                                <p:panel id="politics" header="Politics">
+                                    <h:outputText value="Politics Content" />
+                                </p:panel>
+                                  <p:panel id="bdnews" header="News">
+                                    <h:outputText value="BD News" />
+                                </p:panel>
+                                 <p:panel id="dhakanews" header="Dhakai News">
+                                    <h:outputText value="Dhakai News" />
+                                </p:panel>
+                                 <p:panel id="RTNEWS" header="RT News">
+                                    <h:outputText value="RT News" />
+                                </p:panel>
+                            </p:dashboard>
+
+                            <div style="clear:both" />
+                        </h:form>
+                    </div>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

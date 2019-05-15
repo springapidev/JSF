@@ -1,0 +1,32 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+
+        <p:growl id="growl" showDetail="true"/>
+
+        <p:contextMenu for="fileSystem">
+            <p:menuitem value="View" update="growl"
+                        actionListener="#{contextMenuBean.viewNode}"
+                        icon="ui-icon-search"/>
+            <p:menuitem value="Delete" update="fileSystem"
+                        actionListener="#{contextMenuBean.deleteNode}"
+                        icon="ui-icon-close"/>
+        </p:contextMenu>
+
+        <p:tree id="fileSystem" value="#{contextMenuBean.root}"
+                var="node" dynamic="true"
+                cache="false" selectionMode="single"
+                selection="#{contextMenuBean.selectedNode}">
+            <p:ajax event="select" listener="#{contextMenuBean.onNodeSelect}"/>
+            <p:ajax event="unselect" listener="#{contextMenuBean.onNodeUnselect}"/>
+            <p:treeNode>
+                <h:outputText value="#{node}"/>
+            </p:treeNode>
+        </p:tree>
+
+    </ui:define>
+</ui:composition>

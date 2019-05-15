@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayoutMultipart.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">Client Side Callback for File Upload</h3>
+        <p:growl id="growl" showDetail="true"/>
+
+        <script type="text/javascript">
+            function showStatus() {
+                PF('statusDialog').show();
+            }
+            function hideStatus() {
+                PF('statusDialog').hide();
+            }
+        </script>
+
+        <p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false">
+            <p:graphicImage value="/resources/images/ajax-loader.gif" />
+        </p:dialog>
+
+        <h:panelGrid columns="2" cellpadding="5">
+            <h:outputText value="With Callback" />
+            <p:fileUpload fileUploadListener="#{fileBean.handleFileUpload}" onstart="showStatus()" oncomplete="hideStatus()" />
+        </h:panelGrid>
+    </ui:define>
+</ui:composition>

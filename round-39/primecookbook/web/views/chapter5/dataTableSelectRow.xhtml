@@ -1,0 +1,140 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">Selecting rows in DataTable</h3>
+        <p:growl id="growl" showDetail="true"/>
+
+        <h:panelGrid columns="2" cellpadding="5">
+
+            <h:outputText value="Single Selection with a Command Component" />
+            <p:dataTable id="withCommand" var="car" value="#{dataTableBean.cars}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <p:column>
+                    <p:commandButton value="Select" update=":mainForm:display" oncomplete="PF('carDialog').show()">
+                        <f:setPropertyActionListener value="#{car}"
+                                                     target="#{dataTableBean.selectedCar}" />
+                    </p:commandButton>
+                </p:column>
+            </p:dataTable>
+
+            <h:outputText value="Single Selection with an EL Parameter" />
+            <p:dataTable id="withELParam" var="car" value="#{dataTableBean.cars}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <p:column>
+                    <p:commandButton value="Select" update=":mainForm:display" oncomplete="PF('carDialog').show()"
+                                     action="#{dataTableBean.selectCar(car)}" />
+                </p:column>
+            </p:dataTable>
+
+            <h:outputText value="Single Selection with Row Click" />
+            <p:dataTable id="singleSelection" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}" selectionMode="single">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <f:facet name="footer">
+                    <p:commandButton id="viewButton1" value="View" icon="ui-icon-search" process="singleSelection"
+                                     update=":mainForm:display" oncomplete="PF('carDialog').show()"/>
+                </f:facet>
+            </p:dataTable>
+
+            <h:outputText value="Single Selection with AJAX Events" />
+            <p:dataTable id="ajaxBehaviour" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}" selectionMode="single">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <p:ajax event="rowSelect" listener="#{dataTableBean.onRowSelect}" update=":mainForm:growl"/>
+                <p:ajax event="rowUnselect" listener="#{dataTableBean.onRowUnselect}" update=":mainForm:growl"/>
+            </p:dataTable>
+
+            <h:outputText value="Single Selection with Selectable Data Model" />
+            <p:dataTable id="selectableDataModel" var="car" value="#{dataTableBean.carDataModel}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}" selectionMode="single" rowKey="#{car.name}"   >
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <p:ajax event="rowSelect" listener="#{dataTableBean.onRowSelect}" update=":mainForm:growl"/>
+                <p:ajax event="rowUnselect" listener="#{dataTableBean.onRowUnselect}" update=":mainForm:growl"/>
+            </p:dataTable>
+
+            <h:outputText value="Single Selection with Radio Button" />
+            <p:dataTable id="withRadioButton" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCar}">
+                <p:column selectionMode="single"/>
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <f:facet name="footer">
+                    <p:commandButton id="viewButton2" value="View" icon="ui-icon-search"
+                                     update=":mainForm:display" oncomplete="PF('carDialog').show()"/>
+                </f:facet>
+            </p:dataTable>
+
+            <h:outputText value="Multiple Selection with Row Click" />
+            <p:dataTable id="multipleSelection" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCars}" selectionMode="multiple">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <f:facet name="footer">
+                    <p:commandButton id="viewButtonMultiple" value="View" icon="ui-icon-search" process="multipleSelection"
+                                     update=":mainForm:displayMultiple" oncomplete="PF('carDialogMultiple').show()"/>
+                </f:facet>
+            </p:dataTable>
+
+            <h:outputText value="Multiple Selection with Row Click With Add Edit Mode" />
+            <p:dataTable id="multipleSelectionEditMode" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCars}" selectionMode="multiple" rowSelectMode="add">
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <f:facet name="footer">
+                    <p:commandButton id="viewButtonMultipleEditMode" value="View" icon="ui-icon-search" process="multipleSelectionEditMode"
+                                     update=":mainForm:displayMultiple" oncomplete="PF('carDialogMultiple').show()"/>
+                </f:facet>
+            </p:dataTable>
+
+            <h:outputText value="Multiple Selection with Checkbox" />
+            <p:dataTable id="multipleSelectionCheckbox" var="car" value="#{dataTableBean.cars}" rowKey="#{car.name}" style="width: 300px;"
+                         selection="#{dataTableBean.selectedCars}">
+                <p:column selectionMode="multiple" />
+                <p:column headerText="Year">#{car.year}</p:column>
+                <p:column headerText="Name">#{car.name}</p:column>
+                <f:facet name="footer">
+                    <p:commandButton id="viewButtonCheckBox" value="View" icon="ui-icon-search" process="multipleSelectionCheckbox"
+                                     update=":mainForm:displayMultiple" oncomplete="PF('carDialogMultiple').show()"/>
+                </f:facet>
+            </p:dataTable>
+
+        </h:panelGrid>
+
+        <p:dialog id="dialog" header="Car Detail" widgetVar="carDialog" resizable="false"
+                  width="200" showEffect="clip" hideEffect="fold">
+            <h:panelGrid id="display" columns="2" cellpadding="4">
+                <f:facet name="header">
+                    <p:graphicImage value="/resources/images/autocomplete/#{dataTableBean.selectedCar.name}.png" width="60" height="40" />
+                </f:facet>
+
+                <h:outputText value="Name:" />
+                <h:outputText value="#{dataTableBean.selectedCar.name}" />
+
+                <h:outputText value="Year:" />
+                <h:outputText value="#{dataTableBean.selectedCar.year}" />
+            </h:panelGrid>
+        </p:dialog>
+
+        <p:dialog id="dialogMultiple" header="Car Detail" widgetVar="carDialogMultiple" showEffect="clip" hideEffect="fold">
+            <p:dataList id="displayMultiple"
+                        value="#{dataTableBean.selectedCars}"
+                        var="selectedCar" type="definition">
+                <p:graphicImage value="/resources/images/autocomplete/#{selectedCar.name}.png" width="60" height="40" />
+                <br/>
+                Name: #{selectedCar.name}, Year: #{selectedCar.year}
+            </p:dataList>
+        </p:dialog>
+
+    </ui:define>
+</ui:composition>

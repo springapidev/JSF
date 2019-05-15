@@ -1,0 +1,28 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                template="/templates/masterLayout.xhtml">
+    <ui:define name="chapterItem">
+        <h3 style="margin-top:0">Conditional Coloring in DataTable</h3>
+
+        <p:dataTable value="#{dataTableColoringBean.countryGdpList}"
+                     var="countryGdp"
+                     rowStyleClass="#{countryGdp.gdp le 3500000 ? 'colored' : ''}">
+            <p:column headerText="Name" sortBy="#{countryGdp.name}">
+                #{countryGdp.name}
+            </p:column>
+            <p:column headerText="GDP (Millions of US $)">
+                #{countryGdp.gdp}
+            </p:column>
+        </p:dataTable>
+
+        <style type="text/css">
+            .colored {
+                background-color: #FF0000;
+                color: #FFFFFF;
+            }
+        </style>
+    </ui:define>
+</ui:composition>

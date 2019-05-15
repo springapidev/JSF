@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<facelet-taglib version="2.2"
+                xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
+
+    <namespace>http://primefaces.org/ui/cookbook</namespace>
+
+    <tag>
+        <tag-name>validateUnicode</tag-name>
+        <validator>
+            <validator-id>
+                org.primefaces.cookbook.UnicodeValidator
+            </validator-id>
+        </validator>
+        <attribute>
+            <name>msgparam</name>
+            <required>true</required>
+            <type>java.lang.String</type>
+        </attribute>
+    </tag>
+
+</facelet-taglib>
