@@ -2,7 +2,11 @@ package com.coderbd;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.SelectEvent;
+import org.primefaces.event.UnselectEvent;
 
 @ManagedBean
 public class BusController {
@@ -37,13 +41,13 @@ public class BusController {
     }
 
    
-// public void onRowSelect(SelectEvent event) {
-//        FacesMessage msg = new FacesMessage("Bus Selected", ((Bus) event.getObject()).getId());
-//        FacesContext.getCurrentInstance().addMessage(null, msg);
-//    }
-// 
-//    public void onRowUnselect(UnselectEvent event) {
-//        FacesMessage msg = new FacesMessage("Bus Unselected", ((Bus) event.getObject()).getId());
-//        FacesContext.getCurrentInstance().addMessage(null, msg);
-//    }
+ public void onRowSelect(SelectEvent event) {
+        FacesMessage msg = new FacesMessage("Bus Selected", ((Bus) event.getObject()).getId());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+ 
+    public void onRowUnselect(UnselectEvent event) {
+        FacesMessage msg = new FacesMessage("Bus Unselected", ((Bus) event.getObject()).getId());
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 }

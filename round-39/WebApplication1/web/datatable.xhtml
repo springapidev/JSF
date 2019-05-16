@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>PrimeFaces</title>
+            </f:facet>
+
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Demo" url="http://www.primefaces.org/showcase-labs/ui/home.jsf" />
+                            <p:menuitem value="Documentation" url="http://www.primefaces.org/documentation.html" />
+                            <p:menuitem value="Forum" url="http://forum.primefaces.org/" />
+                            <p:menuitem value="Themes" url="http://www.primefaces.org/themes.html" />
+
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">  
+                    <h:form id="form">
+                        <p:dataTable var="bus" value="#{busController.busList}">
+                            <p:column headerText="Id">
+                                <h:outputText value="#{bus.id}" />
+                            </p:column>
+
+                            <p:column headerText="Year">
+                                <h:outputText value="#{bus.year}" />
+                            </p:column>
+
+                            <p:column headerText="Brand">
+                                <h:outputText value="#{bus.brand}" />
+                            </p:column>
+
+                            <p:column headerText="Color">
+                                <h:outputText value="#{bus.color}" />
+                            </p:column>
+
+                            <p:column style="width:32px;text-align: center">
+                                <p:commandButton update=":form:busDetail" oncomplete="PF('busDialog').show()" icon="pi pi-search" title="View">
+                                    <f:setPropertyActionListener value="#{bus}" target="#{busController.selectedBus}" />
+                                </p:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+                        <p:dialog header="Bus Info" widgetVar="busDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
+                            <p:outputPanel id="busDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty busController.busList}" columnClasses="label,value">                          
+
+                                    <h:outputText value="Id:" />
+                                    <h:outputText value="#{busController.selectedBus.id}" />
+
+                                    <h:outputText value="Year" />
+                                    <h:outputText value="#{busController.selectedBus.year}" />
+
+                                    <h:outputText value="Brand" />
+                                    <h:outputText value="#{busController.selectedBus.brand}" />
+
+                                    <h:outputText value="Color" />
+                                    <h:outputText value="$#{busController.selectedBus.color}" />
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+
+
+                        <hr/>
+                        <p:dataTable id="radioDT" var="bus" value="#{busController.busList}" selection="#{busController.selectedBus}" rowKey="#{bus.id}">
+                            <f:facet name="header">
+                                RadioButton
+                            </f:facet>
+                            <p:column selectionMode="single" style="width:16px;text-align:center"/>
+                            <p:column headerText="Id">
+                                <h:outputText value="#{bus.id}" />
+                            </p:column>
+                            <p:column headerText="Year">
+                                <h:outputText value="#{bus.year}" />
+                            </p:column>
+                            <p:column headerText="Brand">
+                                <h:outputText value="#{bus.brand}" />
+                            </p:column>
+                            <p:column headerText="Color">
+                                <h:outputText value="#{bus.color}" />
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton process="radioDT" update=":form:busDetail" icon="pi pi-search" value="View" oncomplete="PF('busDialog').show()" />
+                            </f:facet>
+                        </p:dataTable>
+
+                    </h:form>
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

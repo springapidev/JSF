@@ -11,7 +11,14 @@
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
                 <title>PrimeFaces</title>
             </f:facet>
-
+            <style type="text/css">
+                .ui-datatable input {
+                    box-sizing: border-box;
+                    width: 100%;
+                    -webkit-box-shadow: none;
+                    box-shadow: none !important;
+                }
+            </style>
         </h:head>
 
         <h:body>
@@ -42,47 +49,22 @@
                 <p:layoutUnit position="center">  
                     <h:form id="form">
                         <p:dataTable var="bus" value="#{busController.busList}">
-                            <p:column headerText="Id">
+                            <f:facet name="header">
+                                Single Column Sort
+                            </f:facet>
+                            <p:column headerText="Id" sortBy="#{bus.id}">
                                 <h:outputText value="#{bus.id}" />
                             </p:column>
-
-                            <p:column headerText="Year">
+                            <p:column headerText="Year" sortBy="#{bus.year}">
                                 <h:outputText value="#{bus.year}" />
                             </p:column>
-
-                            <p:column headerText="Brand">
+                            <p:column headerText="Brand" sortBy="#{bus.brand}">
                                 <h:outputText value="#{bus.brand}" />
                             </p:column>
-
-                            <p:column headerText="Color">
+                            <p:column headerText="Color" sortBy="#{bus.color}">
                                 <h:outputText value="#{bus.color}" />
-                            </p:column>
-
-                            <p:column style="width:32px;text-align: center">
-                                <p:commandButton update=":form:busDetail" oncomplete="PF('busDialog').show()" icon="pi pi-search" title="View">
-                                    <f:setPropertyActionListener value="#{bus}" target="#{busController.selectedBus}" />
-                                </p:commandButton>
-                            </p:column>
-
-                        </p:dataTable>
-                        <p:dialog header="Bus Info" widgetVar="busDialog" modal="true" showEffect="fade" hideEffect="fade" resizable="false">
-                            <p:outputPanel id="busDetail" style="text-align:center;">
-                                <p:panelGrid  columns="2" rendered="#{not empty busController.busList}" columnClasses="label,value">                          
-
-                                    <h:outputText value="Id:" />
-                                    <h:outputText value="#{busController.selectedBus.id}" />
-
-                                    <h:outputText value="Year" />
-                                    <h:outputText value="#{busController.selectedBus.year}" />
-
-                                    <h:outputText value="Brand" />
-                                    <h:outputText value="#{busController.selectedBus.brand}" />
-
-                                    <h:outputText value="Color" />
-                                    <h:outputText value="$#{busController.selectedBus.color}" />
-                                </p:panelGrid>
-                            </p:outputPanel>
-                        </p:dialog>
+                            </p:column>                         
+                        </p:dataTable>                       
                     </h:form>
                 </p:layoutUnit>
 
